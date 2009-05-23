@@ -1,0 +1,5 @@
+*.tmproj
+*.xcodeproj/*.pbxuser
+*.xcodeproj/*.mode*
+.DS_Store
+build
