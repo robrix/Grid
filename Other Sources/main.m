@@ -1,14 +1,7 @@
-//
-//  main.m
-//  Grid
-//
-//  Created by Rob Rix on 23/05/09.
-//  Copyright Monochrome Industries 2009. All rights reserved.
-//
+// main.m
+// Created by Rob Rix on 2009-05-23
+// Copyright 2009 Monochrome Industries
 
-#import <Cocoa/Cocoa.h>
-
-int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc,  (const char **) argv);
+int main(int argc, char *argv[]) {
+	return NSApplicationMain(argc, (const char **)argv);
 }
