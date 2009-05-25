@@ -11,6 +11,10 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		D48BF30B0FCB331500D8ED65 /* GRAreaSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF30A0FCB331500D8ED65 /* GRAreaSelectionView.m */; };
+		D48BF31C0FCB347800D8ED65 /* GRController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF31A0FCB347800D8ED65 /* GRController.m */; };
+		D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF3370FCB389B00D8ED65 /* GRWindowController.m */; };
+		D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,13 @@
 		32CA4F630368D1EE00C91783 /* Grid_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Grid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D48BF3090FCB331500D8ED65 /* GRAreaSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAreaSelectionView.h; sourceTree = "<group>"; };
+		D48BF30A0FCB331500D8ED65 /* GRAreaSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAreaSelectionView.m; sourceTree = "<group>"; };
+		D48BF3190FCB347800D8ED65 /* GRController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRController.h; sourceTree = "<group>"; };
+		D48BF31A0FCB347800D8ED65 /* GRController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRController.m; sourceTree = "<group>"; };
+		D48BF3360FCB389900D8ED65 /* GRWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRWindowController.h; sourceTree = "<group>"; };
+		D48BF3370FCB389B00D8ED65 /* GRWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRWindowController.m; sourceTree = "<group>"; };
+		D48BF33D0FCB3AFE00D8ED65 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/GRWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +57,8 @@
 		29B97314FDCFA39411CA2CEA /* Grid */ = {
 			isa = PBXGroup;
 			children = (
+				D48BF3170FCB347800D8ED65 /* Controller */,
+				D48BF3080FCB331500D8ED65 /* View */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -68,6 +81,7 @@
 			children = (
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 			);
 			path = Resources;
@@ -79,6 +93,26 @@
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D48BF3080FCB331500D8ED65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D48BF3090FCB331500D8ED65 /* GRAreaSelectionView.h */,
+				D48BF30A0FCB331500D8ED65 /* GRAreaSelectionView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D48BF3170FCB347800D8ED65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D48BF3190FCB347800D8ED65 /* GRController.h */,
+				D48BF31A0FCB347800D8ED65 /* GRController.m */,
+				D48BF3360FCB389900D8ED65 /* GRWindowController.h */,
+				D48BF3370FCB389B00D8ED65 /* GRWindowController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +160,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				D48BF30B0FCB331500D8ED65 /* GRAreaSelectionView.m in Sources */,
+				D48BF31C0FCB347800D8ED65 /* GRController.m in Sources */,
+				D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +197,15 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
+		D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D48BF33D0FCB3AFE00D8ED65 /* English */,
+			);
+			name = GRWindow.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -169,6 +216,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -184,6 +232,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/Grid_Prefix.pch";
