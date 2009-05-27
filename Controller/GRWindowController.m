@@ -166,7 +166,7 @@
 	selectedVerticalFraction = (selectedVerticalFraction > 2)
 	?	selectedVerticalFraction - 1
 	:	2;
-	if(NSMaxRange(selectedHorizontalFractionRange) > selectedHorizontalFraction) {
+	if(NSMaxRange(selectedVerticalFractionRange) > selectedVerticalFraction) {
 		selectedVerticalFractionRange.length -= 1;
 	}
 }
