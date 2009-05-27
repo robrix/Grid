@@ -76,9 +76,8 @@
 	NSRange tempHorizontalRange = horizontalSelectedFractionRange, tempVerticalRange = verticalSelectedFractionRange;
 	if((event.modifierFlags & NSAlternateKeyMask) || (event.modifierFlags & NSCommandKeyMask) || (event.modifierFlags & NSControlKeyMask)) {
 		NSBeep();
-		return;
-	}
-	switch([event.charactersIgnoringModifiers characterAtIndex: 0]) {
+	} else {
+		switch([event.charactersIgnoringModifiers characterAtIndex: 0]) {
 		case NSLeftArrowFunctionKey:
 			if(event.modifierFlags & NSShiftKeyMask) {
 				horizontalSelectedFractionRange.length = (horizontalSelectedFractionRange.length > 1)
@@ -123,8 +122,7 @@
 				:	0;
 			}
 			break;
-		default:
-			NSBeep();
+		}
 	}
 	
 	if(!NSEqualRanges(tempHorizontalRange, horizontalSelectedFractionRange) || !NSEqualRanges(tempVerticalRange, verticalSelectedFractionRange))
