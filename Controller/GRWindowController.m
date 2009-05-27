@@ -83,9 +83,12 @@
 }
 
 -(void)moveBackwardAndModifySelection:(id)sender {
-	horizontalSelectedFractionRange.length = (horizontalSelectedFractionRange.length > 1)
-	?	horizontalSelectedFractionRange.length - 1
-	:	1;
+	if(horizontalSelectedFractionRange.location > 0) {
+		horizontalSelectedFractionRange.length += 1;
+		horizontalSelectedFractionRange.location -= 1;
+	} else if(horizontalSelectedFractionRange.length > 1) {
+		horizontalSelectedFractionRange.length -= 1;
+	}
 }
 
 -(void)moveForward:(id)sender {
@@ -95,9 +98,12 @@
 }
 
 -(void)moveForwardAndModifySelection:(id)sender {
-	horizontalSelectedFractionRange.length = (NSMaxRange(self.horizontalSelectedFractionRange) < self.horizontalSelectedFraction)
-	?	horizontalSelectedFractionRange.length + 1
-	:	horizontalSelectedFractionRange.length;
+	if(NSMaxRange(self.horizontalSelectedFractionRange) < self.horizontalSelectedFraction) {
+		horizontalSelectedFractionRange.length += 1;
+	} else if(self.horizontalSelectedFractionRange.length >= 2) {
+		horizontalSelectedFractionRange.location += 1;
+		horizontalSelectedFractionRange.length -= 1;
+	}
 }
 
 -(void)moveUp:(id)sender {
@@ -107,9 +113,12 @@
 }
 
 -(void)moveUpAndModifySelection:(id)sender {
-	verticalSelectedFractionRange.length = (NSMaxRange(self.verticalSelectedFractionRange) < self.verticalSelectedFraction)
-	?	verticalSelectedFractionRange.length + 1
-	:	verticalSelectedFractionRange.length;
+	if(NSMaxRange(self.verticalSelectedFractionRange) < self.verticalSelectedFraction) {
+		verticalSelectedFractionRange.length += 1;
+	} else if(self.verticalSelectedFractionRange.length >= 2) {
+		verticalSelectedFractionRange.location += 1;
+		verticalSelectedFractionRange.length -= 1;
+	}
 }
 
 -(void)moveDown:(id)sender {
@@ -119,9 +128,12 @@
 }
 
 -(void)moveDownAndModifySelection:(id)sender {
-	verticalSelectedFractionRange.length = (verticalSelectedFractionRange.location > 1)
-	?	verticalSelectedFractionRange.length - 1
-	:	1;
+	if(verticalSelectedFractionRange.location > 0) {
+		verticalSelectedFractionRange.length += 1;
+		verticalSelectedFractionRange.location -= 1;
+	} else if(verticalSelectedFractionRange.length > 1) {
+		verticalSelectedFractionRange.length -= 1;
+	}
 }
 
 -(BOOL)respondsToSelector:(SEL)selector { // hack to keep the panel from sending us moveUp: and moveDown: on ⌘↑ and ⌘↓
@@ -139,7 +151,7 @@
 }
 
 -(void)decreaseHorizontalFractionSize:(id)sender {
-	horizontalSelectedFraction = (horizontalSelectedFraction <= self.maximumHorizontalFractions)
+	horizontalSelectedFraction = (horizontalSelectedFraction < self.maximumHorizontalFractions)
 	?	horizontalSelectedFraction + 1
 	:	horizontalSelectedFraction;
 }
