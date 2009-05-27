@@ -175,6 +175,13 @@
 }
 
 
+-(void)selectAll:(id)sender {
+	selectedHorizontalFractionRange = NSMakeRange(0, selectedHorizontalFraction);
+	selectedVerticalFractionRange = NSMakeRange(0, selectedVerticalFraction);
+	[self.areaSelectionView setNeedsDisplay: YES];
+}
+
+
 -(void)keyDown:(NSEvent *)event {
 	NSRange tempHorizontalRange = selectedHorizontalFractionRange, tempVerticalRange = selectedVerticalFractionRange;
 	NSUInteger tempHorizontalFraction = selectedHorizontalFraction, tempVerticalFraction = selectedVerticalFraction;
