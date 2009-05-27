@@ -7,6 +7,7 @@
 @interface GRWindowController : NSWindowController <GRAreaSelectionViewDelegate> {
 	NSScreen *screen;
 	NSRange horizontalSelectedFractionRange, verticalSelectedFractionRange;
+	NSUInteger horizontalSelectedFraction, verticalSelectedFraction;
 	IBOutlet GRAreaSelectionView *areaSelectionView;
 }
 
