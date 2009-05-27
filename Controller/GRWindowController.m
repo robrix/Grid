@@ -80,64 +80,48 @@
 	horizontalSelectedFractionRange.location = (horizontalSelectedFractionRange.location > 0)
 	?	horizontalSelectedFractionRange.location - 1
 	:	0;
-	[self.areaSelectionView setNeedsDisplay: YES];
 }
 
 -(void)moveBackwardAndModifySelection:(id)sender {
 	horizontalSelectedFractionRange.length = (horizontalSelectedFractionRange.length > 1)
 	?	horizontalSelectedFractionRange.length - 1
 	:	1;
-	[self.areaSelectionView setNeedsDisplay: YES];
 }
 
 -(void)moveForward:(id)sender {
 	horizontalSelectedFractionRange.location = (NSMaxRange(self.horizontalSelectedFractionRange) < self.horizontalSelectedFraction)
 	?	horizontalSelectedFractionRange.location + 1
 	:	horizontalSelectedFractionRange.location;
-	[self.areaSelectionView setNeedsDisplay: YES];
 }
 
 -(void)moveForwardAndModifySelection:(id)sender {
 	horizontalSelectedFractionRange.length = (NSMaxRange(self.horizontalSelectedFractionRange) < self.horizontalSelectedFraction)
 	?	horizontalSelectedFractionRange.length + 1
 	:	horizontalSelectedFractionRange.length;
-	[self.areaSelectionView setNeedsDisplay: YES];
 }
 
 -(void)moveUp:(id)sender {
-	NSRange tempVerticalRange = verticalSelectedFractionRange;
 	verticalSelectedFractionRange.location = (NSMaxRange(self.verticalSelectedFractionRange) < self.verticalSelectedFraction)
 	?	verticalSelectedFractionRange.location + 1
 	:	verticalSelectedFractionRange.location;
-	if(!NSEqualRanges(tempVerticalRange, verticalSelectedFractionRange))
-		[self.areaSelectionView setNeedsDisplay: YES];
-	else
-		NSBeep();
 }
 
 -(void)moveUpAndModifySelection:(id)sender {
 	verticalSelectedFractionRange.length = (NSMaxRange(self.verticalSelectedFractionRange) < self.verticalSelectedFraction)
 	?	verticalSelectedFractionRange.length + 1
 	:	verticalSelectedFractionRange.length;
-	[self.areaSelectionView setNeedsDisplay: YES];
 }
 
 -(void)moveDown:(id)sender {
-	NSRange tempVerticalRange = verticalSelectedFractionRange;
 	verticalSelectedFractionRange.location = (verticalSelectedFractionRange.location > 0)
 	?	verticalSelectedFractionRange.location - 1
 	:	0;
-	if(!NSEqualRanges(tempVerticalRange, verticalSelectedFractionRange))
-		[self.areaSelectionView setNeedsDisplay: YES];
-	else
-		NSBeep();
 }
 
 -(void)moveDownAndModifySelection:(id)sender {
 	verticalSelectedFractionRange.length = (verticalSelectedFractionRange.location > 1)
 	?	verticalSelectedFractionRange.length - 1
 	:	1;
-	[self.areaSelectionView setNeedsDisplay: YES];
 }
 
 -(BOOL)respondsToSelector:(SEL)selector { // hack to keep the panel from sending us moveUp: and moveDown: on ⌘↑ and ⌘↓
