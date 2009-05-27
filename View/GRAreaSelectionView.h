@@ -18,10 +18,10 @@
 @property (nonatomic, readonly) NSUInteger maximumHorizontalFractions;
 @property (nonatomic, readonly) NSUInteger maximumVerticalFractions;
 
-@property (nonatomic, readonly) NSRange horizontalSelectedFractionRange;
-@property (nonatomic, readonly) NSRange verticalSelectedFractionRange;
+@property (nonatomic, readonly) NSRange selectedHorizontalFractionRange;
+@property (nonatomic, readonly) NSRange selectedVerticalFractionRange;
 
-@property (nonatomic, readonly) NSUInteger horizontalSelectedFraction;
-@property (nonatomic, readonly) NSUInteger verticalSelectedFraction;
+@property (nonatomic, readonly) NSUInteger selectedHorizontalFraction;
+@property (nonatomic, readonly) NSUInteger selectedVerticalFraction;
 
 @end

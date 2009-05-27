@@ -37,29 +37,29 @@
 	
 	// active horizontal fractions
 	path = [NSBezierPath bezierPath];
-	for(NSUInteger n = 1; n < self.delegate.horizontalSelectedFraction; n++) {
-		[path moveToPoint: NSMakePoint(roundf((self.bounds.size.width / self.delegate.horizontalSelectedFraction) * n) + 0.5f, 0)];
-		[path lineToPoint: NSMakePoint(roundf((self.bounds.size.width / self.delegate.horizontalSelectedFraction) * n) + 0.5f, NSHeight(self.bounds))];
+	for(NSUInteger n = 1; n < self.delegate.selectedHorizontalFraction; n++) {
+		[path moveToPoint: NSMakePoint(roundf((self.bounds.size.width / self.delegate.selectedHorizontalFraction) * n) + 0.5f, 0)];
+		[path lineToPoint: NSMakePoint(roundf((self.bounds.size.width / self.delegate.selectedHorizontalFraction) * n) + 0.5f, NSHeight(self.bounds))];
 	}
 	[path stroke];
 	
 	// active vertical fractions
 	path = [NSBezierPath bezierPath];
-	for(NSUInteger n = 1; n < self.delegate.verticalSelectedFraction; n++) {
-		[path moveToPoint: NSMakePoint(0, roundf((self.bounds.size.height / self.delegate.verticalSelectedFraction) * n) + 0.5f)];
-		[path lineToPoint: NSMakePoint(NSWidth(self.bounds), roundf((self.bounds.size.height / self.delegate.verticalSelectedFraction) * n) + 0.5f)];
+	for(NSUInteger n = 1; n < self.delegate.selectedVerticalFraction; n++) {
+		[path moveToPoint: NSMakePoint(0, roundf((self.bounds.size.height / self.delegate.selectedVerticalFraction) * n) + 0.5f)];
+		[path lineToPoint: NSMakePoint(NSWidth(self.bounds), roundf((self.bounds.size.height / self.delegate.selectedVerticalFraction) * n) + 0.5f)];
 	}
 	[path stroke];
 	
 	// selected area
 	NSSize fractionSize = NSMakeSize(
-		self.bounds.size.width / self.delegate.horizontalSelectedFraction,
-		self.bounds.size.height / self.delegate.verticalSelectedFraction
+		self.bounds.size.width / self.delegate.selectedHorizontalFraction,
+		self.bounds.size.height / self.delegate.selectedVerticalFraction
 	);
-	NSRange horizontalSelectedFractionRange = self.delegate.horizontalSelectedFractionRange, verticalSelectedFractionRange = self.delegate.verticalSelectedFractionRange;
+	NSRange selectedHorizontalFractionRange = self.delegate.selectedHorizontalFractionRange, selectedVerticalFractionRange = self.delegate.selectedVerticalFractionRange;
 	NSRect selectedArea = NSMakeRect(
-		roundf(fractionSize.width * horizontalSelectedFractionRange.location) + 0.5f, roundf(fractionSize.height * verticalSelectedFractionRange.location) + 0.5f,
-		roundf(fractionSize.width * horizontalSelectedFractionRange.length), roundf(fractionSize.height * verticalSelectedFractionRange.length)
+		roundf(fractionSize.width * selectedHorizontalFractionRange.location) + 0.5f, roundf(fractionSize.height * selectedVerticalFractionRange.location) + 0.5f,
+		roundf(fractionSize.width * selectedHorizontalFractionRange.length), roundf(fractionSize.height * selectedVerticalFractionRange.length)
 	);
 	path = [NSBezierPath bezierPathWithRect: selectedArea];
 	[path fill];
