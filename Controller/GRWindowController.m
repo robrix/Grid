@@ -154,6 +154,9 @@
 }
 
 -(void)decreaseHorizontalFractionSize:(id)sender {
+	if(NSEqualRanges(selectedHorizontalFractionRange, NSMakeRange(0, selectedHorizontalFraction))) {
+		selectedHorizontalFractionRange.length += 1;
+	}
 	selectedHorizontalFraction = (selectedHorizontalFraction < self.maximumHorizontalFractions)
 	?	selectedHorizontalFraction + 1
 	:	selectedHorizontalFraction;
@@ -169,6 +172,9 @@
 }
 
 -(void)decreaseVerticalFractionSize:(id)sender {
+	if(NSEqualRanges(selectedVerticalFractionRange, NSMakeRange(0, selectedVerticalFraction))) {
+		selectedVerticalFractionRange.length += 1;
+	}
 	selectedVerticalFraction = (selectedVerticalFraction < self.maximumVerticalFractions)
 	?	selectedVerticalFraction + 1
 	:	selectedVerticalFraction;
