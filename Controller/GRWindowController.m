@@ -51,11 +51,11 @@
 
 
 -(NSUInteger)horizontalSelectedFractionIndex {
-	return NSMakeRange(0, 0);
+	return 0;
 }
 
 -(NSUInteger)verticalSelectedFractionIndex {
-	return NSMakeRange(0, 0);
+	return 0;
 }
 
 
