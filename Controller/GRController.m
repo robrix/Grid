@@ -17,8 +17,8 @@
 		[tempControllers addObject: controller];
 	}
 	controllers = tempControllers;
-	// [controllers makeObjectsPerformSelector: @selector(showWindow:) withObject: nil];
 }
+
 
 -(void)applicationDidBecomeActive:(NSNotification *)notification {
 	[controllers makeObjectsPerformSelector: @selector(showWindow:) withObject: nil];
