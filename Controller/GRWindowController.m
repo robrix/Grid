@@ -14,10 +14,14 @@
 }
 
 @synthesize screen;
+@synthesize areaSelectionView;
 
 -(void)awakeFromNib {
 	[self.window setExcludedFromWindowsMenu: NO];
 	[self.window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
+	
+	horizontalSelectedFractionRange = NSMakeRange(0, 1);
+	verticalSelectedFractionRange = NSMakeRange(0, 1);
 }
 
 
@@ -50,21 +54,83 @@
 }
 
 
--(NSUInteger)horizontalSelectedFractionIndex {
-	return 0;
+-(NSRange)horizontalSelectedFractionRange {
+	return horizontalSelectedFractionRange;
 }
 
--(NSUInteger)verticalSelectedFractionIndex {
-	return 0;
+-(NSRange)verticalSelectedFractionRange {
+	return verticalSelectedFractionRange;
 }
 
 
--(NSUInteger)horizontalSelectedFractionLevel {
-	return 3;
+-(NSUInteger)horizontalSelectedFraction {
+	return 4;
 }
 
--(NSUInteger)verticalSelectedFractionLevel {
+-(NSUInteger)verticalSelectedFraction {
 	return 2;
+}
+
+
+-(void)keyDown:(NSEvent *)event {
+	NSRange tempHorizontalRange = horizontalSelectedFractionRange, tempVerticalRange = verticalSelectedFractionRange;
+	if((event.modifierFlags & NSAlternateKeyMask) || (event.modifierFlags & NSCommandKeyMask) || (event.modifierFlags & NSControlKeyMask)) {
+		NSBeep();
+		return;
+	}
+	switch([event.charactersIgnoringModifiers characterAtIndex: 0]) {
+		case NSLeftArrowFunctionKey:
+			if(event.modifierFlags & NSShiftKeyMask) {
+				horizontalSelectedFractionRange.length = (horizontalSelectedFractionRange.length > 1)
+				?	horizontalSelectedFractionRange.length - 1
+				:	1;
+			} else {
+				horizontalSelectedFractionRange.location = (horizontalSelectedFractionRange.location > 0)
+				?	horizontalSelectedFractionRange.location - 1
+				:	0;
+			}
+			break;
+		case NSRightArrowFunctionKey:
+			if(event.modifierFlags & NSShiftKeyMask) {
+				horizontalSelectedFractionRange.length = (NSMaxRange(self.horizontalSelectedFractionRange) < self.horizontalSelectedFraction)
+				?	horizontalSelectedFractionRange.length + 1
+				:	horizontalSelectedFractionRange.length;
+			} else {
+				horizontalSelectedFractionRange.location = (NSMaxRange(self.horizontalSelectedFractionRange) < self.horizontalSelectedFraction)
+				?	horizontalSelectedFractionRange.location + 1
+				:	horizontalSelectedFractionRange.location;
+			}
+			break;
+		case NSUpArrowFunctionKey:
+			if(event.modifierFlags & NSShiftKeyMask) {
+				verticalSelectedFractionRange.length = (NSMaxRange(self.verticalSelectedFractionRange) < self.verticalSelectedFraction)
+				?	verticalSelectedFractionRange.length + 1
+				:	verticalSelectedFractionRange.length;
+			} else {
+				verticalSelectedFractionRange.location = (NSMaxRange(self.verticalSelectedFractionRange) < self.verticalSelectedFraction)
+				?	verticalSelectedFractionRange.location + 1
+				:	verticalSelectedFractionRange.location;
+			}
+			break;
+		case NSDownArrowFunctionKey:
+			if(event.modifierFlags & NSShiftKeyMask) {
+				verticalSelectedFractionRange.length = (verticalSelectedFractionRange.location > 1)
+				?	verticalSelectedFractionRange.length - 1
+				:	1;
+			} else {
+				verticalSelectedFractionRange.location = (verticalSelectedFractionRange.location > 0)
+				?	verticalSelectedFractionRange.location - 1
+				:	0;
+			}
+			break;
+		default:
+			NSBeep();
+	}
+	
+	if(!NSEqualRanges(tempHorizontalRange, horizontalSelectedFractionRange) || !NSEqualRanges(tempVerticalRange, verticalSelectedFractionRange))
+		[self.areaSelectionView setNeedsDisplay: YES];
+	else
+		NSBeep();
 }
 
 @end

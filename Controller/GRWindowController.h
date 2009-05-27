@@ -6,7 +6,11 @@
 
 @interface GRWindowController : NSWindowController <GRAreaSelectionViewDelegate> {
 	NSScreen *screen;
+	NSRange horizontalSelectedFractionRange, verticalSelectedFractionRange;
+	IBOutlet GRAreaSelectionView *areaSelectionView;
 }
+
+@property (nonatomic, retain) IBOutlet GRAreaSelectionView *areaSelectionView;
 
 +(GRWindowController *)controllerWithScreen:(NSScreen *)screen;
 

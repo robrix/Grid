@@ -5,10 +5,10 @@
 @protocol GRAreaSelectionViewDelegate;
 
 @interface GRAreaSelectionView : NSView {
-	id<GRAreaSelectionViewDelegate> delegate;
+	NSResponder<GRAreaSelectionViewDelegate> *delegate;
 }
 
-@property (nonatomic, assign) id<GRAreaSelectionViewDelegate> delegate;
+@property (nonatomic, assign) NSResponder<GRAreaSelectionViewDelegate> *delegate;
 
 @end
 
@@ -18,10 +18,10 @@
 @property (nonatomic, readonly) NSUInteger maximumHorizontalFractions;
 @property (nonatomic, readonly) NSUInteger maximumVerticalFractions;
 
-@property (nonatomic, readonly) NSUInteger horizontalSelectedFractionIndex;
-@property (nonatomic, readonly) NSUInteger verticalSelectedFractionIndex;
+@property (nonatomic, readonly) NSRange horizontalSelectedFractionRange;
+@property (nonatomic, readonly) NSRange verticalSelectedFractionRange;
 
-@property (nonatomic, readonly) NSUInteger horizontalSelectedFractionLevel;
-@property (nonatomic, readonly) NSUInteger verticalSelectedFractionLevel;
+@property (nonatomic, readonly) NSUInteger horizontalSelectedFraction;
+@property (nonatomic, readonly) NSUInteger verticalSelectedFraction;
 
 @end
