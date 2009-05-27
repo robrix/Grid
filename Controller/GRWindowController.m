@@ -8,11 +8,18 @@
 
 +(GRWindowController *)controllerWithScreen:(NSScreen *)s {
 	GRWindowController *controller = [[self alloc] initWithWindowNibName: @"GRWindow"];
+	[controller loadWindow];
 	controller.screen = s;
 	return controller;
 }
 
 @synthesize screen;
+
+-(void)awakeFromNib {
+	[self.window setExcludedFromWindowsMenu: NO];
+	[self.window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
+}
+
 
 -(void)showWindow:(id)sender {
 	self.window.alphaValue = 0;
@@ -34,21 +41,30 @@
 }
 
 
--(NSRange)horizontalSelectedRange {
-	return NSMakeRange(0, 0);
-}
-
--(NSRange)verticalSelectedRange {
-	return NSMakeRange(0, 0);
-}
-
-
 -(NSUInteger)maximumHorizontalFractions {
 	return 6;
 }
 
 -(NSUInteger)maximumVerticalFractions {
 	return 3;
+}
+
+
+-(NSUInteger)horizontalSelectedFractionIndex {
+	return NSMakeRange(0, 0);
+}
+
+-(NSUInteger)verticalSelectedFractionIndex {
+	return NSMakeRange(0, 0);
+}
+
+
+-(NSUInteger)horizontalSelectedFractionLevel {
+	return 3;
+}
+
+-(NSUInteger)verticalSelectedFractionLevel {
+	return 2;
 }
 
 @end
