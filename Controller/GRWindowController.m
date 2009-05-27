@@ -148,6 +148,9 @@
 	selectedHorizontalFraction = (selectedHorizontalFraction > 2)
 	?	selectedHorizontalFraction - 1
 	:	2;
+	if(NSMaxRange(selectedHorizontalFractionRange) > selectedHorizontalFraction) {
+		selectedHorizontalFractionRange.length -= 1;
+	}
 }
 
 -(void)decreaseHorizontalFractionSize:(id)sender {
@@ -160,6 +163,9 @@
 	selectedVerticalFraction = (selectedVerticalFraction > 2)
 	?	selectedVerticalFraction - 1
 	:	2;
+	if(NSMaxRange(selectedHorizontalFractionRange) > selectedHorizontalFraction) {
+		selectedVerticalFractionRange.length -= 1;
+	}
 }
 
 -(void)decreaseVerticalFractionSize:(id)sender {
