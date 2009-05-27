@@ -92,30 +92,30 @@
 }
 
 -(void)moveForward:(id)sender {
-	selectedHorizontalFractionRange.location = (NSMaxRange(self.selectedHorizontalFractionRange) < self.selectedHorizontalFraction)
+	selectedHorizontalFractionRange.location = (NSMaxRange(selectedHorizontalFractionRange) < selectedHorizontalFraction)
 	?	selectedHorizontalFractionRange.location + 1
 	:	selectedHorizontalFractionRange.location;
 }
 
 -(void)moveForwardAndModifySelection:(id)sender {
-	if(NSMaxRange(self.selectedHorizontalFractionRange) < self.selectedHorizontalFraction) {
+	if(NSMaxRange(selectedHorizontalFractionRange) < selectedHorizontalFraction) {
 		selectedHorizontalFractionRange.length += 1;
-	} else if(self.selectedHorizontalFractionRange.length >= 2) {
+	} else if(selectedHorizontalFractionRange.length >= 2) {
 		selectedHorizontalFractionRange.location += 1;
 		selectedHorizontalFractionRange.length -= 1;
 	}
 }
 
 -(void)moveUp:(id)sender {
-	selectedVerticalFractionRange.location = (NSMaxRange(self.selectedVerticalFractionRange) < self.selectedVerticalFraction)
+	selectedVerticalFractionRange.location = (NSMaxRange(selectedVerticalFractionRange) < selectedVerticalFraction)
 	?	selectedVerticalFractionRange.location + 1
 	:	selectedVerticalFractionRange.location;
 }
 
 -(void)moveUpAndModifySelection:(id)sender {
-	if(NSMaxRange(self.selectedVerticalFractionRange) < self.selectedVerticalFraction) {
+	if(NSMaxRange(selectedVerticalFractionRange) < selectedVerticalFraction) {
 		selectedVerticalFractionRange.length += 1;
-	} else if(self.selectedVerticalFractionRange.length >= 2) {
+	} else if(selectedVerticalFractionRange.length >= 2) {
 		selectedVerticalFractionRange.location += 1;
 		selectedVerticalFractionRange.length -= 1;
 	}
