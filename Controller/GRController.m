@@ -9,8 +9,6 @@
 @implementation GRController
 
 -(void)awakeFromNib {
-	[NSApplication sharedApplication].delegate = self;
-	
 	NSMutableArray *tempControllers = [NSMutableArray array];
 	for(NSScreen *screen in [NSScreen screens]) {
 		GRWindowController *controller = [GRWindowController controllerWithScreen: screen];
