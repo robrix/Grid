@@ -9,7 +9,32 @@
 @synthesize windowRef;
 
 -(CGRect)frame {
-	return NSZeroRect;
+	CGRect frame = CGRectZero;
+	AXError error = kAXErrorSuccess;
+	
+	CFTypeRef positionRef = NULL;
+	error = AXUIElementCopyAttributeValue(self.windowRef, CFSTR("AXPosition"), &positionRef);
+	if((error == kAXErrorSuccess) && (positionRef != NULL)) {
+		CFMakeCollectable(positionRef);
+		if(!AXValueGetValue(positionRef, kAXValueCGPointType, &frame.origin)) {
+			NSLog(@"Couldn’t extract origin.");
+		}
+	} else {
+		NSLog(@"Couldn’t get position.");
+	}
+	
+	CFTypeRef sizeRef = NULL;
+	error = AXUIElementCopyAttributeValue(self.windowRef, CFSTR("AXSize"), &sizeRef);
+	if((error == kAXErrorSuccess) && (sizeRef != NULL)) {
+		CFMakeCollectable(sizeRef);
+		if(!AXValueGetValue(sizeRef, kAXValueCGSizeType, &frame.size)) {
+			NSLog(@"Couldn’t extract size.");
+		}
+	} else {
+		NSLog(@"Couldn’t get size.");
+	}
+	
+	return frame;
 }
 
 -(void)setFrame:(CGRect)frame {
