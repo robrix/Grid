@@ -8,6 +8,13 @@
 
 @synthesize windowRef;
 
+-(void)setWindowRef:(AXUIElementRef)ref {
+	AXUIElementRef old = windowRef;
+	windowRef = ref ? CFRetain(ref) : NULL;
+	if(old) CFRelease(old);
+}
+
+
 -(CGRect)frame {
 	CGRect frame = CGRectZero;
 	AXError error = kAXErrorSuccess;
