@@ -17,6 +17,7 @@
 
 @property (nonatomic, retain) NSScreen *screen;
 
--(void)hideWindow:(id)sender;
+-(void)activate;
+-(void)deactivate;
 
 @end

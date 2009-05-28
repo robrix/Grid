@@ -29,23 +29,33 @@
 }
 
 
--(void)showWindow:(id)sender {
+-(void)activate {
 	self.window.alphaValue = 0;
-	[self.window setFrameOrigin: NSMakePoint(NSMinX(self.screen.visibleFrame), self.window.frame.origin.y)];
-	[super showWindow: sender];
-	[self.window center];
+	
+	NSRect contentFrame = self.screen.visibleFrame;
+	contentFrame.size.width /= 4.0f;
+	contentFrame.size.height /= 4.0f;
+	contentFrame.origin.x += contentFrame.size.width * 1.5f - 20.0f;
+	contentFrame.origin.y += contentFrame.size.height * 1.5f - 20.0f;
+	contentFrame.size.width += 40.0f;
+	contentFrame.size.height += 40.0f;
+	[self.window setFrame: [self.window contentRectForFrameRect: contentFrame] display: YES];
+	
+	[self.window makeKeyAndOrderFront: self];
 	
 	[NSAnimationContext beginGrouping];
-	[[NSAnimationContext currentContext] setDuration: 0.15];
+	[[NSAnimationContext currentContext] setDuration: 0.1f];
 	[self.window.animator setAlphaValue: 1.0];
 	[NSAnimationContext endGrouping];
 }
 
--(void)hideWindow:(id)sender {
+-(void)deactivate {
 	[NSAnimationContext beginGrouping];
-	[[NSAnimationContext currentContext] setDuration: 0.15];
+	[[NSAnimationContext currentContext] setDuration: 0.1f];
 	[self.window.animator setAlphaValue: 0];
 	[NSAnimationContext endGrouping];
+	
+	[self.window performSelector: @selector(orderOut:) withObject: self afterDelay: 0.1f];
 }
 
 

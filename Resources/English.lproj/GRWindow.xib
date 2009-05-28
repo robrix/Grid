@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -35,13 +35,14 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="105883143">
-				<int key="NSWindowStyleMask">8209</int>
+				<int key="NSWindowStyleMask">8337</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 169}, {529, 341}}</string>
-				<int key="NSWTFlags">1677722624</int>
+				<int key="NSWTFlags">1946158080</int>
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="261055731">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -191,7 +192,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">6</int>
+			<int key="maxID">8</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -207,10 +208,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">GRWindowController</string>
 					<string key="superclassName">NSWindowController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">hideWindow:</string>
-						<string key="NS.object.0">id</string>
-					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">areaSelectionView</string>
 						<string key="NS.object.0">GRAreaSelectionView</string>

@@ -15,6 +15,7 @@
 		D48BF31C0FCB347800D8ED65 /* GRController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF31A0FCB347800D8ED65 /* GRController.m */; };
 		D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF3370FCB389B00D8ED65 /* GRWindowController.m */; };
 		D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */; };
+		D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48BF4500FCE2A1500D8ED65 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D48BF3360FCB389900D8ED65 /* GRWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRWindowController.h; sourceTree = "<group>"; };
 		D48BF3370FCB389B00D8ED65 /* GRWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRWindowController.m; sourceTree = "<group>"; };
 		D48BF33D0FCB3AFE00D8ED65 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/GRWindow.xib; sourceTree = "<group>"; };
+		D48BF4500FCE2A1500D8ED65 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +93,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D48BF4500FCE2A1500D8ED65 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = Frameworks;

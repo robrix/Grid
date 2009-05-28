@@ -5,6 +5,9 @@
 #import "GRAreaSelectionView.h"
 #import "GRController.h"
 #import "GRWindowController.h"
+#import <Carbon/Carbon.h>
+
+OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, void *userData);
 
 @implementation GRController
 
@@ -15,15 +18,40 @@
 		[tempControllers addObject: controller];
 	}
 	controllers = tempControllers;
+	
+	EventTypeSpec eventType = {
+		.eventClass = kEventClassKeyboard,
+		.eventKind = kEventHotKeyPressed
+	};
+	InstallApplicationEventHandler(&GRControllerShortcutWasPressed, 1, &eventType, self, NULL);
+	
+	EventHotKeyID shortcutIdentifier = {
+		.id = 1,
+		.signature = 'GRSc'
+	};
+	EventHotKeyRef shortcutReference;
+	RegisterEventHotKey(50, cmdKey+optionKey, shortcutIdentifier, GetApplicationEventTarget(), 0, &shortcutReference);
 }
 
 
--(void)applicationDidBecomeActive:(NSNotification *)notification {
-	[controllers makeObjectsPerformSelector: @selector(showWindow:) withObject: nil];
+-(void)activate {
+	[controllers makeObjectsPerformSelector: @selector(activate)];
 }
+
+-(void)deactivate {
+	[controllers makeObjectsPerformSelector: @selector(deactivate)];
+}
+
 
 -(void)applicationDidResignActive:(NSNotification *)notification {
-	[controllers makeObjectsPerformSelector: @selector(hideWindow:) withObject: nil];
+	[self deactivate];
 }
 
 @end
+
+
+OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, void *userData) {
+	GRController *controller = (GRController *)userData;
+	[controller activate];
+	return noErr;
+}
