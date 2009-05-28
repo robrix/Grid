@@ -225,6 +225,11 @@
 }
 
 
+-(void)cancel:(id)sender {
+	[self.delegate deactivate];
+}
+
+
 -(void)keyDown:(NSEvent *)event {
 	NSRange tempHorizontalRange = selectedHorizontalFractionRange, tempVerticalRange = selectedVerticalFractionRange;
 	NSUInteger tempHorizontalFraction = selectedHorizontalFraction, tempVerticalFraction = selectedVerticalFraction;
