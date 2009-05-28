@@ -61,7 +61,7 @@
 
 
 -(NSUInteger)maximumHorizontalFractions {
-	return 6;
+	return 8;
 }
 
 -(NSUInteger)maximumVerticalFractions {
