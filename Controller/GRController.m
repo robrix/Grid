@@ -60,7 +60,9 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 
 
 -(void)windowController:(GRWindowController *)controller didSelectArea:(CGRect)selectedArea {
-	NSLog(@"area received: %@", NSStringFromRect(selectedArea));
+	selectedArea.origin.y = controller.screen.visibleFrame.size.height - selectedArea.size.height - selectedArea.origin.y;
+	NSLog(@"Resizing to %@.", NSStringFromRect(selectedArea));
+	self.windowElement.frame = selectedArea;
 }
 
 @end

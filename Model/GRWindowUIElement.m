@@ -45,7 +45,30 @@
 }
 
 -(void)setFrame:(CGRect)frame {
+	AXError error = kAXErrorSuccess;
+	Boolean settable = true;
 	
+	error = AXUIElementIsAttributeSettable(windowRef, CFSTR("AXPosition"), &settable);
+	if((error == kAXErrorSuccess) && settable) {
+		AXValueRef positionRef = CFMakeCollectable(AXValueCreate(kAXValueCGPointType, &frame.origin));
+		error = AXUIElementSetAttributeValue(windowRef, CFSTR("AXPosition"), positionRef);
+		if(error != kAXErrorSuccess) {
+			NSLog(@"Couldn’t set position.");
+		}
+	} else {
+		NSLog(@"Position is not settable.");
+	}
+	
+	error = AXUIElementIsAttributeSettable(windowRef, CFSTR("AXSize"), &settable);
+	if((error == kAXErrorSuccess) && settable) {
+		AXValueRef sizeRef = CFMakeCollectable(AXValueCreate(kAXValueCGSizeType, &frame.size));
+		error = AXUIElementSetAttributeValue(windowRef, CFSTR("AXSize"), sizeRef);
+		if(error != kAXErrorSuccess) {
+			NSLog(@"Couldn’t set size.");
+		}
+	} else {
+		NSLog(@"Size is not settable.");
+	}
 }
 
 @end

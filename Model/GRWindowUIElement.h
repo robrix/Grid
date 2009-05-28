@@ -8,6 +8,6 @@
 
 @property (nonatomic, assign) AXUIElementRef windowRef;
 
-@property (nonatomic, assign) CGRect frame;
+@property (nonatomic, assign) CGRect frame; // frame is in flipped co-ordinates
 
 @end
