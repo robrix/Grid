@@ -10,6 +10,8 @@
 
 @property (nonatomic, assign) NSResponder<GRAreaSelectionViewDelegate> *delegate;
 
+-(CGRect)selectedAreaForBounds:(CGRect)bounds;
+
 @end
 
 

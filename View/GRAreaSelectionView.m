@@ -8,6 +8,24 @@
 
 @synthesize delegate;
 
+-(CGRect)selectedAreaForBounds:(CGRect)bounds {
+	NSRange selectedHorizontalFractionRange = self.delegate.selectedHorizontalFractionRange, selectedVerticalFractionRange = self.delegate.selectedVerticalFractionRange;
+	NSSize fractionSize = NSMakeSize(
+		bounds.size.width / self.delegate.selectedHorizontalFraction,
+		bounds.size.height / self.delegate.selectedVerticalFraction
+	);
+	NSRect selectedArea;
+	selectedArea.origin = NSMakePoint(
+		roundf(fractionSize.width * selectedHorizontalFractionRange.location) + 0.5f,
+		roundf(fractionSize.height * selectedVerticalFractionRange.location) + 0.5f
+	);
+	selectedArea.size = NSMakeSize(
+		roundf((fractionSize.width * selectedHorizontalFractionRange.location) + (fractionSize.width * selectedHorizontalFractionRange.length) + 0.5f - selectedArea.origin.x),
+		roundf((fractionSize.height * selectedVerticalFractionRange.location) + (fractionSize.height * selectedVerticalFractionRange.length) + 0.5f - selectedArea.origin.y)
+	); // this is done this absurd way to avoid rounding errors (and thus the boundaries of the selection area being drawn one pixel too high or low)
+	return selectedArea;
+}
+
 -(void)drawRect:(NSRect)rect {
 	[[NSColor colorWithDeviceWhite: 1.0f alpha: 0.25f] setStroke];
 	
@@ -52,20 +70,7 @@
 	[path stroke];
 	
 	// selected area
-	NSSize fractionSize = NSMakeSize(
-		self.bounds.size.width / self.delegate.selectedHorizontalFraction,
-		self.bounds.size.height / self.delegate.selectedVerticalFraction
-	);
-	NSRange selectedHorizontalFractionRange = self.delegate.selectedHorizontalFractionRange, selectedVerticalFractionRange = self.delegate.selectedVerticalFractionRange;
-	NSRect selectedArea;
-	selectedArea.origin = NSMakePoint(
-		roundf(fractionSize.width * selectedHorizontalFractionRange.location) + 0.5f,
-		roundf(fractionSize.height * selectedVerticalFractionRange.location) + 0.5f
-	);
-	selectedArea.size = NSMakeSize(
-		roundf((fractionSize.width * selectedHorizontalFractionRange.location) + (fractionSize.width * selectedHorizontalFractionRange.length) + 0.5f - selectedArea.origin.x),
-		roundf((fractionSize.height * selectedVerticalFractionRange.location) + (fractionSize.height * selectedVerticalFractionRange.length) + 0.5f - selectedArea.origin.y)
-	); // this is done this absurd way to avoid rounding errors (and thus the boundaries of the selection area being drawn one pixel too high or low)
+	CGRect selectedArea = [self selectedAreaForBounds: self.bounds];
 	path = [NSBezierPath bezierPathWithRect: selectedArea];
 	[path fill];
 	[path stroke];
