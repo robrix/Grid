@@ -58,6 +58,11 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 	[self deactivate];
 }
 
+
+-(void)windowController:(GRWindowController *)controller didSelectArea:(CGRect)selectedArea {
+	NSLog(@"area received: %@", NSStringFromRect(selectedArea));
+}
+
 @end
 
 

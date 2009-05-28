@@ -199,11 +199,17 @@
 }
 
 
+-(CGRect)selectedArea {
+	return [self.areaSelectionView selectedAreaForBounds: self.screen.visibleFrame];
+}
+
+
 -(void)resizeActiveWindowToSelectedFraction {
-	NSLog(@"should resize here");
+	[self.delegate windowController: self didSelectArea: self.selectedArea];
 	
 	[self.delegate deactivate];
 }
+
 
 -(void)windowDidResignKey:(NSNotification *)notification {
 	[self deactivate];

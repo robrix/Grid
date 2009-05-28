@@ -34,4 +34,6 @@
 
 // handle moving the selection between screens.
 
+-(void)windowController:(GRWindowController *)controller didSelectArea:(CGRect)selectedArea;
+
 @end
