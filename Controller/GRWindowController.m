@@ -14,8 +14,9 @@
 	return controller;
 }
 
-@synthesize screen;
 @synthesize areaSelectionView;
+@synthesize screen;
+@synthesize delegate;
 
 -(void)awakeFromNib {
 	[self.window setExcludedFromWindowsMenu: NO];
@@ -201,7 +202,7 @@
 -(void)resizeActiveWindowToSelectedFraction {
 	NSLog(@"should resize here");
 	
-	[self deactivate];
+	[self.delegate deactivate];
 }
 
 

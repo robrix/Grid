@@ -9,12 +9,16 @@
 
 OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, void *userData);
 
+@interface GRController () <GRWindowControllerDelegate>
+@end
+
 @implementation GRController
 
 -(void)awakeFromNib {
 	NSMutableArray *tempControllers = [NSMutableArray array];
 	for(NSScreen *screen in [NSScreen screens]) {
 		GRWindowController *controller = [GRWindowController controllerWithScreen: screen];
+		controller.delegate = self;
 		[tempControllers addObject: controller];
 	}
 	controllers = tempControllers;
