@@ -213,7 +213,7 @@
 	case NSCarriageReturnCharacter:
 	case NSEnterCharacter:
 		[self resizeActiveWindowToSelectedFraction];
-		break;
+		return;
 	case NSLeftArrowFunctionKey:
 		if(event.modifierFlags & NSShiftKeyMask) {
 			[self moveBackwardAndModifySelection: nil];
