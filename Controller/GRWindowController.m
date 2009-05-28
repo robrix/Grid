@@ -205,6 +205,10 @@
 	[self.delegate deactivate];
 }
 
+-(void)windowDidResignKey:(NSNotification *)notification {
+	[self deactivate];
+}
+
 
 -(void)keyDown:(NSEvent *)event {
 	NSRange tempHorizontalRange = selectedHorizontalFractionRange, tempVerticalRange = selectedVerticalFractionRange;
