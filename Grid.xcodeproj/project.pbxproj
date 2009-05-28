@@ -16,6 +16,8 @@
 		D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF3370FCB389B00D8ED65 /* GRWindowController.m */; };
 		D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */; };
 		D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48BF4500FCE2A1500D8ED65 /* Carbon.framework */; };
+		D48BF48A0FCE538A00D8ED65 /* GRApplicationUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF4870FCE538A00D8ED65 /* GRApplicationUIElement.m */; };
+		D48BF48B0FCE538A00D8ED65 /* GRWindowUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF4890FCE538A00D8ED65 /* GRWindowUIElement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		D48BF3370FCB389B00D8ED65 /* GRWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRWindowController.m; sourceTree = "<group>"; };
 		D48BF33D0FCB3AFE00D8ED65 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/GRWindow.xib; sourceTree = "<group>"; };
 		D48BF4500FCE2A1500D8ED65 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		D48BF4860FCE538A00D8ED65 /* GRApplicationUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRApplicationUIElement.h; sourceTree = "<group>"; };
+		D48BF4870FCE538A00D8ED65 /* GRApplicationUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRApplicationUIElement.m; sourceTree = "<group>"; };
+		D48BF4880FCE538A00D8ED65 /* GRWindowUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRWindowUIElement.h; sourceTree = "<group>"; };
+		D48BF4890FCE538A00D8ED65 /* GRWindowUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRWindowUIElement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +66,9 @@
 		29B97314FDCFA39411CA2CEA /* Grid */ = {
 			isa = PBXGroup;
 			children = (
-				D48BF3170FCB347800D8ED65 /* Controller */,
+				D48BF4850FCE538A00D8ED65 /* Model */,
 				D48BF3080FCB331500D8ED65 /* View */,
+				D48BF3170FCB347800D8ED65 /* Controller */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -117,6 +124,17 @@
 				D48BF3370FCB389B00D8ED65 /* GRWindowController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		D48BF4850FCE538A00D8ED65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D48BF4860FCE538A00D8ED65 /* GRApplicationUIElement.h */,
+				D48BF4870FCE538A00D8ED65 /* GRApplicationUIElement.m */,
+				D48BF4880FCE538A00D8ED65 /* GRWindowUIElement.h */,
+				D48BF4890FCE538A00D8ED65 /* GRWindowUIElement.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +197,8 @@
 				D48BF30B0FCB331500D8ED65 /* GRAreaSelectionView.m in Sources */,
 				D48BF31C0FCB347800D8ED65 /* GRController.m in Sources */,
 				D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */,
+				D48BF48A0FCE538A00D8ED65 /* GRApplicationUIElement.m in Sources */,
+				D48BF48B0FCE538A00D8ED65 /* GRWindowUIElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +272,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -265,6 +286,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
