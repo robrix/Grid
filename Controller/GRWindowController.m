@@ -200,7 +200,10 @@
 
 
 -(CGRect)selectedArea {
-	return [self.areaSelectionView selectedAreaForBounds: self.screen.visibleFrame];
+	CGRect selectedArea = [self.areaSelectionView selectedAreaForBounds: self.screen.visibleFrame];
+	selectedArea.origin.x += self.screen.visibleFrame.origin.x;
+	selectedArea.origin.y += self.screen.visibleFrame.origin.y;
+	return selectedArea;
 }
 
 
@@ -212,7 +215,7 @@
 
 
 -(void)windowDidResignKey:(NSNotification *)notification {
-	[self deactivate];
+	// [self deactivate];
 }
 
 
