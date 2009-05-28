@@ -16,12 +16,12 @@
 	);
 	NSRect selectedArea;
 	selectedArea.origin = NSMakePoint(
-		roundf(fractionSize.width * selectedHorizontalFractionRange.location) + 0.5f,
-		roundf(fractionSize.height * selectedVerticalFractionRange.location) + 0.5f
+		roundf(fractionSize.width * selectedHorizontalFractionRange.location),
+		roundf(fractionSize.height * selectedVerticalFractionRange.location)
 	);
 	selectedArea.size = NSMakeSize(
-		roundf((fractionSize.width * selectedHorizontalFractionRange.location) + (fractionSize.width * selectedHorizontalFractionRange.length) + 0.5f - selectedArea.origin.x),
-		roundf((fractionSize.height * selectedVerticalFractionRange.location) + (fractionSize.height * selectedVerticalFractionRange.length) + 0.5f - selectedArea.origin.y)
+		roundf((fractionSize.width * selectedHorizontalFractionRange.location) + (fractionSize.width * selectedHorizontalFractionRange.length) - selectedArea.origin.x),
+		roundf((fractionSize.height * selectedVerticalFractionRange.location) + (fractionSize.height * selectedVerticalFractionRange.length) - selectedArea.origin.y)
 	); // this is done this absurd way to avoid rounding errors (and thus the boundaries of the selection area being drawn one pixel too high or low)
 	return selectedArea;
 }
@@ -71,7 +71,7 @@
 	
 	// selected area
 	CGRect selectedArea = [self selectedAreaForBounds: self.bounds];
-	path = [NSBezierPath bezierPathWithRect: selectedArea];
+	path = [NSBezierPath bezierPathWithRect: NSOffsetRect(selectedArea, 0.5f, 0.5f)];
 	[path fill];
 	[path stroke];
 	
