@@ -198,10 +198,21 @@
 }
 
 
+-(void)resizeActiveWindowToSelectedFraction {
+	NSLog(@"should resize here");
+	
+	[self deactivate];
+}
+
+
 -(void)keyDown:(NSEvent *)event {
 	NSRange tempHorizontalRange = selectedHorizontalFractionRange, tempVerticalRange = selectedVerticalFractionRange;
 	NSUInteger tempHorizontalFraction = selectedHorizontalFraction, tempVerticalFraction = selectedVerticalFraction;
 	switch([event.charactersIgnoringModifiers characterAtIndex: 0]) {
+	case NSCarriageReturnCharacter:
+	case NSEnterCharacter:
+		[self resizeActiveWindowToSelectedFraction];
+		break;
 	case NSLeftArrowFunctionKey:
 		if(event.modifierFlags & NSShiftKeyMask) {
 			[self moveBackwardAndModifySelection: nil];
