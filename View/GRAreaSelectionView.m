@@ -11,8 +11,8 @@
 -(CGRect)selectedAreaForBounds:(CGRect)bounds {
 	NSRange selectedHorizontalFractionRange = self.delegate.selectedHorizontalFractionRange, selectedVerticalFractionRange = self.delegate.selectedVerticalFractionRange;
 	NSSize fractionSize = NSMakeSize(
-		bounds.size.width / self.delegate.selectedHorizontalFraction,
-		bounds.size.height / self.delegate.selectedVerticalFraction
+		NSWidth(bounds) / self.delegate.selectedHorizontalFraction,
+		NSHeight(bounds) / self.delegate.selectedVerticalFraction
 	);
 	NSRect selectedArea;
 	selectedArea.origin = NSMakePoint(
@@ -33,8 +33,8 @@
 	NSBezierPath *path = [NSBezierPath bezierPath];
 	for(NSUInteger fraction = 1; fraction <= self.delegate.maximumHorizontalFractions; fraction++) {
 		for(NSUInteger n = 1; n < fraction; n++) {
-			[path moveToPoint: NSMakePoint(roundf((self.bounds.size.width / fraction) * n) + 0.5f, 0)];
-			[path lineToPoint: NSMakePoint(roundf((self.bounds.size.width / fraction) * n) + 0.5f, NSHeight(self.bounds))];
+			[path moveToPoint: NSMakePoint(roundf((NSWidth(self.bounds) / fraction) * n) + 0.5f, 0)];
+			[path lineToPoint: NSMakePoint(roundf((NSWidth(self.bounds) / fraction) * n) + 0.5f, NSHeight(self.bounds))];
 		}
 	}
 	[path stroke];
@@ -43,8 +43,8 @@
 	path = [NSBezierPath bezierPath];
 	for(NSUInteger fraction = 1; fraction <= self.delegate.maximumVerticalFractions; fraction++) {
 		for(NSUInteger n = 1; n < fraction; n++) {
-			[path moveToPoint: NSMakePoint(0, roundf((self.bounds.size.height / fraction) * n) + 0.5f)];
-			[path lineToPoint: NSMakePoint(NSWidth(self.bounds), roundf((self.bounds.size.height / fraction) * n) + 0.5f)];
+			[path moveToPoint: NSMakePoint(0, roundf((NSHeight(self.bounds) / fraction) * n) + 0.5f)];
+			[path lineToPoint: NSMakePoint(NSWidth(self.bounds), roundf((NSHeight(self.bounds) / fraction) * n) + 0.5f)];
 		}
 	}
 	[path stroke];
@@ -56,16 +56,16 @@
 	// active horizontal fractions
 	path = [NSBezierPath bezierPath];
 	for(NSUInteger n = 1; n < self.delegate.selectedHorizontalFraction; n++) {
-		[path moveToPoint: NSMakePoint(roundf((self.bounds.size.width / self.delegate.selectedHorizontalFraction) * n) + 0.5f, 0)];
-		[path lineToPoint: NSMakePoint(roundf((self.bounds.size.width / self.delegate.selectedHorizontalFraction) * n) + 0.5f, NSHeight(self.bounds))];
+		[path moveToPoint: NSMakePoint(roundf((NSWidth(self.bounds) / self.delegate.selectedHorizontalFraction) * n) + 0.5f, 0)];
+		[path lineToPoint: NSMakePoint(roundf((NSWidth(self.bounds) / self.delegate.selectedHorizontalFraction) * n) + 0.5f, NSHeight(self.bounds))];
 	}
 	[path stroke];
 	
 	// active vertical fractions
 	path = [NSBezierPath bezierPath];
 	for(NSUInteger n = 1; n < self.delegate.selectedVerticalFraction; n++) {
-		[path moveToPoint: NSMakePoint(0, roundf((self.bounds.size.height / self.delegate.selectedVerticalFraction) * n) + 0.5f)];
-		[path lineToPoint: NSMakePoint(NSWidth(self.bounds), roundf((self.bounds.size.height / self.delegate.selectedVerticalFraction) * n) + 0.5f)];
+		[path moveToPoint: NSMakePoint(0, roundf((NSHeight(self.bounds) / self.delegate.selectedVerticalFraction) * n) + 0.5f)];
+		[path lineToPoint: NSMakePoint(NSWidth(self.bounds), roundf((NSHeight(self.bounds) / self.delegate.selectedVerticalFraction) * n) + 0.5f)];
 	}
 	[path stroke];
 	
