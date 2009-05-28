@@ -32,6 +32,13 @@
 }
 
 
+-(void)setApplicationRef:(AXUIElementRef)ref {
+	AXUIElementRef old = applicationRef;
+	applicationRef = ref ? CFRetain(ref) : NULL;
+	if(old) CFRelease(old);
+}
+
+
 -(GRWindowUIElement *)mainWindow {
 	GRWindowUIElement *window = nil;
 	AXError error = kAXErrorSuccess;
