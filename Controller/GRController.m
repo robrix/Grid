@@ -45,8 +45,23 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 }
 
 
+-(GRWindowController *)windowControllerForWindowElementWithFrame:(CGRect)frame {
+	CGPoint topLeft = CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame));
+	GRWindowController *result = nil;
+	for(GRWindowController *controller in controllers) {
+		if(CGRectContainsPoint(controller.screen.frame, topLeft)) {
+			result = controller;
+			break;
+		}
+	}
+	return result;
+}
+
+
 -(void)activate {
 	[controllers makeObjectsPerformSelector: @selector(activate)];
+	CGRect frame = self.windowElement.frame;
+	[[self windowControllerForWindowElementWithFrame: frame] activate]; // focus on the grid window for the screen the window is already on
 }
 
 -(void)deactivate {
@@ -60,7 +75,7 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 
 
 -(void)windowController:(GRWindowController *)controller didSelectArea:(CGRect)selectedArea {
-	selectedArea.origin.y = NSHeight(controller.screen.frame) - NSHeight(selectedArea) - selectedArea.origin.y;
+	selectedArea.origin.y = NSHeight(controller.screen.frame) - NSHeight(selectedArea) - selectedArea.origin.y; // flip the selected area
 	NSLog(@"Resizing to %@ within %@.", NSStringFromRect(selectedArea), NSStringFromRect(controller.screen.visibleFrame));
 	self.windowElement.frame = selectedArea;
 }
