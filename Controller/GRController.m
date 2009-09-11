@@ -15,11 +15,19 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 
 @property GRWindowUIElement *windowElement;
 
+-(void)shortcutKeyDown;
+
+-(void)activate;
+-(void)deactivate;
+
+@property (nonatomic) NSUInteger activeControllerIndex;
+
 @end
 
 @implementation GRController
 
 @synthesize windowElement;
+@synthesize activeControllerIndex;
 
 -(void)awakeFromNib {
 	NSMutableArray *tempControllers = [NSMutableArray array];
@@ -45,27 +53,43 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 }
 
 
--(GRWindowController *)windowControllerForWindowElementWithFrame:(CGRect)frame {
+-(NSUInteger)indexOfWindowControllerForWindowElementWithFrame:(CGRect)frame {
 	CGPoint topLeft = CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame));
-	GRWindowController *result = nil;
+	NSUInteger index = 0;
 	for(GRWindowController *controller in controllers) {
-		if(CGRectContainsPoint(controller.screen.frame, topLeft)) {
-			result = controller;
+		if(CGRectContainsPoint(controller.screen.frame, topLeft))
 			break;
-		}
+		index++;
 	}
-	return result;
+	return index;
+}
+
+
+-(void)shortcutKeyDown {
+	GRWindowUIElement *element = [GRApplicationUIElement focusedApplication].mainWindow;
+	if(element) {
+		self.windowElement = element;
+		CGRect frame = self.windowElement.frame;
+		[self activate];
+		self.activeControllerIndex = [self indexOfWindowControllerForWindowElementWithFrame: frame];
+	} else {
+		[self deactivate];
+	}
 }
 
 
 -(void)activate {
 	[controllers makeObjectsPerformSelector: @selector(activate)];
-	CGRect frame = self.windowElement.frame;
-	[[self windowControllerForWindowElementWithFrame: frame] activate]; // focus on the grid window for the screen the window is already on
 }
 
 -(void)deactivate {
 	[controllers makeObjectsPerformSelector: @selector(deactivate)];
+}
+
+
+-(void)setActiveControllerIndex:(NSUInteger)index {
+	activeControllerIndex = index;
+	[[controllers objectAtIndex: activeControllerIndex] showWindow: nil]; // focus on the active screen (by default, the one the window is on; can be switched with ⌘` and ⇧⌘`)
 }
 
 
@@ -80,19 +104,24 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 	self.windowElement.frame = selectedArea;
 }
 
+
+-(IBAction)nextController:(id)sender {
+	self.activeControllerIndex = (activeControllerIndex + 1) % controllers.count;
+}
+
+-(IBAction)previousController:(id)sender {
+	if(activeControllerIndex > 0) {
+		self.activeControllerIndex = activeControllerIndex - 1;
+	} else {
+		self.activeControllerIndex = controllers.count - 1;
+	}
+}
+
 @end
 
 
 OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, void *userData) {
 	GRController *controller = (GRController *)userData;
-	
-	GRWindowUIElement *windowElement = [GRApplicationUIElement focusedApplication].mainWindow;
-	if(windowElement) {
-		controller.windowElement = windowElement;
-		[controller activate];
-	} else {
-		[controller deactivate];
-	}
-	
+	[controller shortcutKeyDown];
 	return noErr;
 }

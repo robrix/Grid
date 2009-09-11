@@ -6,6 +6,11 @@
 
 @interface GRController : NSObject {
 	NSArray *controllers;
+	NSUInteger activeControllerIndex;
 	GRWindowUIElement *windowElement;
 }
+
+-(IBAction)nextController:(id)sender;
+-(IBAction)previousController:(id)sender;
+
 @end
