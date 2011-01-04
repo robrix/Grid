@@ -5,10 +5,10 @@
 @protocol GRAreaSelectionViewDelegate;
 
 @interface GRAreaSelectionView : NSView {
-	NSResponder<GRAreaSelectionViewDelegate> *delegate;
+	IBOutlet id<GRAreaSelectionViewDelegate> delegate;
 }
 
-@property (nonatomic, assign) NSResponder<GRAreaSelectionViewDelegate> *delegate;
+@property (nonatomic, assign) IBOutlet id<GRAreaSelectionViewDelegate> delegate;
 
 -(CGRect)selectedAreaForBounds:(CGRect)bounds;
 
