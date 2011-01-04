@@ -65,7 +65,7 @@
 }
 
 -(NSUInteger)maximumVerticalFractions {
-	return 3;
+	return 4;
 }
 
 
