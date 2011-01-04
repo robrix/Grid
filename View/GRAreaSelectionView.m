@@ -27,7 +27,7 @@
 }
 
 -(void)drawRect:(NSRect)rect {
-	[[NSColor colorWithDeviceWhite: 1.0f alpha: 0.25f] setStroke];
+	[[NSColor colorWithDeviceWhite: 1.0f alpha: 0.10f] setStroke];
 	
 	// inactive horizontal fractions
 	NSBezierPath *path = [NSBezierPath bezierPath];
