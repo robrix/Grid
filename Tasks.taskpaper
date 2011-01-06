@@ -4,8 +4,11 @@ UI:
 	- make it much more obvious which window (screen) is actually active.
 	- describe the change-fraction-sizes and -selection shortcuts in the UI, perhaps at the bottom of the window?
 	- increase the maximum vertical fraction to quarters. @done(2011-01-04)
+	- some way to access the prefs from the main window (in case the Dock icon is hidden)
+	- status item to bring up the Grid window @version(2.0)
+	- mouse interaction (resize handle on the selected area)
 Preferences:
-	- preference for the trigger-the-app shortcut.
+	- preference for the trigger-the-app shortcut. @done(2011-01-06)
 	- authorize the app for accessibility access so that the user doesn’t have to have “Enable access…” enabled.
 	- preference to hide the Dock icon.
 Overall:
@@ -13,3 +16,5 @@ Overall:
 	- artwork for icon.
 	- persist the selection between relaunches.
 	- remove the “Resizing to…” log.
+Bugs:
+	- exception thrown when a window is off the left side of the only screen.

@@ -8,6 +8,7 @@
 #import "GRWindowController.h"
 #import "GRWindowUIElement.h"
 #import <Carbon/Carbon.h>
+#import <ShortcutRecorder/ShortcutRecorder.h>
 
 OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, void *userData);
 
@@ -29,6 +30,17 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 @synthesize windowElement;
 @synthesize activeControllerIndex;
 
++(void)initialize {
+	[[NSUserDefaults standardUserDefaults] registerDefaults: [NSDictionary dictionaryWithObjectsAndKeys:
+		[NSDictionary dictionaryWithObjectsAndKeys:
+			@"`", @"characters",
+			[NSNumber numberWithInteger: 50], @"keyCode",
+			[NSNumber numberWithUnsignedInteger: cmdKey + optionKey], @"modifierFlags",
+		nil], @"GRShortcut",
+	nil]];
+}
+
+
 -(void)awakeFromNib {
 	NSMutableArray *tempControllers = [NSMutableArray array];
 	for(NSScreen *screen in [NSScreen screens]) {
@@ -44,12 +56,34 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 	};
 	InstallApplicationEventHandler(&GRControllerShortcutWasPressed, 1, &eventType, self, NULL);
 	
-	EventHotKeyID shortcutIdentifier = {
-		.id = 1,
-		.signature = 'GRSc'
-	};
-	EventHotKeyRef shortcutReference;
-	RegisterEventHotKey(50, cmdKey+optionKey, shortcutIdentifier, GetApplicationEventTarget(), 0, &shortcutReference);
+	shortcutRecorder.canCaptureGlobalHotKeys = YES;
+}
+
+
+-(NSDictionary *)shortcut {
+	return [[NSUserDefaults standardUserDefaults] dictionaryForKey: @"GRShortcut"];
+}
+
+-(void)setShortcut:(NSDictionary *)shortcut {
+	if(shortcut) {
+		[[NSUserDefaults standardUserDefaults] setObject: shortcut forKey: @"GRShortcut"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+		
+		EventHotKeyID shortcutIdentifier = {
+			.id = 1,
+			.signature = 'GRSc'
+		};
+		
+		NSInteger keyCode = [[shortcut objectForKey: @"keyCode"] integerValue];
+		NSUInteger modifierFlags = [[shortcut objectForKey: @"modifierFlags"] unsignedIntegerValue];
+		// if(shortcutReference) {
+			UnregisterEventHotKey(shortcutReference);
+		// }
+		OSErr error = RegisterEventHotKey(keyCode, [shortcutRecorder cocoaToCarbonFlags: modifierFlags], shortcutIdentifier, GetApplicationEventTarget(), 0, &shortcutReference);
+		if(error != noErr) {
+			NSLog(@"error when registering hot key: %i", error);
+		}
+	}
 }
 
 
@@ -125,3 +159,12 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 	[controller shortcutKeyDown];
 	return noErr;
 }
+
+
+@implementation SRValidator (GRCanCaptureGlobalHotKeysIsBroken)
+
+-(BOOL)isKeyCode:(NSInteger)keyCode andFlagsTaken:(NSUInteger)flags error:(NSError **)error {
+	return NO;
+}
+
+@end
