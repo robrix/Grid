@@ -9,4 +9,8 @@
 +(id)elementWithElementRef:(AXUIElementRef)_elementRef;
 -(id)initWithElementRef:(AXUIElementRef)_elementRef;
 
+@property (nonatomic, readonly) AXUIElementRef elementRef;
+
+-(AXUIElementRef)elementRefForKey:(NSString *)key error:(AXError *)error;
+
 @end

@@ -4,12 +4,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class HAXSystemWideElement;
-
 @interface HAXElement : NSObject {
+@private
 	AXUIElementRef elementRef;
 }
-
-+(HAXSystemWideElement *)systemWideElement;
 
 @end

@@ -23,8 +23,15 @@
 }
 
 
-+(HAXSystemWideElement *)systemWideElement {
-	return [self elementWithElementRef:CFMakeCollectable(AXUIElementCreateSystemWide())];
+@synthesize elementRef;
+
+
+-(AXUIElementRef)elementRefForKey:(NSString *)key error:(AXError *)error {
+	NSParameterAssert(key != nil);
+	AXUIElementRef attributeRef = NULL;
+	AXError localError = AXUIElementCopyAttributeValue(elementRef, (CFStringRef)key, (CFTypeRef *)&attributeRef);
+	if(error) *error = localError;
+	return  CFMakeCollectable(attributeRef);
 }
 
 @end
