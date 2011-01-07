@@ -2,19 +2,18 @@
 // Created by Rob Rix on 2009-05-25
 // Copyright 2009 Monochrome Industries
 
-#import "GRApplicationUIElement.h"
 #import "GRAreaSelectionView.h"
 #import "GRController.h"
 #import "GRWindowController.h"
-#import "GRWindowUIElement.h"
 #import <Carbon/Carbon.h>
 #import <ShortcutRecorder/ShortcutRecorder.h>
+#import <Haxcessibility/Haxcessibility.h>
 
 OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, void *userData);
 
 @interface GRController () <GRWindowControllerDelegate>
 
-@property GRWindowUIElement *windowElement;
+@property HAXWindowElement *windowElement;
 
 -(void)shortcutKeyDown;
 
@@ -100,7 +99,7 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 
 
 -(void)shortcutKeyDown {
-	GRWindowUIElement *element = [GRApplicationUIElement focusedApplication].focusedWindow;
+	HAXWindowElement *element = [HAXSystemWideElement element].focusedApplication.focusedWindow;
 	if(element) {
 		self.windowElement = element;
 		CGRect frame = self.windowElement.frame;

@@ -13,14 +13,31 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		D42D255012D3794800152DAD /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42D254F12D3794800152DAD /* ShortcutRecorder.framework */; };
 		D42D255A12D4DDC100152DAD /* ShortcutRecorder.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D42D254F12D3794800152DAD /* ShortcutRecorder.framework */; };
+		D44E055212D75CCE00541D6A /* Haxcessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44E054F12D75CB900541D6A /* Haxcessibility.framework */; };
+		D44E055A12D75CD100541D6A /* Haxcessibility.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D44E054F12D75CB900541D6A /* Haxcessibility.framework */; };
 		D48BF30B0FCB331500D8ED65 /* GRAreaSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF30A0FCB331500D8ED65 /* GRAreaSelectionView.m */; };
 		D48BF31C0FCB347800D8ED65 /* GRController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF31A0FCB347800D8ED65 /* GRController.m */; };
 		D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF3370FCB389B00D8ED65 /* GRWindowController.m */; };
 		D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */; };
 		D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48BF4500FCE2A1500D8ED65 /* Carbon.framework */; };
-		D48BF48A0FCE538A00D8ED65 /* GRApplicationUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF4870FCE538A00D8ED65 /* GRApplicationUIElement.m */; };
-		D48BF48B0FCE538A00D8ED65 /* GRWindowUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF4890FCE538A00D8ED65 /* GRWindowUIElement.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D44E054E12D75CB900541D6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = Haxcessibility;
+		};
+		D44E055012D75CC600541D6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Haxcessibility;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D42D256412D4DDC400152DAD /* Copy Frameworks */ = {
@@ -29,6 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D44E055A12D75CD100541D6A /* Haxcessibility.framework in Copy Frameworks */,
 				D42D255A12D4DDC100152DAD /* ShortcutRecorder.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -41,10 +59,11 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		32CA4F630368D1EE00C91783 /* Grid_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid_Prefix.pch; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* Grid.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Grid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42D254F12D3794800152DAD /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = External/ShortcutRecorder.framework; sourceTree = "<group>"; };
+		D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Haxcessibility.xcodeproj; path = Haxcessibility/Haxcessibility.xcodeproj; sourceTree = "<group>"; };
 		D48BF3090FCB331500D8ED65 /* GRAreaSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAreaSelectionView.h; sourceTree = "<group>"; };
 		D48BF30A0FCB331500D8ED65 /* GRAreaSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAreaSelectionView.m; sourceTree = "<group>"; };
 		D48BF3190FCB347800D8ED65 /* GRController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRController.h; sourceTree = "<group>"; };
@@ -53,10 +72,6 @@
 		D48BF3370FCB389B00D8ED65 /* GRWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRWindowController.m; sourceTree = "<group>"; };
 		D48BF33D0FCB3AFE00D8ED65 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/GRWindow.xib; sourceTree = "<group>"; };
 		D48BF4500FCE2A1500D8ED65 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		D48BF4860FCE538A00D8ED65 /* GRApplicationUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRApplicationUIElement.h; sourceTree = "<group>"; };
-		D48BF4870FCE538A00D8ED65 /* GRApplicationUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRApplicationUIElement.m; sourceTree = "<group>"; };
-		D48BF4880FCE538A00D8ED65 /* GRWindowUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRWindowUIElement.h; sourceTree = "<group>"; };
-		D48BF4890FCE538A00D8ED65 /* GRWindowUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRWindowUIElement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D44E055212D75CCE00541D6A /* Haxcessibility.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */,
 				D42D255012D3794800152DAD /* ShortcutRecorder.framework in Frameworks */,
@@ -84,10 +100,10 @@
 		29B97314FDCFA39411CA2CEA /* Grid */ = {
 			isa = PBXGroup;
 			children = (
-				D48BF4850FCE538A00D8ED65 /* Model */,
 				D48BF3080FCB331500D8ED65 /* View */,
 				D48BF3170FCB347800D8ED65 /* Controller */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				D4D2109212D6A92000509E57 /* External */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -98,7 +114,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* Grid_Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* Grid.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			path = "Other Sources";
@@ -125,6 +141,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D44E054812D75CB900541D6A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D44E054F12D75CB900541D6A /* Haxcessibility.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D48BF3080FCB331500D8ED65 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,15 +169,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		D48BF4850FCE538A00D8ED65 /* Model */ = {
+		D4D2109212D6A92000509E57 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				D48BF4860FCE538A00D8ED65 /* GRApplicationUIElement.h */,
-				D48BF4870FCE538A00D8ED65 /* GRApplicationUIElement.m */,
-				D48BF4880FCE538A00D8ED65 /* GRWindowUIElement.h */,
-				D48BF4890FCE538A00D8ED65 /* GRWindowUIElement.m */,
+				D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */,
 			);
-			path = Model;
+			path = External;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +192,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D44E055112D75CC600541D6A /* PBXTargetDependency */,
 			);
 			name = Grid;
 			productInstallPath = "$(HOME)/Applications";
@@ -195,12 +217,28 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Grid */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D44E054812D75CB900541D6A /* Products */;
+					ProjectRef = D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Grid */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D44E054F12D75CB900541D6A /* Haxcessibility.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Haxcessibility.framework;
+			remoteRef = D44E054E12D75CB900541D6A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
@@ -224,12 +262,18 @@
 				D48BF30B0FCB331500D8ED65 /* GRAreaSelectionView.m in Sources */,
 				D48BF31C0FCB347800D8ED65 /* GRController.m in Sources */,
 				D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */,
-				D48BF48A0FCE538A00D8ED65 /* GRApplicationUIElement.m in Sources */,
-				D48BF48B0FCE538A00D8ED65 /* GRWindowUIElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D44E055112D75CC600541D6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Haxcessibility;
+			targetProxy = D44E055012D75CC600541D6A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -266,16 +310,13 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/External\"",
+					"$(SRCROOT)/External/Haxcessibility/build/$(CONFIGURATION)",
+					"$(SRCROOT)/External",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Other Sources/Grid_Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Grid;
@@ -288,13 +329,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/External\"",
+					"$(SRCROOT)/External/Haxcessibility/build/$(CONFIGURATION)",
+					"$(SRCROOT)/External",
 				);
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Other Sources/Grid_Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Grid;
@@ -306,7 +345,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Other Sources/Grid.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -321,6 +363,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Other Sources/Grid.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
