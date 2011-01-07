@@ -6,7 +6,7 @@
 
 @interface HAXElement : NSObject {
 @private
-	AXUIElementRef elementRef;
+	__strong AXUIElementRef elementRef;
 }
 
 @end
