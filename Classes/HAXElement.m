@@ -40,7 +40,7 @@
 }
 
 -(void)setAttributeValue:(CFTypeRef)value forKey:(NSString *)key error:(NSError **)error {
-	AXError result = AXUIElementSetAttributeValue(elementRef, (CFStringRef)key, &value);
+	AXError result = AXUIElementSetAttributeValue(elementRef, (CFStringRef)key, value);
 	if((result != kAXErrorSuccess) && error) {
 		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 			key, @"key",
