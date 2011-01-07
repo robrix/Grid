@@ -39,17 +39,17 @@
 }
 
 
--(GRWindowUIElement *)mainWindow {
+-(GRWindowUIElement *)focusedWindow {
 	GRWindowUIElement *window = nil;
 	AXError error = kAXErrorSuccess;
-	AXUIElementRef mainWindowRef = NULL;
-	error = AXUIElementCopyAttributeValue(self.applicationRef, (CFStringRef)@"AXMainWindow", (CFTypeRef *)&mainWindowRef);
-	if((error == kAXErrorSuccess) && (mainWindowRef != NULL)) {
-		CFMakeCollectable(mainWindowRef);
+	AXUIElementRef focusedWindowRef = NULL;
+	error = AXUIElementCopyAttributeValue(self.applicationRef, (CFStringRef)@"AXFocusedWindow", (CFTypeRef *)&focusedWindowRef);
+	if((error == kAXErrorSuccess) && (focusedWindowRef != NULL)) {
+		CFMakeCollectable(focusedWindowRef);
 		window = [[GRWindowUIElement alloc] init];
-		window.windowRef = mainWindowRef;
+		window.windowRef = focusedWindowRef;
 	} else {
-		NSLog(@"Couldn’t get main window.");
+		NSLog(@"Couldn’t get focused window.");
 	}
 	return window;
 }

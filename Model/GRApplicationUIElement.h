@@ -10,7 +10,7 @@
 
 +(GRApplicationUIElement *)focusedApplication;
 
-@property (nonatomic, readonly) GRWindowUIElement *mainWindow;
+@property (nonatomic, readonly) GRWindowUIElement *focusedWindow;
 
 @property (nonatomic, assign) AXUIElementRef applicationRef;
 

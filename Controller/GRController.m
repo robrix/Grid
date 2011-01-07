@@ -100,7 +100,7 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 
 
 -(void)shortcutKeyDown {
-	GRWindowUIElement *element = [GRApplicationUIElement focusedApplication].mainWindow;
+	GRWindowUIElement *element = [GRApplicationUIElement focusedApplication].focusedWindow;
 	if(element) {
 		self.windowElement = element;
 		CGRect frame = self.windowElement.frame;
