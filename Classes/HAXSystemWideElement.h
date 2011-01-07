@@ -10,6 +10,6 @@
 
 +(HAXSystemWideElement *)element;
 
--(HAXApplicationElement *)focusedApplication;
+@property (nonatomic, readonly) HAXApplicationElement *focusedApplication;
 
 @end

@@ -4,8 +4,10 @@
 
 #import <Haxery/HAXElement.h>
 
+@class HAXWindowElement;
+
 @interface HAXApplicationElement : HAXElement
 
-
+@property (nonatomic, readonly) HAXWindowElement *focusedWindow;
 
 @end

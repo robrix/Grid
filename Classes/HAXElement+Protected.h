@@ -11,6 +11,7 @@
 
 @property (nonatomic, readonly) AXUIElementRef elementRef;
 
--(AXUIElementRef)elementRefForKey:(NSString *)key error:(AXError *)error;
+-(CFTypeRef)attributeValueForKey:(NSString *)key error:(NSError **)error;
+-(id)elementOfClass:(Class)klass forKey:(NSString *)key error:(NSError **)error;
 
 @end

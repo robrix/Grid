@@ -26,12 +26,23 @@
 @synthesize elementRef;
 
 
--(AXUIElementRef)elementRefForKey:(NSString *)key error:(AXError *)error {
+-(CFTypeRef)attributeValueForKey:(NSString *)key error:(NSError **)error {
 	NSParameterAssert(key != nil);
-	AXUIElementRef attributeRef = NULL;
-	AXError localError = AXUIElementCopyAttributeValue(elementRef, (CFStringRef)key, (CFTypeRef *)&attributeRef);
-	if(error) *error = localError;
-	return  CFMakeCollectable(attributeRef);
+	CFTypeRef attributeRef = NULL;
+	AXError attributeError = AXUIElementCopyAttributeValue(elementRef, (CFStringRef)key, &attributeRef);
+	if((attributeError != kAXErrorSuccess) && error) {
+		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:attributeError userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+			key, @"key",
+			elementRef, @"elementRef",
+		nil]];
+	}
+	return CFMakeCollectable(attributeRef);
+}
+
+
+-(id)elementOfClass:(Class)klass forKey:(NSString *)key error:(NSError **)error {
+	AXUIElementRef subelementRef = (AXUIElementRef)[self attributeValueForKey:key error:error];
+	return (subelementRef != nil) ? [klass elementWithElementRef:subelementRef] : nil;
 }
 
 @end

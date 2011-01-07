@@ -14,8 +14,8 @@
 
 
 -(HAXApplicationElement *)focusedApplication {
-	AXError error = kAXErrorSuccess;
-	return [HAXApplicationElement elementWithElementRef:[self elementRefForKey:(NSString *)kAXFocusedApplicationAttribute error:&error]];
+	NSError *error = nil;
+	return [self elementOfClass:[HAXApplicationElement class] forKey:(NSString *)kAXFocusedApplicationAttribute error:&error];
 }
 
 @end
