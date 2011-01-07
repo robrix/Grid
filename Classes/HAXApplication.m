@@ -1,12 +1,12 @@
-// HAXApplicationElement.m
+// HAXApplication.m
 // Created by Rob Rix on 2011-01-06
 // Copyright 2011 Monochrome Industries
 
-#import "HAXApplicationElement.h"
+#import "HAXApplication.h"
 #import "HAXElement+Protected.h"
 #import "HAXWindowElement.h"
 
-@implementation HAXApplicationElement
+@implementation HAXApplication
 
 /*
 #define kAXMenuBarAttribute                     CFSTR("AXMenuBar")

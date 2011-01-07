@@ -4,5 +4,5 @@
 
 #import <Haxcessibility/HAXElement.h>
 #import <Haxcessibility/HAXSystemWideElement.h>
-#import <Haxcessibility/HAXApplicationElement.h>
+#import <Haxcessibility/HAXApplication.h>
 #import <Haxcessibility/HAXWindowElement.h>

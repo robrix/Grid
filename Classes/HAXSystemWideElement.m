@@ -2,7 +2,7 @@
 // Created by Rob Rix on 2011-01-06
 // Copyright 2011 Monochrome Industries
 
-#import "HAXApplicationElement.h"
+#import "HAXApplication.h"
 #import "HAXSystemWideElement.h"
 #import "HAXElement+Protected.h"
 
@@ -13,9 +13,9 @@
 }
 
 
--(HAXApplicationElement *)focusedApplication {
+-(HAXApplication *)focusedApplication {
 	NSError *error = nil;
-	return [self elementOfClass:[HAXApplicationElement class] forKey:(NSString *)kAXFocusedApplicationAttribute error:&error];
+	return [self elementOfClass:[HAXApplication class] forKey:(NSString *)kAXFocusedApplicationAttribute error:&error];
 }
 
 @end

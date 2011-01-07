@@ -4,12 +4,12 @@
 
 #import <Haxcessibility/HAXElement.h>
 
-@class HAXApplicationElement;
+@class HAXApplication;
 
 @interface HAXSystemWideElement : HAXElement
 
 +(HAXSystemWideElement *)element;
 
-@property (nonatomic, readonly) HAXApplicationElement *focusedApplication;
+@property (nonatomic, readonly) HAXApplication *focusedApplication;
 
 @end
