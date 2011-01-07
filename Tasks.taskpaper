@@ -15,6 +15,6 @@ Overall:
 	- com.devon-technologies.Grid @done(2011-01-04)
 	- artwork for icon.
 	- persist the selection between relaunches.
-	- remove the “Resizing to…” log.
+	- remove the “Resizing to…” log. @done(2011-01-07)
 Bugs:
 	- exception thrown when a window is off the left side of the only screen.
