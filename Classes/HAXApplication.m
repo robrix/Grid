@@ -4,7 +4,7 @@
 
 #import "HAXApplication.h"
 #import "HAXElement+Protected.h"
-#import "HAXWindowElement.h"
+#import "HAXWindow.h"
 
 @implementation HAXApplication
 
@@ -18,9 +18,9 @@
 #define kAXFocusedUIElementAttribute        CFSTR("AXFocusedUIElement")
 */
 
--(HAXWindowElement *)focusedWindow {
+-(HAXWindow *)focusedWindow {
 	NSError *error = nil;
-	return [self elementOfClass:[HAXWindowElement class] forKey:(NSString *)kAXFocusedWindowAttribute error:&error];
+	return [self elementOfClass:[HAXWindow class] forKey:(NSString *)kAXFocusedWindowAttribute error:&error];
 }
 
 @end

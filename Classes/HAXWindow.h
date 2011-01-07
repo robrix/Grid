@@ -1,10 +1,10 @@
-// HAXWindowElement.h
+// HAXWindow.h
 // Created by Rob Rix on 2011-01-06
 // Copyright 2011 Monochrome Industries
 
 #import <Haxcessibility/HAXElement.h>
 
-@interface HAXWindowElement : HAXElement
+@interface HAXWindow : HAXElement
 
 @property (nonatomic, assign) NSPoint origin;
 @property (nonatomic, assign) NSSize size;

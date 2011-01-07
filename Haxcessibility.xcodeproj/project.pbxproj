@@ -15,10 +15,10 @@
 		D4D2105512D698F400509E57 /* HAXSystemWideElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2105412D698F400509E57 /* HAXSystemWideElement.m */; };
 		D4D2105912D6991900509E57 /* HAXSystemWideElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2105312D698F200509E57 /* HAXSystemWideElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4D2106D12D69C8B00509E57 /* HAXApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2106C12D69C8B00509E57 /* HAXApplication.m */; };
-		D4D2108212D6A08800509E57 /* HAXWindowElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2108112D6A08800509E57 /* HAXWindowElement.m */; };
+		D4D2108212D6A08800509E57 /* HAXWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2108112D6A08800509E57 /* HAXWindow.m */; };
 		D4D2113D12D6AAF000509E57 /* Haxcessibility.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2113C12D6AAF000509E57 /* Haxcessibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4D2113E12D6AB0400509E57 /* HAXApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2106B12D69C8900509E57 /* HAXApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4D2113F12D6AB0400509E57 /* HAXWindowElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2108012D6A08600509E57 /* HAXWindowElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4D2113F12D6AB0400509E57 /* HAXWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2108012D6A08600509E57 /* HAXWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +35,8 @@
 		D4D2105412D698F400509E57 /* HAXSystemWideElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXSystemWideElement.m; sourceTree = "<group>"; };
 		D4D2106B12D69C8900509E57 /* HAXApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXApplication.h; sourceTree = "<group>"; };
 		D4D2106C12D69C8B00509E57 /* HAXApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXApplication.m; sourceTree = "<group>"; };
-		D4D2108012D6A08600509E57 /* HAXWindowElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXWindowElement.h; sourceTree = "<group>"; };
-		D4D2108112D6A08800509E57 /* HAXWindowElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXWindowElement.m; sourceTree = "<group>"; };
+		D4D2108012D6A08600509E57 /* HAXWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXWindow.h; sourceTree = "<group>"; };
+		D4D2108112D6A08800509E57 /* HAXWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXWindow.m; sourceTree = "<group>"; };
 		D4D2113C12D6AAF000509E57 /* Haxcessibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haxcessibility.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,8 +110,8 @@
 				D4D2105412D698F400509E57 /* HAXSystemWideElement.m */,
 				D4D2106B12D69C8900509E57 /* HAXApplication.h */,
 				D4D2106C12D69C8B00509E57 /* HAXApplication.m */,
-				D4D2108012D6A08600509E57 /* HAXWindowElement.h */,
-				D4D2108112D6A08800509E57 /* HAXWindowElement.m */,
+				D4D2108012D6A08600509E57 /* HAXWindow.h */,
+				D4D2108112D6A08800509E57 /* HAXWindow.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -126,7 +126,7 @@
 				D4D2105912D6991900509E57 /* HAXSystemWideElement.h in Headers */,
 				D4D2103712D6959400509E57 /* HAXElement.h in Headers */,
 				D4D2113E12D6AB0400509E57 /* HAXApplication.h in Headers */,
-				D4D2113F12D6AB0400509E57 /* HAXWindowElement.h in Headers */,
+				D4D2113F12D6AB0400509E57 /* HAXWindow.h in Headers */,
 				D4D2113D12D6AAF000509E57 /* Haxcessibility.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,7 +197,7 @@
 				D4D2103812D6959400509E57 /* HAXElement.m in Sources */,
 				D4D2105512D698F400509E57 /* HAXSystemWideElement.m in Sources */,
 				D4D2106D12D69C8B00509E57 /* HAXApplication.m in Sources */,
-				D4D2108212D6A08800509E57 /* HAXWindowElement.m in Sources */,
+				D4D2108212D6A08800509E57 /* HAXWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,10 +4,10 @@
 
 #import <Haxcessibility/HAXElement.h>
 
-@class HAXWindowElement;
+@class HAXWindow;
 
 @interface HAXApplication : HAXElement
 
-@property (nonatomic, readonly) HAXWindowElement *focusedWindow;
+@property (nonatomic, readonly) HAXWindow *focusedWindow;
 
 @end
