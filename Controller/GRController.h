@@ -5,12 +5,12 @@
 #import <Foundation/Foundation.h>
 #import <Carbon/Carbon.h>
 
-@class HAXWindowElement, SRRecorderControl;
+@class HAXWindow, SRRecorderControl;
 
 @interface GRController : NSObject {
 	NSArray *controllers;
 	NSUInteger activeControllerIndex;
-	HAXWindowElement *windowElement;
+	HAXWindow *windowElement;
 	
 	IBOutlet SRRecorderControl *shortcutRecorder;
 	EventHotKeyRef shortcutReference;
