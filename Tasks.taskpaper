@@ -17,4 +17,4 @@ Overall:
 	- persist the selection between relaunches.
 	- remove the “Resizing to…” log. @done(2011-01-07)
 Bugs:
-	- exception thrown when a window is off the left side of the only screen.
+	- exception thrown when a window is off the left side of the only screen. @done(2011-01-07)

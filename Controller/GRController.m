@@ -88,13 +88,16 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 
 -(NSUInteger)indexOfWindowControllerForWindowElementWithFrame:(CGRect)frame {
 	CGPoint topLeft = CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame));
+	NSUInteger result = 0;
 	NSUInteger index = 0;
 	for(GRWindowController *controller in controllers) {
-		if(CGRectContainsPoint(controller.screen.frame, topLeft))
+		if(CGRectContainsPoint(controller.screen.frame, topLeft)) {
+			result = index;
 			break;
+		}
 		index++;
 	}
-	return index;
+	return result;
 }
 
 
@@ -140,11 +143,9 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 }
 
 -(IBAction)previousController:(id)sender {
-	if(activeControllerIndex > 0) {
-		self.activeControllerIndex = activeControllerIndex - 1;
-	} else {
-		self.activeControllerIndex = controllers.count - 1;
-	}
+	self.activeControllerIndex = (activeControllerIndex > 0)?
+		activeControllerIndex - 1
+	:	controllers.count - 1;
 }
 
 @end
