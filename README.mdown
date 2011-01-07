@@ -1,8 +1,7 @@
-#Haxery
+#Haxcessibility
 
-Haxery is, above all, a horrible pun. OS X’s Accessibility APIs provide access to many interesting bits of the user interface, and that in turn lets us manipulate the UI programmatically. These APIs are prefixed with AX, leading to the oh-so-natural HAX prefix which Haxery uses. To be blunt, I named this framework Haxery so I could have an excuse to use that prefix.
+Haxcessibility is, above all, a horrible pun on Mac OS X’s Accessibility framework and its AX prefix. I am shameless.
 
-I would have called it HAX but I already have an [unrelated project](http://github.com/robrix/hax) named that.
 
 #Use it
 
