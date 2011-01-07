@@ -29,14 +29,24 @@
 -(CFTypeRef)attributeValueForKey:(NSString *)key error:(NSError **)error {
 	NSParameterAssert(key != nil);
 	CFTypeRef attributeRef = NULL;
-	AXError attributeError = AXUIElementCopyAttributeValue(elementRef, (CFStringRef)key, &attributeRef);
-	if((attributeError != kAXErrorSuccess) && error) {
-		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:attributeError userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+	AXError result = AXUIElementCopyAttributeValue(elementRef, (CFStringRef)key, &attributeRef);
+	if((result != kAXErrorSuccess) && error) {
+		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 			key, @"key",
 			elementRef, @"elementRef",
 		nil]];
 	}
 	return CFMakeCollectable(attributeRef);
+}
+
+-(void)setAttributeValue:(CFTypeRef)value forKey:(NSString *)key error:(NSError **)error {
+	AXError result = AXUIElementSetAttributeValue(elementRef, (CFStringRef)key, &value);
+	if((result != kAXErrorSuccess) && error) {
+		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+			key, @"key",
+			elementRef, @"elementRef",
+		nil]];
+	}
 }
 
 

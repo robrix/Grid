@@ -6,6 +6,8 @@
 
 @interface HAXWindowElement : HAXElement
 
-
+@property (nonatomic, assign) NSPoint origin;
+@property (nonatomic, assign) NSSize size;
+@property (nonatomic, assign) NSRect frame;
 
 @end
