@@ -3,6 +3,6 @@
 // Copyright 2011 Monochrome Industries
 
 #import <Haxcessibility/HAXElement.h>
-#import <Haxcessibility/HAXSystemWideElement.h>
+#import <Haxcessibility/HAXSystem.h>
 #import <Haxcessibility/HAXApplication.h>
 #import <Haxcessibility/HAXWindow.h>

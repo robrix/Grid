@@ -5,6 +5,6 @@ Haxcessibility is, above all, a horrible pun on Mac OS X’s Accessibility frame
 
 #Use it
 
-	[HAXSystemWideElement element].focusedApplication.focusedWindow.size = NSMakeRect(0, 0, 2560, 1440);
+	[HAXSystem element].focusedApplication.focusedWindow.size = NSMakeRect(0, 0, 2560, 1440);
 
 More features are, obviously, desirable.

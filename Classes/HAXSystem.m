@@ -1,14 +1,14 @@
-// HAXSystemWideElement.m
+// HAXSystem.m
 // Created by Rob Rix on 2011-01-06
 // Copyright 2011 Monochrome Industries
 
 #import "HAXApplication.h"
-#import "HAXSystemWideElement.h"
+#import "HAXSystem.h"
 #import "HAXElement+Protected.h"
 
-@implementation HAXSystemWideElement
+@implementation HAXSystem
 
-+(HAXSystemWideElement *)element {
++(HAXSystem *)system {
 	return [self elementWithElementRef:CFMakeCollectable(AXUIElementCreateSystemWide())];
 }
 

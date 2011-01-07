@@ -12,8 +12,8 @@
 		D4D2103412D6957000509E57 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D2103312D6957000509E57 /* Carbon.framework */; };
 		D4D2103712D6959400509E57 /* HAXElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2103512D6959400509E57 /* HAXElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4D2103812D6959400509E57 /* HAXElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2103612D6959400509E57 /* HAXElement.m */; };
-		D4D2105512D698F400509E57 /* HAXSystemWideElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2105412D698F400509E57 /* HAXSystemWideElement.m */; };
-		D4D2105912D6991900509E57 /* HAXSystemWideElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2105312D698F200509E57 /* HAXSystemWideElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4D2105512D698F400509E57 /* HAXSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2105412D698F400509E57 /* HAXSystem.m */; };
+		D4D2105912D6991900509E57 /* HAXSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2105312D698F200509E57 /* HAXSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4D2106D12D69C8B00509E57 /* HAXApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2106C12D69C8B00509E57 /* HAXApplication.m */; };
 		D4D2108212D6A08800509E57 /* HAXWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2108112D6A08800509E57 /* HAXWindow.m */; };
 		D4D2113D12D6AAF000509E57 /* Haxcessibility.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2113C12D6AAF000509E57 /* Haxcessibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,8 +31,8 @@
 		D4D2103312D6957000509E57 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		D4D2103512D6959400509E57 /* HAXElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAXElement.h; sourceTree = "<group>"; };
 		D4D2103612D6959400509E57 /* HAXElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAXElement.m; sourceTree = "<group>"; };
-		D4D2105312D698F200509E57 /* HAXSystemWideElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXSystemWideElement.h; sourceTree = "<group>"; };
-		D4D2105412D698F400509E57 /* HAXSystemWideElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXSystemWideElement.m; sourceTree = "<group>"; };
+		D4D2105312D698F200509E57 /* HAXSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXSystem.h; sourceTree = "<group>"; };
+		D4D2105412D698F400509E57 /* HAXSystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXSystem.m; sourceTree = "<group>"; };
 		D4D2106B12D69C8900509E57 /* HAXApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXApplication.h; sourceTree = "<group>"; };
 		D4D2106C12D69C8B00509E57 /* HAXApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXApplication.m; sourceTree = "<group>"; };
 		D4D2108012D6A08600509E57 /* HAXWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXWindow.h; sourceTree = "<group>"; };
@@ -103,13 +103,13 @@
 		D4D2102E12D6947D00509E57 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D4D2106B12D69C8900509E57 /* HAXApplication.h */,
+				D4D2106C12D69C8B00509E57 /* HAXApplication.m */,
 				D4D2103512D6959400509E57 /* HAXElement.h */,
 				D44E051312D75B3D00541D6A /* HAXElement+Protected.h */,
 				D4D2103612D6959400509E57 /* HAXElement.m */,
-				D4D2105312D698F200509E57 /* HAXSystemWideElement.h */,
-				D4D2105412D698F400509E57 /* HAXSystemWideElement.m */,
-				D4D2106B12D69C8900509E57 /* HAXApplication.h */,
-				D4D2106C12D69C8B00509E57 /* HAXApplication.m */,
+				D4D2105312D698F200509E57 /* HAXSystem.h */,
+				D4D2105412D698F400509E57 /* HAXSystem.m */,
 				D4D2108012D6A08600509E57 /* HAXWindow.h */,
 				D4D2108112D6A08800509E57 /* HAXWindow.m */,
 			);
@@ -123,7 +123,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D2105912D6991900509E57 /* HAXSystemWideElement.h in Headers */,
+				D4D2105912D6991900509E57 /* HAXSystem.h in Headers */,
 				D4D2103712D6959400509E57 /* HAXElement.h in Headers */,
 				D4D2113E12D6AB0400509E57 /* HAXApplication.h in Headers */,
 				D4D2113F12D6AB0400509E57 /* HAXWindow.h in Headers */,
@@ -195,7 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D2103812D6959400509E57 /* HAXElement.m in Sources */,
-				D4D2105512D698F400509E57 /* HAXSystemWideElement.m in Sources */,
+				D4D2105512D698F400509E57 /* HAXSystem.m in Sources */,
 				D4D2106D12D69C8B00509E57 /* HAXApplication.m in Sources */,
 				D4D2108212D6A08800509E57 /* HAXWindow.m in Sources */,
 			);
