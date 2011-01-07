@@ -16,6 +16,9 @@
 		D4D2105912D6991900509E57 /* HAXSystemWideElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2105312D698F200509E57 /* HAXSystemWideElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4D2106D12D69C8B00509E57 /* HAXApplicationElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2106C12D69C8B00509E57 /* HAXApplicationElement.m */; };
 		D4D2108212D6A08800509E57 /* HAXWindowElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2108112D6A08800509E57 /* HAXWindowElement.m */; };
+		D4D2113D12D6AAF000509E57 /* Haxery.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2113C12D6AAF000509E57 /* Haxery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4D2113E12D6AB0400509E57 /* HAXApplicationElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2106B12D69C8900509E57 /* HAXApplicationElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4D2113F12D6AB0400509E57 /* HAXWindowElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2108012D6A08600509E57 /* HAXWindowElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,7 @@
 		D4D2106C12D69C8B00509E57 /* HAXApplicationElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXApplicationElement.m; sourceTree = "<group>"; };
 		D4D2108012D6A08600509E57 /* HAXWindowElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXWindowElement.h; sourceTree = "<group>"; };
 		D4D2108112D6A08800509E57 /* HAXWindowElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXWindowElement.m; sourceTree = "<group>"; };
+		D4D2113C12D6AAF000509E57 /* Haxery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haxery.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +68,6 @@
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
-				D4D2103312D6957000509E57 /* Carbon.framework */,
 			);
 			name = Haxery;
 			sourceTree = "<group>";
@@ -72,6 +75,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4D2103312D6957000509E57 /* Carbon.framework */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -89,6 +93,7 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D4D2113C12D6AAF000509E57 /* Haxery.h */,
 				32DBCF5E0370ADEE00C91783 /* Haxery.pch */,
 			);
 			path = "Other Sources";
@@ -118,6 +123,9 @@
 			files = (
 				D4D2105912D6991900509E57 /* HAXSystemWideElement.h in Headers */,
 				D4D2103712D6959400509E57 /* HAXElement.h in Headers */,
+				D4D2113E12D6AB0400509E57 /* HAXApplicationElement.h in Headers */,
+				D4D2113F12D6AB0400509E57 /* HAXWindowElement.h in Headers */,
+				D4D2113D12D6AAF000509E57 /* Haxery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
