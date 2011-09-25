@@ -102,7 +102,7 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 
 
 -(void)shortcutKeyDown {
-	if(self.windowElement = [HAXSystem system].focusedApplication.focusedWindow) {
+	if((self.windowElement = [HAXSystem system].focusedApplication.focusedWindow)) {
 		CGRect frame = self.windowElement.frame;
 		[self activate];
 		self.activeControllerIndex = [self indexOfWindowControllerForWindowElementWithFrame: frame];
