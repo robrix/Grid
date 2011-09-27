@@ -4,18 +4,17 @@
 
 #import "GRAreaSelectionView.h"
 #import "GRController.h"
+#import "GRPreferencesController.h"
 #import "GRWindowController.h"
 #import <Carbon/Carbon.h>
 #import <ShortcutRecorder/ShortcutRecorder.h>
 #import <Haxcessibility/Haxcessibility.h>
 
-OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, void *userData);
-
-@interface GRController () <GRWindowControllerDelegate>
+@interface GRController () <GRWindowControllerDelegate, NSApplicationDelegate>
 
 @property HAXWindow *windowElement;
 
--(void)shortcutKeyDown;
+-(void)shortcutKeyWasPressed:(NSNotification *)notification;
 
 -(void)activate;
 -(void)deactivate;
@@ -26,63 +25,19 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 
 @implementation GRController
 
-@synthesize windowElement;
-@synthesize activeControllerIndex;
-
-+(void)initialize {
-	[[NSUserDefaults standardUserDefaults] registerDefaults: [NSDictionary dictionaryWithObjectsAndKeys:
-		[NSDictionary dictionaryWithObjectsAndKeys:
-			@"`", @"characters",
-			[NSNumber numberWithInteger: 50], @"keyCode",
-			[NSNumber numberWithUnsignedInteger: cmdKey + optionKey], @"modifierFlags",
-		nil], @"GRShortcut",
-	nil]];
-}
+@synthesize windowElement, activeControllerIndex;
 
 
 -(void)awakeFromNib {
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shortcutKeyWasPressed:) name:GRShortcutWasPressedNotification object:nil];
+	
 	NSMutableArray *tempControllers = [NSMutableArray array];
 	for(NSScreen *screen in [NSScreen screens]) {
-		GRWindowController *controller = [GRWindowController controllerWithScreen: screen];
+		GRWindowController *controller = [GRWindowController controllerWithScreen:screen];
 		controller.delegate = self;
-		[tempControllers addObject: controller];
+		[tempControllers addObject:controller];
 	}
 	controllers = tempControllers;
-	
-	EventTypeSpec eventType = {
-		.eventClass = kEventClassKeyboard,
-		.eventKind = kEventHotKeyPressed
-	};
-	InstallApplicationEventHandler(&GRControllerShortcutWasPressed, 1, &eventType, self, NULL);
-	
-	shortcutRecorder.canCaptureGlobalHotKeys = YES;
-}
-
-
--(NSDictionary *)shortcut {
-	return [[NSUserDefaults standardUserDefaults] dictionaryForKey: @"GRShortcut"];
-}
-
--(void)setShortcut:(NSDictionary *)shortcut {
-	if(shortcut) {
-		[[NSUserDefaults standardUserDefaults] setObject: shortcut forKey: @"GRShortcut"];
-		[[NSUserDefaults standardUserDefaults] synchronize];
-		
-		EventHotKeyID shortcutIdentifier = {
-			.id = 1,
-			.signature = 'GRSc'
-		};
-		
-		NSInteger keyCode = [[shortcut objectForKey: @"keyCode"] integerValue];
-		NSUInteger modifierFlags = [[shortcut objectForKey: @"modifierFlags"] unsignedIntegerValue];
-		// if(shortcutReference) {
-			UnregisterEventHotKey(shortcutReference);
-		// }
-		OSErr error = RegisterEventHotKey(keyCode, [shortcutRecorder cocoaToCarbonFlags: modifierFlags], shortcutIdentifier, GetApplicationEventTarget(), 0, &shortcutReference);
-		if(error != noErr) {
-			NSLog(@"error when registering hot key: %i", error);
-		}
-	}
 }
 
 
@@ -101,11 +56,11 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 }
 
 
--(void)shortcutKeyDown {
+-(void)shortcutKeyWasPressed:(NSNotification *)notification {
 	if((self.windowElement = [HAXSystem system].focusedApplication.focusedWindow)) {
 		CGRect frame = self.windowElement.frame;
 		[self activate];
-		self.activeControllerIndex = [self indexOfWindowControllerForWindowElementWithFrame: frame];
+		self.activeControllerIndex = [self indexOfWindowControllerForWindowElementWithFrame:frame];
 	} else {
 		[self deactivate];
 	}
@@ -146,22 +101,6 @@ OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRe
 	self.activeControllerIndex = (activeControllerIndex > 0)?
 		activeControllerIndex - 1
 	:	controllers.count - 1;
-}
-
-@end
-
-
-OSStatus GRControllerShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, void *userData) {
-	GRController *controller = (GRController *)userData;
-	[controller shortcutKeyDown];
-	return noErr;
-}
-
-
-@implementation SRValidator (GRCanCaptureGlobalHotKeysIsBroken)
-
--(BOOL)isKeyCode:(NSInteger)keyCode andFlagsTaken:(NSUInteger)flags error:(NSError **)error {
-	return NO;
 }
 
 @end

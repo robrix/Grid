@@ -11,14 +11,9 @@
 	NSArray *controllers;
 	NSUInteger activeControllerIndex;
 	HAXWindow *windowElement;
-	
-	IBOutlet SRRecorderControl *shortcutRecorder;
-	EventHotKeyRef shortcutReference;
 }
 
 -(IBAction)nextController:(id)sender;
 -(IBAction)previousController:(id)sender;
-
-@property (nonatomic, retain) NSDictionary *shortcut;
 
 @end

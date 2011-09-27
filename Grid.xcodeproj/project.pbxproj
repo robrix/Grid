@@ -20,6 +20,7 @@
 		D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF3370FCB389B00D8ED65 /* GRWindowController.m */; };
 		D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */; };
 		D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48BF4500FCE2A1500D8ED65 /* Carbon.framework */; };
+		D4AB67B61431B1FA00DC9FF0 /* GRPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		D48BF3370FCB389B00D8ED65 /* GRWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRWindowController.m; sourceTree = "<group>"; };
 		D48BF33D0FCB3AFE00D8ED65 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/GRWindow.xib; sourceTree = "<group>"; };
 		D48BF4500FCE2A1500D8ED65 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		D4AB67B41431B1FA00DC9FF0 /* GRPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRPreferencesController.h; sourceTree = "<group>"; };
+		D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRPreferencesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 			children = (
 				D48BF3190FCB347800D8ED65 /* GRController.h */,
 				D48BF31A0FCB347800D8ED65 /* GRController.m */,
+				D4AB67B41431B1FA00DC9FF0 /* GRPreferencesController.h */,
+				D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */,
 				D48BF3360FCB389900D8ED65 /* GRWindowController.h */,
 				D48BF3370FCB389B00D8ED65 /* GRWindowController.m */,
 			);
@@ -265,6 +270,7 @@
 				D48BF30B0FCB331500D8ED65 /* GRAreaSelectionView.m in Sources */,
 				D48BF31C0FCB347800D8ED65 /* GRController.m in Sources */,
 				D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */,
+				D4AB67B61431B1FA00DC9FF0 /* GRPreferencesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,8 +17,7 @@
 			<string>NSMenu</string>
 			<string>NSMenuItem</string>
 			<string>NSTextFieldCell</string>
-			<string>NSControl</string>
-			<string>NSActionCell</string>
+			<string>NSCustomView</string>
 			<string>NSCustomObject</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -1128,7 +1127,7 @@
 			<object class="NSWindowTemplate" id="217713171">
 				<int key="NSWindowStyleMask">3</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{157, 191}, {480, 270}}</string>
+				<string key="NSWindowRect">{{157, 191}, {246, 57}}</string>
 				<int key="NSWTFlags">1685585920</int>
 				<string key="NSWindowTitle">Preferences</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1141,9 +1140,10 @@
 						<object class="NSTextField" id="182391460">
 							<reference key="NSNextResponder" ref="491328018"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 233}, {57, 17}}</string>
+							<string key="NSFrame">{{17, 20}, {57, 17}}</string>
 							<reference key="NSSuperview" ref="491328018"/>
-							<reference key="NSNextKeyView" ref="257818723"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="320157300"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="951237662">
 								<int key="NSCellFlags">68288064</int>
@@ -1175,27 +1175,28 @@
 								</object>
 							</object>
 						</object>
-						<object class="NSControl" id="257818723">
+						<object class="NSCustomView" id="320157300">
 							<reference key="NSNextResponder" ref="491328018"/>
-							<int key="NSvFlags">298</int>
-							<string key="NSFrame">{{79, 230}, {147, 22}}</string>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{79, 17}, {147, 22}}</string>
 							<reference key="NSSuperview" ref="491328018"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSActionCell" key="NSCell" id="449286443">
-								<int key="NSCellFlags">130560</int>
-								<int key="NSCellFlags2">0</int>
-								<reference key="NSControlView" ref="257818723"/>
-							</object>
+							<string key="NSReuseIdentifierKey">_NS:499</string>
+							<string key="NSClassName">NSView</string>
 						</object>
 					</array>
-					<string key="NSFrameSize">{480, 270}</string>
+					<string key="NSFrameSize">{246, 57}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="182391460"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 900}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
+			</object>
+			<object class="NSCustomObject" id="14193359">
+				<string key="NSClassName">GRPreferencesController</string>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -1729,14 +1730,6 @@
 					<int key="connectionID">449</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="1021"/>
-						<reference key="destination" ref="209033289"/>
-					</object>
-					<int key="connectionID">455</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">nextController:</string>
 						<reference key="source" ref="209033289"/>
@@ -1753,36 +1746,36 @@
 					<int key="connectionID">463</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">makeKeyAndOrderFront:</string>
-						<reference key="source" ref="217713171"/>
-						<reference key="destination" ref="609285721"/>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">window</string>
+						<reference key="source" ref="14193359"/>
+						<reference key="destination" ref="217713171"/>
 					</object>
-					<int key="connectionID">466</int>
+					<int key="connectionID">475</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: shortcut</string>
-						<reference key="source" ref="257818723"/>
-						<reference key="destination" ref="209033289"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="257818723"/>
-							<reference key="NSDestination" ref="209033289"/>
-							<string key="NSLabel">value: shortcut</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">shortcut</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showWindow:</string>
+						<reference key="source" ref="14193359"/>
+						<reference key="destination" ref="609285721"/>
 					</object>
-					<int key="connectionID">471</int>
+					<int key="connectionID">476</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">shortcutRecorder</string>
-						<reference key="source" ref="209033289"/>
-						<reference key="destination" ref="257818723"/>
+						<string key="label">shortcutView</string>
+						<reference key="source" ref="14193359"/>
+						<reference key="destination" ref="320157300"/>
 					</object>
-					<int key="connectionID">472</int>
+					<int key="connectionID">478</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="1021"/>
+						<reference key="destination" ref="209033289"/>
+					</object>
+					<int key="connectionID">479</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2663,7 +2656,7 @@
 						<reference key="object" ref="491328018"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="182391460"/>
-							<reference ref="257818723"/>
+							<reference ref="320157300"/>
 						</array>
 						<reference key="parent" ref="217713171"/>
 					</object>
@@ -2681,17 +2674,14 @@
 						<reference key="parent" ref="182391460"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">469</int>
-						<reference key="object" ref="257818723"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="449286443"/>
-						</array>
-						<reference key="parent" ref="491328018"/>
+						<int key="objectID">474</int>
+						<reference key="object" ref="14193359"/>
+						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">473</int>
-						<reference key="object" ref="449286443"/>
-						<reference key="parent" ref="257818723"/>
+						<int key="objectID">477</int>
+						<reference key="object" ref="320157300"/>
+						<reference key="parent" ref="491328018"/>
 					</object>
 				</array>
 			</object>
@@ -2815,39 +2805,8 @@
 				<string key="465.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="467.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="468.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="469.CustomClassName">SRRecorderControl</string>
-				<object class="NSMutableDictionary" key="469.IBAttributePlaceholdersKey">
-					<string key="NS.key.0">IBUserDefinedRuntimeAttributesPlaceholderName</string>
-					<object class="IBUserDefinedRuntimeAttributesPlaceholder" key="NS.object.0">
-						<string key="name">IBUserDefinedRuntimeAttributesPlaceholderName</string>
-						<reference key="object" ref="257818723"/>
-						<array key="userDefinedRuntimeAttributes">
-							<object class="IBUserDefinedRuntimeAttribute">
-								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.number</string>
-								<string key="keyPath">style</string>
-								<integer value="1" key="value"/>
-							</object>
-							<object class="IBUserDefinedRuntimeAttribute">
-								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.number</string>
-								<string key="keyPath">allowsKeyOnly</string>
-								<boolean value="NO" key="value"/>
-							</object>
-							<object class="IBUserDefinedRuntimeAttribute">
-								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.number</string>
-								<string key="keyPath">allowedFlags</string>
-								<integer value="10354688" key="value"/>
-							</object>
-							<object class="IBUserDefinedRuntimeAttribute">
-								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.number</string>
-								<string key="keyPath">escapeKeysRecord</string>
-								<boolean value="NO" key="value"/>
-							</object>
-						</array>
-					</object>
-				</object>
-				<string key="469.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="473.CustomClassName">SRRecorderCell</string>
-				<string key="473.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="474.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="477.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2869,7 +2828,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">473</int>
+			<int key="maxID">479</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2890,58 +2849,28 @@
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">shortcutRecorder</string>
-						<string key="NS.object.0">SRRecorderControl</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">shortcutRecorder</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">shortcutRecorder</string>
-							<string key="candidateClassName">SRRecorderControl</string>
-						</object>
-					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/GRController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">SRRecorderCell</string>
-					<string key="superclassName">NSActionCell</string>
+					<string key="className">GRPreferencesController</string>
+					<string key="superclassName">NSWindowController</string>
 					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">delegate</string>
-						<string key="NS.object.0">id</string>
+						<string key="NS.key.0">shortcutView</string>
+						<string key="NS.object.0">NSView</string>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">delegate</string>
+						<string key="NS.key.0">shortcutView</string>
 						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
+							<string key="name">shortcutView</string>
+							<string key="candidateClassName">NSView</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SRRecorderCell.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SRRecorderControl</string>
-					<string key="superclassName">NSControl</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">delegate</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">delegate</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SRRecorderControl.h</string>
+						<string key="minorKey">./Classes/GRPreferencesController.h</string>
 					</object>
 				</object>
 			</array>
