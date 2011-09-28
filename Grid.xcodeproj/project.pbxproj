@@ -21,6 +21,7 @@
 		D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */; };
 		D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48BF4500FCE2A1500D8ED65 /* Carbon.framework */; };
 		D4AB67B61431B1FA00DC9FF0 /* GRPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */; };
+		D4AB67CA1432E2E600DC9FF0 /* Grid.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4AB67C91432E2E600DC9FF0 /* Grid.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		D48BF4500FCE2A1500D8ED65 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		D4AB67B41431B1FA00DC9FF0 /* GRPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRPreferencesController.h; sourceTree = "<group>"; };
 		D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRPreferencesController.m; sourceTree = "<group>"; };
+		D4AB67C91432E2E600DC9FF0 /* Grid.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Grid.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4AB67C91432E2E600DC9FF0 /* Grid.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */,
@@ -256,6 +259,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */,
+				D4AB67CA1432E2E600DC9FF0 /* Grid.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
