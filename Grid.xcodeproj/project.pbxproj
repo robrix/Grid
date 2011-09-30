@@ -22,6 +22,8 @@
 		D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48BF4500FCE2A1500D8ED65 /* Carbon.framework */; };
 		D4AB67B61431B1FA00DC9FF0 /* GRPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */; };
 		D4AB67CA1432E2E600DC9FF0 /* Grid.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4AB67C91432E2E600DC9FF0 /* Grid.icns */; };
+		D4AB67D81435D90E00DC9FF0 /* GRStatusItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AB67D71435D90E00DC9FF0 /* GRStatusItemController.m */; };
+		D4AB67DA1435DADE00DC9FF0 /* GRStatusItem.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AB67D91435DADE00DC9FF0 /* GRStatusItem.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,9 @@
 		D4AB67B41431B1FA00DC9FF0 /* GRPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRPreferencesController.h; sourceTree = "<group>"; };
 		D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRPreferencesController.m; sourceTree = "<group>"; };
 		D4AB67C91432E2E600DC9FF0 /* Grid.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Grid.icns; sourceTree = "<group>"; };
+		D4AB67D61435D90E00DC9FF0 /* GRStatusItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRStatusItemController.h; sourceTree = "<group>"; };
+		D4AB67D71435D90E00DC9FF0 /* GRStatusItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRStatusItemController.m; sourceTree = "<group>"; };
+		D4AB67D91435DADE00DC9FF0 /* GRStatusItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GRStatusItem.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +133,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4AB67D91435DADE00DC9FF0 /* GRStatusItem.png */,
 				D4AB67C91432E2E600DC9FF0 /* Grid.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -171,6 +177,8 @@
 				D48BF31A0FCB347800D8ED65 /* GRController.m */,
 				D4AB67B41431B1FA00DC9FF0 /* GRPreferencesController.h */,
 				D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */,
+				D4AB67D61435D90E00DC9FF0 /* GRStatusItemController.h */,
+				D4AB67D71435D90E00DC9FF0 /* GRStatusItemController.m */,
 				D48BF3360FCB389900D8ED65 /* GRWindowController.h */,
 				D48BF3370FCB389B00D8ED65 /* GRWindowController.m */,
 			);
@@ -260,6 +268,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */,
 				D4AB67CA1432E2E600DC9FF0 /* Grid.icns in Resources */,
+				D4AB67DA1435DADE00DC9FF0 /* GRStatusItem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +284,7 @@
 				D48BF31C0FCB347800D8ED65 /* GRController.m in Sources */,
 				D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */,
 				D4AB67B61431B1FA00DC9FF0 /* GRPreferencesController.m in Sources */,
+				D4AB67D81435D90E00DC9FF0 /* GRStatusItemController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
