@@ -65,10 +65,9 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 }
 
 -(void)setShortcut:(NSDictionary *)shortcut {
+	[[NSUserDefaults standardUserDefaults] setObject:shortcut forKey:@"GRShortcut"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 	if(shortcut) {
-		[[NSUserDefaults standardUserDefaults] setObject:shortcut forKey:@"GRShortcut"];
-		[[NSUserDefaults standardUserDefaults] synchronize];
-		
 		EventHotKeyID shortcutIdentifier = {
 			.id = 1,
 			.signature = 'GRSc'
