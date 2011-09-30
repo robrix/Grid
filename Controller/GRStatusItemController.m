@@ -54,6 +54,7 @@
 		self.statusItem = nil;
 	}
 	[[NSUserDefaults standardUserDefaults] setBool:statusItemEnabled forKey:@"GRShowInMenuBar"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 

@@ -14,4 +14,6 @@ extern NSString * const GRShortcutWasPressedNotification;
 
 @property (nonatomic, assign) IBOutlet NSView *shortcutView;
 
+@property (nonatomic, assign) BOOL showDockIcon;
+
 @end

@@ -35,6 +35,7 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 			[NSNumber numberWithInteger:50], @"keyCode",
 			[NSNumber numberWithUnsignedInteger:cmdKey + optionKey], @"modifierFlags",
 		nil], @"GRShortcut",
+		(id)kCFBooleanTrue, @"GRShowDockIcon",
 	nil]];
 }
 
@@ -57,6 +58,11 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 	InstallApplicationEventHandler(&GRShortcutWasPressed, 1, &eventType, self, NULL);
 	
 	[shortcutRecorder release];
+	
+	if([[NSUserDefaults standardUserDefaults] boolForKey:@"GRShowDockIcon"]) {
+		ProcessSerialNumber psn = { 0, kCurrentProcess };
+		TransformProcessType(&psn, kProcessTransformToForegroundApplication);
+	}
 }
 
 
@@ -83,6 +89,16 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 			NSLog(@"error when registering hot key: %i", error);
 		}
 	}
+}
+
+
+-(BOOL)showDockIcon {
+	return [[NSUserDefaults standardUserDefaults] boolForKey:@"GRShowDockIcon"];
+}
+
+-(void)setShowDockIcon:(BOOL)showDockIcon {
+	[[NSUserDefaults standardUserDefaults] setBool:showDockIcon forKey:@"GRShowDockIcon"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
