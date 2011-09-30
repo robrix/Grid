@@ -35,6 +35,7 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 			[NSNumber numberWithInteger:50], @"keyCode",
 			[NSNumber numberWithUnsignedInteger:cmdKey + optionKey], @"modifierFlags",
 		nil], @"GRShortcut",
+		[NSNumber numberWithBool:YES], @"GRShowInMenuBar",
 	nil]];
 }
 
