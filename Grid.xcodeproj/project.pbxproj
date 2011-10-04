@@ -82,6 +82,7 @@
 		D4AB67D61435D90E00DC9FF0 /* GRStatusItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRStatusItemController.h; sourceTree = "<group>"; };
 		D4AB67D71435D90E00DC9FF0 /* GRStatusItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRStatusItemController.m; sourceTree = "<group>"; };
 		D4AB67D91435DADE00DC9FF0 /* GRStatusItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GRStatusItem.png; sourceTree = "<group>"; };
+		D4AB67E3143B4EE800DC9FF0 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +234,7 @@
 				Japanese,
 				French,
 				German,
+				de,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Grid */;
 			projectDirPath = "";
@@ -311,6 +313,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1DDD58150DA1D0A300B32029 /* English */,
+				D4AB67E3143B4EE800DC9FF0 /* de */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
