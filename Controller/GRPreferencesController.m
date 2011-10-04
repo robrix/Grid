@@ -66,6 +66,12 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 }
 
 
+-(IBAction)showWindow:(id)sender {
+	[self.window center];
+	[super showWindow:sender];
+}
+
+
 -(NSDictionary *)shortcut {
 	return [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"GRShortcut"];
 }
