@@ -278,7 +278,7 @@
 						<object class="NSTextField" id="182391460">
 							<reference key="NSNextResponder" ref="491328018"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 107}, {57, 17}}</string>
+							<string key="NSFrame">{{17, 107}, {61, 17}}</string>
 							<reference key="NSSuperview" ref="491328018"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="320157300"/>
@@ -286,7 +286,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="951237662">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Shorcut:</string>
+								<string key="NSContents">Shortcut:</string>
 								<object class="NSFont" key="NSSupport" id="631315953">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -316,7 +316,7 @@
 						<object class="NSCustomView" id="320157300">
 							<reference key="NSNextResponder" ref="491328018"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{79, 104}, {147, 22}}</string>
+							<string key="NSFrame">{{83, 104}, {143, 22}}</string>
 							<reference key="NSSuperview" ref="491328018"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="622170077"/>
@@ -408,6 +408,7 @@
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 900}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
+				<string key="NSFrameAutosaveName">Grid Preferences</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSCustomObject" id="14193359">
