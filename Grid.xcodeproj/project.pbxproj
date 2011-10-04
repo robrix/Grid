@@ -24,6 +24,7 @@
 		D4AB67CA1432E2E600DC9FF0 /* Grid.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4AB67C91432E2E600DC9FF0 /* Grid.icns */; };
 		D4AB67D81435D90E00DC9FF0 /* GRStatusItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AB67D71435D90E00DC9FF0 /* GRStatusItemController.m */; };
 		D4AB67DA1435DADE00DC9FF0 /* GRStatusItem.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AB67D91435DADE00DC9FF0 /* GRStatusItem.png */; };
+		D4AB67E5143B59D700DC9FF0 /* GridHelp in Resources */ = {isa = PBXBuildFile; fileRef = D4AB67E4143B59D700DC9FF0 /* GridHelp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		D4AB67D71435D90E00DC9FF0 /* GRStatusItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRStatusItemController.m; sourceTree = "<group>"; };
 		D4AB67D91435DADE00DC9FF0 /* GRStatusItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GRStatusItem.png; sourceTree = "<group>"; };
 		D4AB67E3143B4EE800DC9FF0 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D4AB67E4143B59D700DC9FF0 /* GridHelp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GridHelp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4AB67E4143B59D700DC9FF0 /* GridHelp */,
 				D4AB67D91435DADE00DC9FF0 /* GRStatusItem.png */,
 				D4AB67C91432E2E600DC9FF0 /* Grid.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -271,6 +274,7 @@
 				D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */,
 				D4AB67CA1432E2E600DC9FF0 /* Grid.icns in Resources */,
 				D4AB67DA1435DADE00DC9FF0 /* GRStatusItem.png in Resources */,
+				D4AB67E5143B59D700DC9FF0 /* GridHelp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,10 @@
 	<array/>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>GridHelp</string>
+	<key>CFBundleHelpBookName</key>
+	<string>Grid Help</string>
 	<key>CFBundleIconFile</key>
 	<string>Grid.icns</string>
 	<key>CFBundleIdentifier</key>
