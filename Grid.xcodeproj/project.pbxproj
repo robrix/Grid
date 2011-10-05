@@ -85,6 +85,7 @@
 		D4AB67D91435DADE00DC9FF0 /* GRStatusItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GRStatusItem.png; sourceTree = "<group>"; };
 		D4AB67E3143B4EE800DC9FF0 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D4AB67E4143B59D700DC9FF0 /* GridHelp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GridHelp; sourceTree = "<group>"; };
+		D4AB67E6143C6CEF00DC9FF0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +239,7 @@
 				French,
 				German,
 				de,
+				fr,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Grid */;
 			projectDirPath = "";
@@ -318,6 +320,7 @@
 			children = (
 				1DDD58150DA1D0A300B32029 /* English */,
 				D4AB67E3143B4EE800DC9FF0 /* de */,
+				D4AB67E6143C6CEF00DC9FF0 /* fr */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
