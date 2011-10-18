@@ -77,6 +77,7 @@
 		D48BF3370FCB389B00D8ED65 /* GRWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRWindowController.m; sourceTree = "<group>"; };
 		D48BF33D0FCB3AFE00D8ED65 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/GRWindow.xib; sourceTree = "<group>"; };
 		D48BF4500FCE2A1500D8ED65 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		D48D18A6144DC72A005EB872 /* Grid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Grid.entitlements; sourceTree = "<group>"; };
 		D4AB67B41431B1FA00DC9FF0 /* GRPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRPreferencesController.h; sourceTree = "<group>"; };
 		D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRPreferencesController.m; sourceTree = "<group>"; };
 		D4AB67C91432E2E600DC9FF0 /* Grid.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Grid.icns; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		29B97314FDCFA39411CA2CEA /* Grid */ = {
 			isa = PBXGroup;
 			children = (
+				D48D18A6144DC72A005EB872 /* Grid.entitlements */,
 				D48BF3080FCB331500D8ED65 /* View */,
 				D48BF3170FCB347800D8ED65 /* Controller */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -342,6 +344,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Grid.entitlements;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/External",
@@ -362,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Grid.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
