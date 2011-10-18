@@ -11,38 +11,26 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		D42D255012D3794800152DAD /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42D254F12D3794800152DAD /* ShortcutRecorder.framework */; };
-		D42D255A12D4DDC100152DAD /* ShortcutRecorder.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D42D254F12D3794800152DAD /* ShortcutRecorder.framework */; };
-		D44E055212D75CCE00541D6A /* Haxcessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44E054F12D75CB900541D6A /* Haxcessibility.framework */; };
-		D44E055A12D75CD100541D6A /* Haxcessibility.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = D44E054F12D75CB900541D6A /* Haxcessibility.framework */; };
 		D48BF30B0FCB331500D8ED65 /* GRAreaSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF30A0FCB331500D8ED65 /* GRAreaSelectionView.m */; };
 		D48BF31C0FCB347800D8ED65 /* GRController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF31A0FCB347800D8ED65 /* GRController.m */; };
 		D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48BF3370FCB389B00D8ED65 /* GRWindowController.m */; };
 		D48BF33E0FCB3AFE00D8ED65 /* GRWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48BF33C0FCB3AFE00D8ED65 /* GRWindow.xib */; };
 		D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48BF4500FCE2A1500D8ED65 /* Carbon.framework */; };
+		D48D18C7144DCC1D005EB872 /* HAXApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D18BC144DCC1D005EB872 /* HAXApplication.m */; };
+		D48D18C8144DCC1D005EB872 /* HAXElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D18BF144DCC1D005EB872 /* HAXElement.m */; };
+		D48D18C9144DCC1D005EB872 /* HAXSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D18C1144DCC1D005EB872 /* HAXSystem.m */; };
+		D48D18CA144DCC1D005EB872 /* HAXWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D18C3144DCC1D005EB872 /* HAXWindow.m */; };
+		D48D18D8144DCC6F005EB872 /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D18CF144DCC6F005EB872 /* SRCommon.m */; };
+		D48D18D9144DCC6F005EB872 /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D18D1144DCC6F005EB872 /* SRKeyCodeTransformer.m */; };
+		D48D18DA144DCC6F005EB872 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D18D3144DCC6F005EB872 /* SRRecorderCell.m */; };
+		D48D18DB144DCC6F005EB872 /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D18D5144DCC6F005EB872 /* SRRecorderControl.m */; };
+		D48D18DC144DCC6F005EB872 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D18D7144DCC6F005EB872 /* SRValidator.m */; };
 		D4AB67B61431B1FA00DC9FF0 /* GRPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */; };
 		D4AB67CA1432E2E600DC9FF0 /* Grid.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4AB67C91432E2E600DC9FF0 /* Grid.icns */; };
 		D4AB67D81435D90E00DC9FF0 /* GRStatusItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AB67D71435D90E00DC9FF0 /* GRStatusItemController.m */; };
 		D4AB67DA1435DADE00DC9FF0 /* GRStatusItem.png in Resources */ = {isa = PBXBuildFile; fileRef = D4AB67D91435DADE00DC9FF0 /* GRStatusItem.png */; };
 		D4AB67E5143B59D700DC9FF0 /* GridHelp in Resources */ = {isa = PBXBuildFile; fileRef = D4AB67E4143B59D700DC9FF0 /* GridHelp */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D44E054E12D75CB900541D6A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = Haxcessibility;
-		};
-		D44E055012D75CC600541D6A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = Haxcessibility;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D42D256412D4DDC400152DAD /* Copy Frameworks */ = {
@@ -51,8 +39,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D44E055A12D75CD100541D6A /* Haxcessibility.framework in Copy Frameworks */,
-				D42D255A12D4DDC100152DAD /* ShortcutRecorder.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,8 +53,6 @@
 		32CA4F630368D1EE00C91783 /* Grid.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Grid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grid.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D42D254F12D3794800152DAD /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = External/ShortcutRecorder.framework; sourceTree = "<group>"; };
-		D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Haxcessibility.xcodeproj; path = Haxcessibility/Haxcessibility.xcodeproj; sourceTree = "<group>"; };
 		D48BF3090FCB331500D8ED65 /* GRAreaSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAreaSelectionView.h; sourceTree = "<group>"; };
 		D48BF30A0FCB331500D8ED65 /* GRAreaSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAreaSelectionView.m; sourceTree = "<group>"; };
 		D48BF3190FCB347800D8ED65 /* GRController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRController.h; sourceTree = "<group>"; };
@@ -78,6 +62,25 @@
 		D48BF33D0FCB3AFE00D8ED65 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/GRWindow.xib; sourceTree = "<group>"; };
 		D48BF4500FCE2A1500D8ED65 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		D48D18A6144DC72A005EB872 /* Grid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Grid.entitlements; sourceTree = "<group>"; };
+		D48D18BB144DCC1D005EB872 /* HAXApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAXApplication.h; sourceTree = "<group>"; };
+		D48D18BC144DCC1D005EB872 /* HAXApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAXApplication.m; sourceTree = "<group>"; };
+		D48D18BD144DCC1D005EB872 /* HAXElement+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HAXElement+Protected.h"; sourceTree = "<group>"; };
+		D48D18BE144DCC1D005EB872 /* HAXElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAXElement.h; sourceTree = "<group>"; };
+		D48D18BF144DCC1D005EB872 /* HAXElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAXElement.m; sourceTree = "<group>"; };
+		D48D18C0144DCC1D005EB872 /* HAXSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAXSystem.h; sourceTree = "<group>"; };
+		D48D18C1144DCC1D005EB872 /* HAXSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAXSystem.m; sourceTree = "<group>"; };
+		D48D18C2144DCC1D005EB872 /* HAXWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAXWindow.h; sourceTree = "<group>"; };
+		D48D18C3144DCC1D005EB872 /* HAXWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAXWindow.m; sourceTree = "<group>"; };
+		D48D18CE144DCC6F005EB872 /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCommon.h; sourceTree = "<group>"; };
+		D48D18CF144DCC6F005EB872 /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCommon.m; sourceTree = "<group>"; };
+		D48D18D0144DCC6F005EB872 /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKeyCodeTransformer.h; sourceTree = "<group>"; };
+		D48D18D1144DCC6F005EB872 /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKeyCodeTransformer.m; sourceTree = "<group>"; };
+		D48D18D2144DCC6F005EB872 /* SRRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRecorderCell.h; sourceTree = "<group>"; };
+		D48D18D3144DCC6F005EB872 /* SRRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRecorderCell.m; sourceTree = "<group>"; };
+		D48D18D4144DCC6F005EB872 /* SRRecorderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRecorderControl.h; sourceTree = "<group>"; };
+		D48D18D5144DCC6F005EB872 /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRecorderControl.m; sourceTree = "<group>"; };
+		D48D18D6144DCC6F005EB872 /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRValidator.h; sourceTree = "<group>"; };
+		D48D18D7144DCC6F005EB872 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRValidator.m; sourceTree = "<group>"; };
 		D4AB67B41431B1FA00DC9FF0 /* GRPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRPreferencesController.h; sourceTree = "<group>"; };
 		D4AB67B51431B1FA00DC9FF0 /* GRPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRPreferencesController.m; sourceTree = "<group>"; };
 		D4AB67C91432E2E600DC9FF0 /* Grid.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Grid.icns; sourceTree = "<group>"; };
@@ -94,10 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D44E055212D75CCE00541D6A /* Haxcessibility.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				D48BF4510FCE2A1500D8ED65 /* Carbon.framework in Frameworks */,
-				D42D255012D3794800152DAD /* ShortcutRecorder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,19 +154,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D42D254F12D3794800152DAD /* ShortcutRecorder.framework */,
 				D48BF4500FCE2A1500D8ED65 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D44E054812D75CB900541D6A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D44E054F12D75CB900541D6A /* Haxcessibility.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D48BF3080FCB331500D8ED65 /* View */ = {
@@ -192,10 +184,60 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		D48D18B5144DCBD2005EB872 /* Haxcessibility */ = {
+			isa = PBXGroup;
+			children = (
+				D48D18BA144DCC1D005EB872 /* Classes */,
+			);
+			path = Haxcessibility;
+			sourceTree = "<group>";
+		};
+		D48D18BA144DCC1D005EB872 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D48D18BB144DCC1D005EB872 /* HAXApplication.h */,
+				D48D18BC144DCC1D005EB872 /* HAXApplication.m */,
+				D48D18BD144DCC1D005EB872 /* HAXElement+Protected.h */,
+				D48D18BE144DCC1D005EB872 /* HAXElement.h */,
+				D48D18BF144DCC1D005EB872 /* HAXElement.m */,
+				D48D18C0144DCC1D005EB872 /* HAXSystem.h */,
+				D48D18C1144DCC1D005EB872 /* HAXSystem.m */,
+				D48D18C2144DCC1D005EB872 /* HAXWindow.h */,
+				D48D18C3144DCC1D005EB872 /* HAXWindow.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D48D18CB144DCC6F005EB872 /* ShortcutRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				D48D18CC144DCC6F005EB872 /* Source */,
+			);
+			path = ShortcutRecorder;
+			sourceTree = "<group>";
+		};
+		D48D18CC144DCC6F005EB872 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D48D18CE144DCC6F005EB872 /* SRCommon.h */,
+				D48D18CF144DCC6F005EB872 /* SRCommon.m */,
+				D48D18D0144DCC6F005EB872 /* SRKeyCodeTransformer.h */,
+				D48D18D1144DCC6F005EB872 /* SRKeyCodeTransformer.m */,
+				D48D18D2144DCC6F005EB872 /* SRRecorderCell.h */,
+				D48D18D3144DCC6F005EB872 /* SRRecorderCell.m */,
+				D48D18D4144DCC6F005EB872 /* SRRecorderControl.h */,
+				D48D18D5144DCC6F005EB872 /* SRRecorderControl.m */,
+				D48D18D6144DCC6F005EB872 /* SRValidator.h */,
+				D48D18D7144DCC6F005EB872 /* SRValidator.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		D4D2109212D6A92000509E57 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */,
+				D48D18B5144DCBD2005EB872 /* Haxcessibility */,
+				D48D18CB144DCC6F005EB872 /* ShortcutRecorder */,
 			);
 			path = External;
 			sourceTree = "<group>";
@@ -215,7 +257,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				D44E055112D75CC600541D6A /* PBXTargetDependency */,
 			);
 			name = Grid;
 			productInstallPath = "$(HOME)/Applications";
@@ -246,28 +287,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Grid */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D44E054812D75CB900541D6A /* Products */;
-					ProjectRef = D44E054712D75CB900541D6A /* Haxcessibility.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Grid */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		D44E054F12D75CB900541D6A /* Haxcessibility.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Haxcessibility.framework;
-			remoteRef = D44E054E12D75CB900541D6A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
@@ -296,18 +321,19 @@
 				D48BF3380FCB389B00D8ED65 /* GRWindowController.m in Sources */,
 				D4AB67B61431B1FA00DC9FF0 /* GRPreferencesController.m in Sources */,
 				D4AB67D81435D90E00DC9FF0 /* GRStatusItemController.m in Sources */,
+				D48D18C7144DCC1D005EB872 /* HAXApplication.m in Sources */,
+				D48D18C8144DCC1D005EB872 /* HAXElement.m in Sources */,
+				D48D18C9144DCC1D005EB872 /* HAXSystem.m in Sources */,
+				D48D18CA144DCC1D005EB872 /* HAXWindow.m in Sources */,
+				D48D18D8144DCC6F005EB872 /* SRCommon.m in Sources */,
+				D48D18D9144DCC6F005EB872 /* SRKeyCodeTransformer.m in Sources */,
+				D48D18DA144DCC6F005EB872 /* SRRecorderCell.m in Sources */,
+				D48D18DB144DCC6F005EB872 /* SRRecorderControl.m in Sources */,
+				D48D18DC144DCC6F005EB872 /* SRValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D44E055112D75CC600541D6A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Haxcessibility;
-			targetProxy = D44E055012D75CC600541D6A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -347,10 +373,6 @@
 				CODE_SIGN_ENTITLEMENTS = Grid.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/External",
-					"$(BUILT_PRODUCTS_DIR)",
-				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
@@ -369,10 +391,6 @@
 				CODE_SIGN_ENTITLEMENTS = Grid.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/External",
-					"$(BUILT_PRODUCTS_DIR)",
-				);
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Resources/Info.plist;

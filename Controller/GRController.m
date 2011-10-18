@@ -7,8 +7,15 @@
 #import "GRPreferencesController.h"
 #import "GRWindowController.h"
 #import <Carbon/Carbon.h>
-#import <ShortcutRecorder/ShortcutRecorder.h>
-#import <Haxcessibility/Haxcessibility.h>
+#import "HAXElement.h"
+#import "HAXSystem.h"
+#import "HAXApplication.h"
+#import "HAXWindow.h"
+#import "SRCommon.h"
+#import "SRKeyCodeTransformer.h"
+#import "SRValidator.h"
+#import "SRRecorderCell.h"
+#import "SRRecorderControl.h"
 
 @interface GRController () <GRWindowControllerDelegate, NSApplicationDelegate>
 

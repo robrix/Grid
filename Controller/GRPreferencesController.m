@@ -7,7 +7,11 @@
 //
 
 #import "GRPreferencesController.h"
-#import <ShortcutRecorder/ShortcutRecorder.h>
+#import "SRCommon.h"
+#import "SRKeyCodeTransformer.h"
+#import "SRValidator.h"
+#import "SRRecorderCell.h"
+#import "SRRecorderControl.h"
 
 NSString * const GRShortcutWasPressedNotification = @"GRShortcutWasPressedNotification";
 
