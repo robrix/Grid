@@ -7,7 +7,6 @@
 //
 
 #import "GRPreferencesController.h"
-#import <Carbon/Carbon.h>
 #import <ShortcutRecorder/ShortcutRecorder.h>
 
 NSString * const GRShortcutWasPressedNotification = @"GRShortcutWasPressedNotification";

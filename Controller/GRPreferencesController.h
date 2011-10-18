@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Carbon/Carbon.h>
 
 extern NSString * const GRShortcutWasPressedNotification;
 
-@interface GRPreferencesController : NSWindowController
+@class SRRecorderControl;
+
+@interface GRPreferencesController : NSWindowController {
+	NSView *shortcutView;
+	SRRecorderControl *shortcutRecorder;
+	EventHotKeyRef shortcutReference;
+}
 
 @property (nonatomic, assign) IBOutlet NSView *shortcutView;
 

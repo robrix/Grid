@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GRStatusItemController : NSObject
+@interface GRStatusItemController : NSObject {
+	NSMenu *statusItemMenu;
+	NSStatusItem *statusItem;
+}
 
 @property (nonatomic, assign) IBOutlet NSMenu *statusItemMenu;
 @property (nonatomic, assign, getter=isStatusItemEnabled) BOOL statusItemEnabled;
