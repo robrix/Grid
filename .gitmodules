@@ -1,0 +1,3 @@
+[submodule "External/Haxcessibility"]
+	path = External/Haxcessibility
+	url = git://github.com/robrix/Haxcessibility.git
