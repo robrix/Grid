@@ -1,13 +1,13 @@
 // HAXElement+Protected.h
 // Created by Rob Rix on 2011-01-06
-// Copyright 2011 Monochrome Industries
+// Copyright 2011 Rob Rix
 
 #import "HAXElement.h"
 
 @interface HAXElement ()
 
-+(id)elementWithElementRef:(AXUIElementRef)_elementRef;
--(id)initWithElementRef:(AXUIElementRef)_elementRef;
++(instancetype)elementWithElementRef:(AXUIElementRef)elementRef;
+-(instancetype)initWithElementRef:(AXUIElementRef)elementRef;
 
 @property (nonatomic, readonly) AXUIElementRef elementRef;
 
