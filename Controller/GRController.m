@@ -7,10 +7,7 @@
 #import "GRPreferencesController.h"
 #import "GRWindowController.h"
 #import <Carbon/Carbon.h>
-#import "HAXElement.h"
-#import "HAXSystem.h"
-#import "HAXApplication.h"
-#import "HAXWindow.h"
+#import <Haxcessibility/Haxcessibility.h>
 #import "SRCommon.h"
 #import "SRKeyCodeTransformer.h"
 #import "SRValidator.h"
@@ -19,14 +16,14 @@
 
 @interface GRController () <GRWindowControllerDelegate, NSApplicationDelegate>
 
-@property HAXWindow *windowElement;
+@property (nonatomic, strong) HAXWindow *windowElement;
 
 -(void)shortcutKeyWasPressed:(NSNotification *)notification;
 
 -(void)activate;
 -(void)deactivate;
 
-@property (nonatomic) NSUInteger activeControllerIndex;
+@property (nonatomic, assign) NSUInteger activeControllerIndex;
 
 @end
 
