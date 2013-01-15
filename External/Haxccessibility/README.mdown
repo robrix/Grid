@@ -1,0 +1,12 @@
+# Haxcessibility
+
+Haxcessibility is, above all, a horrible pun on Mac OS X’s Accessibility framework and its AX prefix. I am shameless.
+
+It also enables hacks like moving and resizing another app’s windows.
+
+
+# Use it
+
+	[HAXSystem element].focusedApplication.focusedWindow.size = NSMakeRect(0, 0, 2560, 1440);
+
+More features are, obviously, desirable.
