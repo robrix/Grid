@@ -91,9 +91,11 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 		NSInteger keyCode = [[shortcut objectForKey:@"keyCode"] integerValue];
 		NSUInteger modifierFlags = [[shortcut objectForKey:@"modifierFlags"] unsignedIntegerValue];
 		// if(shortcutReference) {
-		UnregisterEventHotKey(_shortcutReference);
+		UnregisterEventHotKey(self.shortcutReference);
 		// }
-		OSErr error = RegisterEventHotKey(keyCode, [_shortcutRecorder cocoaToCarbonFlags:modifierFlags], shortcutIdentifier, GetApplicationEventTarget(), 0, &_shortcutReference);
+		EventHotKeyRef shortcutReference;
+		OSErr error = RegisterEventHotKey(keyCode, [self.shortcutRecorder cocoaToCarbonFlags:modifierFlags], shortcutIdentifier, GetApplicationEventTarget(), 0, &shortcutReference);
+		self.shortcutReference = shortcutReference;
 		if(error != noErr) {
 			NSLog(@"error when registering hot key: %i", error);
 		}
@@ -112,7 +114,7 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 
 
 -(void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo {
-	self.shortcut = _shortcutRecorder.objectValue;
+	self.shortcut = self.shortcutRecorder.objectValue;
 }
 
 @end
