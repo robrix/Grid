@@ -85,7 +85,7 @@
 
 
 -(void)setActiveControllerIndex:(NSUInteger)index {
-	_activeControllerIndex = index;
+	self.activeControllerIndex = index;
 	[[self.controllers objectAtIndex:self.activeControllerIndex] showWindow:nil]; // focus on the active screen (by default, the one the window is on; can be switched with ⌘` and ⇧⌘`)
 }
 

@@ -27,6 +27,13 @@
 	return controller;
 }
 
+-(void)dealloc {
+	[_areaSelectionView release];
+	[_screen release];
+	
+	[super dealloc];
+}
+
 -(void)awakeFromNib {
 	[self.window setExcludedFromWindowsMenu: NO];
 	[self.window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];

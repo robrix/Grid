@@ -46,7 +46,7 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 
 
 -(void)awakeFromNib {
-	self.shortcutRecorder = [[[SRRecorderControl alloc] initWithFrame:_shortcutView.frame] autorelease];
+	self.shortcutRecorder = [[[SRRecorderControl alloc] initWithFrame:self.shortcutView.frame] autorelease];
 	
 	[self.shortcutView.superview addSubview:self.shortcutRecorder];
 	[self.shortcutView removeFromSuperview];
