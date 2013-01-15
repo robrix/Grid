@@ -1,1 +1,6 @@
-*.tmproj
+.DS_Store
+build
+xcuserdata
+*.mode*
+*.pbxuser
+*.xcuserdatad

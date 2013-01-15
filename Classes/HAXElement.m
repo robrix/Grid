@@ -1,50 +1,50 @@
 // HAXElement.m
 // Created by Rob Rix on 2011-01-06
-// Copyright 2011 Monochrome Industries
+// Copyright 2011 Rob Rix
 
 #import "HAXElement+Protected.h"
 
 @implementation HAXElement
 
-+(id)elementWithElementRef:(AXUIElementRef)_elementRef {
-	return [[[self alloc] initWithElementRef:_elementRef] autorelease];
+@synthesize elementRef = _elementRef;
+
+
++(instancetype)elementWithElementRef:(AXUIElementRef)elementRef {
+	return [[[self alloc] initWithElementRef:elementRef] autorelease];
 }
 
--(id)initWithElementRef:(AXUIElementRef)_elementRef {
-	if(self = [super init]) {
-		elementRef = (AXUIElementRef)[(id)_elementRef retain];
+-(instancetype)initWithElementRef:(AXUIElementRef)elementRef {
+	if((self = [super init])) {
+		_elementRef = (AXUIElementRef)[(id)elementRef retain];
 	}
 	return self;
 }
 
 -(void)dealloc {
-	[(id)elementRef release];
+	[(id)_elementRef release];
 	[super dealloc];
 }
-
-
-@synthesize elementRef;
 
 
 -(CFTypeRef)attributeValueForKey:(NSString *)key error:(NSError **)error {
 	NSParameterAssert(key != nil);
 	CFTypeRef attributeRef = NULL;
-	AXError result = AXUIElementCopyAttributeValue(elementRef, (CFStringRef)key, &attributeRef);
+	AXError result = AXUIElementCopyAttributeValue(self.elementRef, (CFStringRef)key, &attributeRef);
 	if((result != kAXErrorSuccess) && error) {
 		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 			key, @"key",
-			elementRef, @"elementRef",
+			self.elementRef, @"elementRef",
 		nil]];
 	}
 	return CFMakeCollectable(attributeRef);
 }
 
 -(void)setAttributeValue:(CFTypeRef)value forKey:(NSString *)key error:(NSError **)error {
-	AXError result = AXUIElementSetAttributeValue(elementRef, (CFStringRef)key, value);
+	AXError result = AXUIElementSetAttributeValue(self.elementRef, (CFStringRef)key, value);
 	if((result != kAXErrorSuccess) && error) {
 		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 			key, @"key",
-			elementRef, @"elementRef",
+			self.elementRef, @"elementRef",
 		nil]];
 	}
 }

@@ -1,12 +1,12 @@
-// HAXApplicationElement.m
+// HAXApplication.m
 // Created by Rob Rix on 2011-01-06
-// Copyright 2011 Monochrome Industries
+// Copyright 2011 Rob Rix
 
-#import "HAXApplicationElement.h"
+#import "HAXApplication.h"
 #import "HAXElement+Protected.h"
-#import "HAXWindowElement.h"
+#import "HAXWindow.h"
 
-@implementation HAXApplicationElement
+@implementation HAXApplication
 
 /*
 #define kAXMenuBarAttribute                     CFSTR("AXMenuBar")
@@ -18,9 +18,9 @@
 #define kAXFocusedUIElementAttribute        CFSTR("AXFocusedUIElement")
 */
 
--(HAXWindowElement *)focusedWindow {
+-(HAXWindow *)focusedWindow {
 	NSError *error = nil;
-	return [self elementOfClass:[HAXWindowElement class] forKey:(NSString *)kAXFocusedWindowAttribute error:&error];
+	return [self elementOfClass:[HAXWindow class] forKey:(NSString *)kAXFocusedWindowAttribute error:&error];
 }
 
 @end
