@@ -38,7 +38,7 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 		[NSDictionary dictionaryWithObjectsAndKeys:
 			@"`", @"characters",
 			[NSNumber numberWithInteger:50], @"keyCode",
-			[NSNumber numberWithUnsignedInteger:cmdKey + optionKey], @"modifierFlags",
+			[NSNumber numberWithUnsignedInteger:SRCarbonToCocoaFlags(cmdKey + optionKey)], @"modifierFlags",
 		nil], @"GRShortcut",
 		(id)kCFBooleanTrue, @"GRShowDockIcon",
 	nil]];
