@@ -28,7 +28,9 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 
 @implementation GRPreferencesController
 
-@synthesize shortcutView, shortcutRecorder, shortcutReference;
+@synthesize shortcutView = _shortcutView;
+@synthesize shortcutRecorder = _shortcutRecorder;
+@synthesize shortcutReference = _shortcutReference;
 
 
 +(void)initialize {
@@ -44,24 +46,22 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 
 
 -(void)awakeFromNib {
-	shortcutRecorder = [[SRRecorderControl alloc] initWithFrame:shortcutView.frame];
+	self.shortcutRecorder = [[[SRRecorderControl alloc] initWithFrame:_shortcutView.frame] autorelease];
 	
-	[shortcutView.superview addSubview:shortcutRecorder];
-	[shortcutView removeFromSuperview];
+	[self.shortcutView.superview addSubview:self.shortcutRecorder];
+	[self.shortcutView removeFromSuperview];
 	
-	shortcutRecorder.delegate = self;
-	shortcutRecorder.canCaptureGlobalHotKeys = YES;
+	self.shortcutRecorder.delegate = self;
+	self.shortcutRecorder.canCaptureGlobalHotKeys = YES;
 	
-	shortcutRecorder.objectValue = self.shortcut;
+	self.shortcutRecorder.objectValue = self.shortcut;
 	
 	EventTypeSpec eventType = {
 		.eventClass = kEventClassKeyboard,
 		.eventKind = kEventHotKeyPressed
 	};
 	InstallApplicationEventHandler(&GRShortcutWasPressed, 1, &eventType, self, NULL);
-	
-	[shortcutRecorder release];
-	
+		
 	if([[NSUserDefaults standardUserDefaults] boolForKey:@"GRShowDockIcon"]) {
 		ProcessSerialNumber psn = { 0, kCurrentProcess };
 		TransformProcessType(&psn, kProcessTransformToForegroundApplication);
@@ -91,9 +91,9 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 		NSInteger keyCode = [[shortcut objectForKey:@"keyCode"] integerValue];
 		NSUInteger modifierFlags = [[shortcut objectForKey:@"modifierFlags"] unsignedIntegerValue];
 		// if(shortcutReference) {
-		UnregisterEventHotKey(shortcutReference);
+		UnregisterEventHotKey(_shortcutReference);
 		// }
-		OSErr error = RegisterEventHotKey(keyCode, [shortcutRecorder cocoaToCarbonFlags:modifierFlags], shortcutIdentifier, GetApplicationEventTarget(), 0, &shortcutReference);
+		OSErr error = RegisterEventHotKey(keyCode, [_shortcutRecorder cocoaToCarbonFlags:modifierFlags], shortcutIdentifier, GetApplicationEventTarget(), 0, &_shortcutReference);
 		if(error != noErr) {
 			NSLog(@"error when registering hot key: %i", error);
 		}
@@ -112,7 +112,7 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 
 
 -(void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo {
-	self.shortcut = shortcutRecorder.objectValue;
+	self.shortcut = _shortcutRecorder.objectValue;
 }
 
 @end

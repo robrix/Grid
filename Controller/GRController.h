@@ -8,9 +8,9 @@
 @class HAXWindow, SRRecorderControl;
 
 @interface GRController : NSObject {
-	NSArray *controllers;
-	NSUInteger activeControllerIndex;
-	HAXWindow *windowElement;
+	NSArray *_controllers;
+	NSUInteger _activeControllerIndex;
+	HAXWindow *_windowElement;
 }
 
 -(IBAction)nextController:(id)sender;
