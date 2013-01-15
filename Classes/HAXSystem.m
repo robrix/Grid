@@ -8,7 +8,7 @@
 
 @implementation HAXSystem
 
-+(HAXSystem *)system {
++(instancetype)system {
 	return [self elementWithElementRef:CFMakeCollectable(AXUIElementCreateSystemWide())];
 }
 
