@@ -19,6 +19,5 @@
 -(IBAction)openMoreAppsFromDEVONtechnologiesURL:(id)sender;
 -(IBAction)openFacebookURL:(id)sender;
 -(IBAction)openTwitterURL:(id)sender;
--(IBAction)openLinkedInURL:(id)sender;
 
 @end

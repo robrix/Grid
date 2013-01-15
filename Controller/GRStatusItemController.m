@@ -74,8 +74,4 @@
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.devontechnologies.com/redirect.html?id=twitter"]];
 }
 
--(IBAction)openLinkedInURL:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.devontechnologies.com/redirect.html?id=linkedin"]];
-}
-
 @end
