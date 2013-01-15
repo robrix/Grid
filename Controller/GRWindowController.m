@@ -8,7 +8,7 @@
 @implementation GRWindowController
 
 +(GRWindowController *)controllerWithScreen:(NSScreen *)s {
-	GRWindowController *controller = [[self alloc] initWithWindowNibName: @"GRWindow"];
+	GRWindowController *controller = [[[self alloc] initWithWindowNibName: @"GRWindow"] autorelease];
 	[controller loadWindow];
 	controller.screen = s;
 	return controller;
