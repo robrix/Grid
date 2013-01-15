@@ -1,16 +1,13 @@
 // GRController.m
 // Created by Rob Rix on 2009-05-25
-// Copyright 2009 Monochrome Industries
+// Copyright 2009 Rob Rix
 
 #import "GRAreaSelectionView.h"
 #import "GRController.h"
 #import "GRPreferencesController.h"
 #import "GRWindowController.h"
 #import <Carbon/Carbon.h>
-#import "HAXElement.h"
-#import "HAXSystem.h"
-#import "HAXApplication.h"
-#import "HAXWindow.h"
+#import <Haxcessibility/Haxcessibility.h>
 #import "SRCommon.h"
 #import "SRKeyCodeTransformer.h"
 #import "SRValidator.h"
@@ -19,20 +16,24 @@
 
 @interface GRController () <GRWindowControllerDelegate, NSApplicationDelegate>
 
-@property HAXWindow *windowElement;
+@property (nonatomic, strong) HAXWindow *windowElement;
 
 -(void)shortcutKeyWasPressed:(NSNotification *)notification;
 
 -(void)activate;
 -(void)deactivate;
 
-@property (nonatomic) NSUInteger activeControllerIndex;
+@property (nonatomic, assign) NSUInteger activeControllerIndex;
+
+@property (nonatomic, copy) NSArray *controllers;
 
 @end
 
 @implementation GRController
 
-@synthesize windowElement, activeControllerIndex;
+@synthesize windowElement = _windowElement;
+@synthesize activeControllerIndex = _activeControllerIndex;
+@synthesize controllers = _controllers;
 
 
 -(void)awakeFromNib {
@@ -44,7 +45,7 @@
 		controller.delegate = self;
 		[tempControllers addObject:controller];
 	}
-	controllers = tempControllers;
+	self.controllers = tempControllers;
 }
 
 
@@ -52,7 +53,7 @@
 	CGPoint topLeft = CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame));
 	NSUInteger result = 0;
 	NSUInteger index = 0;
-	for(GRWindowController *controller in controllers) {
+	for(GRWindowController *controller in self.controllers) {
 		if(CGRectContainsPoint(controller.screen.frame, topLeft)) {
 			result = index;
 			break;
@@ -75,17 +76,17 @@
 
 
 -(void)activate {
-	[controllers makeObjectsPerformSelector: @selector(activate)];
+	[self.controllers makeObjectsPerformSelector:@selector(activate)];
 }
 
 -(void)deactivate {
-	[controllers makeObjectsPerformSelector: @selector(deactivate)];
+	[self.controllers makeObjectsPerformSelector:@selector(deactivate)];
 }
 
 
 -(void)setActiveControllerIndex:(NSUInteger)index {
-	activeControllerIndex = index;
-	[[controllers objectAtIndex: activeControllerIndex] showWindow: nil]; // focus on the active screen (by default, the one the window is on; can be switched with ⌘` and ⇧⌘`)
+	_activeControllerIndex = index;
+	[[self.controllers objectAtIndex:self.activeControllerIndex] showWindow:nil]; // focus on the active screen (by default, the one the window is on; can be switched with ⌘` and ⇧⌘`)
 }
 
 
@@ -101,13 +102,13 @@
 
 
 -(IBAction)nextController:(id)sender {
-	self.activeControllerIndex = (activeControllerIndex + 1) % controllers.count;
+	self.activeControllerIndex = (self.activeControllerIndex + 1) % self.controllers.count;
 }
 
 -(IBAction)previousController:(id)sender {
-	self.activeControllerIndex = (activeControllerIndex > 0)?
-		activeControllerIndex - 1
-	:	controllers.count - 1;
+	self.activeControllerIndex = (self.activeControllerIndex > 0)?
+		self.activeControllerIndex - 1
+	:	self.controllers.count - 1;
 }
 
 @end

@@ -1,32 +1,41 @@
 // GRWindowController.m
 // Created by Rob Rix on 2009-05-25
-// Copyright 2009 Monochrome Industries
+// Copyright 2009 Rob Rix
 
 #import "GRWindowController.h"
 #import <objc/runtime.h>
 
+@interface GRWindowController ()
+
+@property (nonatomic, assign) NSRange selectedHorizontalFractionRange;
+@property (nonatomic, assign) NSRange selectedVerticalFractionRange;
+@property (nonatomic, assign) NSUInteger selectedHorizontalFraction;
+@property (nonatomic, assign) NSUInteger selectedVerticalFraction;
+
+@end
+
 @implementation GRWindowController
 
+@synthesize areaSelectionView = _areaSelectionView;
+@synthesize screen = _screen;
+@synthesize delegate = _delegate;
+
 +(GRWindowController *)controllerWithScreen:(NSScreen *)s {
-	GRWindowController *controller = [[self alloc] initWithWindowNibName: @"GRWindow"];
+	GRWindowController *controller = [[[self alloc] initWithWindowNibName: @"GRWindow"] autorelease];
 	[controller loadWindow];
 	controller.screen = s;
 	return controller;
 }
 
-@synthesize areaSelectionView;
-@synthesize screen;
-@synthesize delegate;
-
 -(void)awakeFromNib {
 	[self.window setExcludedFromWindowsMenu: NO];
 	[self.window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
 	
-	selectedHorizontalFractionRange = NSMakeRange(0, 1);
-	selectedVerticalFractionRange = NSMakeRange(0, 1);
+	self.selectedHorizontalFractionRange = NSMakeRange(0, 1);
+	self.selectedVerticalFractionRange = NSMakeRange(0, 1);
 	
-	selectedHorizontalFraction = 2;
-	selectedVerticalFraction = 2;
+	self.selectedHorizontalFraction = 2;
+	self.selectedVerticalFraction = 2;
 }
 
 
@@ -69,82 +78,80 @@
 }
 
 
--(NSRange)selectedHorizontalFractionRange {
-	return selectedHorizontalFractionRange;
-}
-
--(NSRange)selectedVerticalFractionRange {
-	return selectedVerticalFractionRange;
-}
-
-
--(NSUInteger)selectedHorizontalFraction {
-	return selectedHorizontalFraction;
-}
-
--(NSUInteger)selectedVerticalFraction {
-	return selectedVerticalFraction;
-}
-
-
 -(void)moveBackward:(id)sender {
-	selectedHorizontalFractionRange.location = (selectedHorizontalFractionRange.location > 0)
-	?	selectedHorizontalFractionRange.location - 1
+	NSRange range = self.selectedHorizontalFractionRange;
+	range.location = (range.location > 0)?
+		range.location - 1
 	:	0;
+	self.selectedHorizontalFractionRange = range;
 }
 
 -(void)moveBackwardAndModifySelection:(id)sender {
-	if(selectedHorizontalFractionRange.location > 0) {
-		selectedHorizontalFractionRange.length += 1;
-		selectedHorizontalFractionRange.location -= 1;
-	} else if(selectedHorizontalFractionRange.length > 1) {
-		selectedHorizontalFractionRange.length -= 1;
+	NSRange range = self.selectedHorizontalFractionRange;
+	if(range.location > 0) {
+		range.length += 1;
+		range.location -= 1;
+	} else if(range.length > 1) {
+		range.length -= 1;
 	}
+	self.selectedHorizontalFractionRange = range;
 }
 
 -(void)moveForward:(id)sender {
-	selectedHorizontalFractionRange.location = (NSMaxRange(selectedHorizontalFractionRange) < selectedHorizontalFraction)
-	?	selectedHorizontalFractionRange.location + 1
-	:	selectedHorizontalFractionRange.location;
+	NSRange range = self.selectedHorizontalFractionRange;
+	range.location = (NSMaxRange(range) < self.selectedHorizontalFraction)?
+		range.location + 1
+	:	range.location;
+	self.selectedHorizontalFractionRange = range;
 }
 
 -(void)moveForwardAndModifySelection:(id)sender {
-	if(NSMaxRange(selectedHorizontalFractionRange) < selectedHorizontalFraction) {
-		selectedHorizontalFractionRange.length += 1;
-	} else if(selectedHorizontalFractionRange.length >= 2) {
-		selectedHorizontalFractionRange.location += 1;
-		selectedHorizontalFractionRange.length -= 1;
+	NSRange range = self.selectedHorizontalFractionRange;
+	if(NSMaxRange(range) < self.selectedHorizontalFraction) {
+		range.length += 1;
+	} else if(range.length >= 2) {
+		range.location += 1;
+		range.length -= 1;
 	}
+	self.selectedHorizontalFractionRange = range;
 }
 
 -(void)moveUp:(id)sender {
-	selectedVerticalFractionRange.location = (NSMaxRange(selectedVerticalFractionRange) < selectedVerticalFraction)
-	?	selectedVerticalFractionRange.location + 1
-	:	selectedVerticalFractionRange.location;
+	NSRange range = self.selectedVerticalFractionRange;
+	range.location = (NSMaxRange(range) < self.selectedVerticalFraction)?
+		range.location + 1
+	:	range.location;
+	self.selectedVerticalFractionRange = range;
 }
 
 -(void)moveUpAndModifySelection:(id)sender {
-	if(NSMaxRange(selectedVerticalFractionRange) < selectedVerticalFraction) {
-		selectedVerticalFractionRange.length += 1;
-	} else if(selectedVerticalFractionRange.length >= 2) {
-		selectedVerticalFractionRange.location += 1;
-		selectedVerticalFractionRange.length -= 1;
+	NSRange range = self.selectedVerticalFractionRange;
+	if(NSMaxRange(range) < self.selectedVerticalFraction) {
+		range.length += 1;
+	} else if(range.length >= 2) {
+		range.location += 1;
+		range.length -= 1;
 	}
+	self.selectedVerticalFractionRange = range;
 }
 
 -(void)moveDown:(id)sender {
-	selectedVerticalFractionRange.location = (selectedVerticalFractionRange.location > 0)
-	?	selectedVerticalFractionRange.location - 1
+	NSRange range = self.selectedVerticalFractionRange;
+	range.location = (range.location > 0)?
+		range.location - 1
 	:	0;
+	self.selectedVerticalFractionRange = range;
 }
 
 -(void)moveDownAndModifySelection:(id)sender {
-	if(selectedVerticalFractionRange.location > 0) {
-		selectedVerticalFractionRange.length += 1;
-		selectedVerticalFractionRange.location -= 1;
-	} else if(selectedVerticalFractionRange.length > 1) {
-		selectedVerticalFractionRange.length -= 1;
+	NSRange range = self.selectedVerticalFractionRange;
+	if(range.location > 0) {
+		range.length += 1;
+		range.location -= 1;
+	} else if(range.length > 1) {
+		range.length -= 1;
 	}
+	self.selectedVerticalFractionRange = range;
 }
 
 -(BOOL)respondsToSelector:(SEL)selector { // hack to keep the panel from sending us moveUp: and moveDown: on ⌘↑ and ⌘↓
@@ -156,52 +163,60 @@
 
 
 -(void)increaseHorizontalFractionSize:(id)sender {
-	selectedHorizontalFraction = (selectedHorizontalFraction > 2)
-	?	selectedHorizontalFraction - 1
+	self.selectedHorizontalFraction = (self.selectedHorizontalFraction > 2)?
+		self.selectedHorizontalFraction - 1
 	:	2;
-	if(selectedHorizontalFractionRange.location == selectedHorizontalFraction) {
-		selectedHorizontalFractionRange.location -= 1;
+	NSRange range = self.selectedHorizontalFractionRange;
+	if(range.location == self.selectedHorizontalFraction) {
+		range.location -= 1;
 	}
-	if(NSMaxRange(selectedHorizontalFractionRange) > selectedHorizontalFraction) {
-		selectedHorizontalFractionRange.length -= 1;
+	if(NSMaxRange(range) > self.selectedHorizontalFraction) {
+		range.length -= 1;
 	}
+	self.selectedHorizontalFractionRange = range;
 }
 
 -(void)decreaseHorizontalFractionSize:(id)sender {
-	if(NSEqualRanges(selectedHorizontalFractionRange, NSMakeRange(0, selectedHorizontalFraction))) {
-		selectedHorizontalFractionRange.length += 1;
+	NSRange range = self.selectedHorizontalFractionRange;
+	if(NSEqualRanges(range, NSMakeRange(0, self.selectedHorizontalFraction))) {
+		range.length += 1;
 	}
-	selectedHorizontalFraction = (selectedHorizontalFraction < self.maximumHorizontalFractions)
-	?	selectedHorizontalFraction + 1
-	:	selectedHorizontalFraction;
+	self.selectedHorizontalFractionRange = range;
+	self.selectedHorizontalFraction = (self.selectedHorizontalFraction < self.maximumHorizontalFractions)?
+		self.selectedHorizontalFraction + 1
+	:	self.selectedHorizontalFraction;
 }
 
 -(void)increaseVerticalFractionSize:(id)sender {
-	selectedVerticalFraction = (selectedVerticalFraction > 2)
-	?	selectedVerticalFraction - 1
+	self.selectedVerticalFraction = (self.selectedVerticalFraction > 2)?
+		self.selectedVerticalFraction - 1
 	:	2;
-	if(selectedVerticalFractionRange.location == selectedVerticalFraction) {
-		selectedVerticalFractionRange.location -= 1;
+	NSRange range = self.selectedVerticalFractionRange;
+	if(range.location == self.selectedVerticalFraction) {
+		range.location -= 1;
 	}
-	if(NSMaxRange(selectedVerticalFractionRange) > selectedVerticalFraction) {
-		selectedVerticalFractionRange.length -= 1;
+	if(NSMaxRange(range) > self.selectedVerticalFraction) {
+		range.length -= 1;
 	}
+	self.selectedVerticalFractionRange = range;
 }
 
 -(void)decreaseVerticalFractionSize:(id)sender {
-	if(NSEqualRanges(selectedVerticalFractionRange, NSMakeRange(0, selectedVerticalFraction))) {
-		selectedVerticalFractionRange.length += 1;
+	NSRange range = self.selectedVerticalFractionRange;
+	if(NSEqualRanges(range, NSMakeRange(0, self.selectedVerticalFraction))) {
+		range.length += 1;
 	}
-	selectedVerticalFraction = (selectedVerticalFraction < self.maximumVerticalFractions)
-	?	selectedVerticalFraction + 1
-	:	selectedVerticalFraction;
+	self.selectedVerticalFractionRange = range;
+	self.selectedVerticalFraction = (self.selectedVerticalFraction < self.maximumVerticalFractions)?
+		self.selectedVerticalFraction + 1
+	:	self.selectedVerticalFraction;
 }
 
 
 -(void)selectAll:(id)sender {
-	selectedHorizontalFractionRange = NSMakeRange(0, selectedHorizontalFraction);
-	selectedVerticalFractionRange = NSMakeRange(0, selectedVerticalFraction);
-	[self.areaSelectionView setNeedsDisplay: YES];
+	self.selectedHorizontalFractionRange = NSMakeRange(0, self.selectedHorizontalFraction);
+	self.selectedVerticalFractionRange = NSMakeRange(0, self.selectedVerticalFraction);
+	self.areaSelectionView.needsDisplay = YES;
 }
 
 
@@ -231,8 +246,8 @@
 
 
 -(void)keyDown:(NSEvent *)event {
-	NSRange tempHorizontalRange = selectedHorizontalFractionRange, tempVerticalRange = selectedVerticalFractionRange;
-	NSUInteger tempHorizontalFraction = selectedHorizontalFraction, tempVerticalFraction = selectedVerticalFraction;
+	NSRange tempHorizontalRange = self.selectedHorizontalFractionRange, tempVerticalRange = self.selectedVerticalFractionRange;
+	NSUInteger tempHorizontalFraction = self.selectedHorizontalFraction, tempVerticalFraction = self.selectedVerticalFraction;
 	switch([event.charactersIgnoringModifiers characterAtIndex: 0]) {
 	case NSCarriageReturnCharacter:
 	case NSEnterCharacter:
@@ -277,12 +292,12 @@
 	}
 	
 	if(
-		!NSEqualRanges(tempHorizontalRange, selectedHorizontalFractionRange)
-	||	!NSEqualRanges(tempVerticalRange, selectedVerticalFractionRange)
-	||	(tempHorizontalFraction != selectedHorizontalFraction)
-	||	(tempVerticalFraction != selectedVerticalFraction)
+		!NSEqualRanges(tempHorizontalRange, self.selectedHorizontalFractionRange)
+	||	!NSEqualRanges(tempVerticalRange, self.selectedVerticalFractionRange)
+	||	(tempHorizontalFraction != self.selectedHorizontalFraction)
+	||	(tempVerticalFraction != self.selectedVerticalFraction)
 	)
-		[self.areaSelectionView setNeedsDisplay: YES];
+		self.areaSelectionView.needsDisplay = YES;
 	else
 		NSBeep();
 }

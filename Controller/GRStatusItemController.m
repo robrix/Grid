@@ -14,10 +14,10 @@
 
 @end
 
-
 @implementation GRStatusItemController
 
-@synthesize statusItemMenu, statusItem;
+@synthesize statusItemMenu = _statusItemMenu;
+@synthesize statusItem = _statusItem;
 
 
 +(void)initialize {
@@ -26,7 +26,7 @@
 
 
 -(void)dealloc {
-	[statusItem release];
+	[_statusItem release];
 	[super dealloc];
 }
 
@@ -37,19 +37,23 @@
 
 
 -(BOOL)isStatusItemEnabled {
-	return statusItem != nil;
+	return self.statusItem != nil;
 }
 
 -(void)setStatusItemEnabled:(BOOL)statusItemEnabled {
-	if(statusItemEnabled && (statusItem == nil)) {
-		self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+	if(statusItemEnabled && (self.statusItem == nil)) {
+		NSStatusItem *statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+		
 		NSImage *statusItemImage = [NSImage imageNamed:@"GRStatusItem"];
-		[statusItemImage setTemplate:YES];
+		statusItemImage.template = YES;
 		statusItem.image = statusItemImage;
+		
 		statusItem.menu = self.statusItemMenu;
 		statusItem.toolTip = @"Grid";
 		statusItem.highlightMode = YES;
-	} else if(!statusItemEnabled && (statusItem != nil)) {
+		
+		self.statusItem = statusItem;
+	} else if(!statusItemEnabled && (self.statusItem != nil)) {
 		[[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
 		self.statusItem = nil;
 	}

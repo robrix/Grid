@@ -13,7 +13,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Grid.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.devon-technologies.${PRODUCT_NAME:identifier}</string>
+	<string>com.antitypical.${PRODUCT_NAME:identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

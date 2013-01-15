@@ -14,9 +14,9 @@ extern NSString * const GRShortcutWasPressedNotification;
 @class SRRecorderControl;
 
 @interface GRPreferencesController : NSWindowController {
-	NSView *shortcutView;
-	SRRecorderControl *shortcutRecorder;
-	EventHotKeyRef shortcutReference;
+	NSView *_shortcutView;
+	SRRecorderControl *_shortcutRecorder;
+	EventHotKeyRef _shortcutReference;
 }
 
 @property (nonatomic, assign) IBOutlet NSView *shortcutView;
