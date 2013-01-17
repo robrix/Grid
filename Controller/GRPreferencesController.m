@@ -74,6 +74,9 @@ NSString * const GRShowDockIconKey = @"GRShowDockIcon";
 
 -(IBAction)showWindow:(id)sender {
 	[self.window center];
+	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+	[self.window makeKeyAndOrderFront:self];
+	[[NSApplication sharedApplication] arrangeInFront:self];
 	[super showWindow:sender];
 }
 
