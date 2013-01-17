@@ -11,3 +11,5 @@ Simply type the shortcut (by default ⌥⌘`—that’s a backtick, just under y
 - [DEVONtechnologies, LLC](http://devontechnologies.com) for the generous donation of Grid’s icon and their sponsorship of the project for the first year or so of its public life
 
 - my friends who used and loved the app and convinced me others might too
+
+- my employer, [Black Pixel](http://blackpixel.com) for their support
