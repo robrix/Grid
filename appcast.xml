@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Grid Releases</title>
+		<link>https://robrix.github.com/Grid/appcast.xml</link>
+		<description>Most recent changes with links to updates.</description>
+		<language>en</language>
+			<item>
+				<title>Version 1.1</title>
+				<description xml:lang="en"><![CDATA[
+					<h3>1.1 Release Notes</h3>
+					
+					<ul>
+						<li><strong>New:</strong> the hotkey acts as a toggle, deactivating Grid if it’s already active.</li>
+						<li><strong>Fixed:</strong> Grid has a default shortcut of ⌥⌘` for new users.</li>
+						<li><strong>Fixed:</strong> changing screen resolutions or adding/removing screens is handled gracefully.</li>
+					</ul>
+				]]></description>
+				<pubDate>Thu, 17 Jan 2013 01:29:11 -0500</pubDate>
+				<enclosure url="https://robrix.github.com/Grid/builds/Grid-1.1.zip" sparkle:version="1.1" length="1623481" type="application/octet-stream" />
+			</item>
+	</channel>
+</rss>
