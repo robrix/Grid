@@ -50,6 +50,7 @@ NSString * const GRShowDockIconKey = @"GRShowDockIcon";
 
 -(void)awakeFromNib {
 	self.shortcutRecorder = [[[SRRecorderControl alloc] initWithFrame:self.shortcutView.frame] autorelease];
+	self.window.level = NSStatusWindowLevel;
 	
 	[self.shortcutView.superview addSubview:self.shortcutRecorder];
 	[self.shortcutView removeFromSuperview];
@@ -74,6 +75,9 @@ NSString * const GRShowDockIconKey = @"GRShowDockIcon";
 
 -(IBAction)showWindow:(id)sender {
 	[self.window center];
+	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+	[self.window makeKeyAndOrderFront:self];
+	[[NSApplication sharedApplication] arrangeInFront:self];
 	[super showWindow:sender];
 }
 

@@ -290,7 +290,8 @@ NSString * const GRSelectedVerticalFractionRangeKey = @"GRSelectedVerticalFracti
 
 
 -(void)windowDidResignKey:(NSNotification *)notification {
-	// [self deactivate];
+	if (![NSApplication sharedApplication].isActive)
+		[self.delegate deactivate];
 }
 
 
