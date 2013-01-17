@@ -48,6 +48,11 @@
 	self.controllers = tempControllers;
 }
 
+-(void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:GRShortcutWasPressedNotification object:nil];
+	[super dealloc];
+}
+
 
 -(NSUInteger)indexOfWindowControllerForWindowElementWithFrame:(CGRect)frame {
 	CGPoint topLeft = CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame));
