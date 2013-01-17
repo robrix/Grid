@@ -70,12 +70,16 @@
 
 
 -(void)shortcutKeyWasPressed:(NSNotification *)notification {
-	if((self.windowElement = [HAXSystem system].focusedApplication.focusedWindow)) {
-		CGRect frame = self.windowElement.frame;
-		[self activate];
-		self.activeControllerIndex = [self indexOfWindowControllerForWindowElementWithFrame:frame];
-	} else {
+	if (self.windowElement) {
 		[self deactivate];
+	} else {
+		if ((self.windowElement = [HAXSystem system].focusedApplication.focusedWindow)) {
+			CGRect frame = self.windowElement.frame;
+			[self activate];
+			self.activeControllerIndex = [self indexOfWindowControllerForWindowElementWithFrame:frame];
+		} else {
+			[self deactivate];
+		}
 	}
 }
 
@@ -86,6 +90,7 @@
 
 -(void)deactivate {
 	[self.controllers makeObjectsPerformSelector:@selector(deactivate)];
+	self.windowElement = nil;
 }
 
 
