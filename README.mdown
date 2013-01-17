@@ -1,0 +1,13 @@
+# Grid
+
+Grid is a window manager designed to make it effortless for you to resize the active window to some fraction of your screen.
+
+Simply type the shortcut (by default ⌥⌘`—that’s a backtick, just under your escape key on most US keyboards), select the fraction of the screen you want to resize the active window to, and hit return—Grid does the rest.
+
+## Thanks to…
+
+- the [Shortcut Recorder project](http://wafflesoftware.net/shortcut/) for making it easy to customize shortcuts
+
+- [DEVONtechnologies, LLC](http://devontechnologies.com) for the generous donation of Grid’s icon and their sponsorship of the project for the first year or so of its public life
+
+- my friends who used and loved the app and convinced me others might too
