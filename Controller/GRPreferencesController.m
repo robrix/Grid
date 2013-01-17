@@ -50,6 +50,7 @@ NSString * const GRShowDockIconKey = @"GRShowDockIcon";
 
 -(void)awakeFromNib {
 	self.shortcutRecorder = [[[SRRecorderControl alloc] initWithFrame:self.shortcutView.frame] autorelease];
+	self.window.level = NSStatusWindowLevel;
 	
 	[self.shortcutView.superview addSubview:self.shortcutRecorder];
 	[self.shortcutView removeFromSuperview];
