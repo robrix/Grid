@@ -1,0 +1,23 @@
+# UI
+- make it much more obvious which window (screen) is actually active
+- describe the change-fraction-sizes and -selection shortcuts in the UI, perhaps at the bottom of the window?
+- some way to access the prefs from the main window (for when the Dock icon is hidden)
+	- can use ⌘, to bring them up currently
+- click the status item to bring up the Grid window
+- mouse interaction (resize handle on the selected area)
+- “arrange” feature to tile windows which you haven’t explicitly positioned (idea thanks to [@nevali](http://twitter.com/nevali))
+
+# Overall
+- persist the selected fraction between relaunches
+- tab through favourite configurations?
+	- where are they edited? How are they saved? Something like control groups in an RTS?
+	- have slots visible at the top; tab to a slot and edits to it get filed away?
+- remember grid spacing and selection per-app?
+
+# Things to test with
+- dock set to always be visible
+- dock set to the side
+- multiple resizes against the dock edge with dock in different configurations
+- multiple monitors
+- multiple monitors with different geometries
+- multiple monitors with one of them set rotated 90° or 270°
