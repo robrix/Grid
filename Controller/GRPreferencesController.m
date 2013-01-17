@@ -17,6 +17,9 @@ NSString * const GRShortcutWasPressedNotification = @"GRShortcutWasPressedNotifi
 
 OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, void *userData);
 
+NSString * const GRShortcutKey = @"GRShortcut";
+NSString * const GRShowDockIconKey = @"GRShowDockIcon";
+
 @interface GRPreferencesController ()
 
 @property (nonatomic, assign) SRRecorderControl *shortcutRecorder;
@@ -39,8 +42,8 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 			@"`", @"characters",
 			[NSNumber numberWithInteger:50], @"keyCode",
 			[NSNumber numberWithUnsignedInteger:SRCarbonToCocoaFlags(cmdKey + optionKey)], @"modifierFlags",
-		nil], @"GRShortcut",
-		(id)kCFBooleanTrue, @"GRShowDockIcon",
+		nil], GRShortcutKey,
+		(id)kCFBooleanTrue, GRShowDockIconKey,
 	nil]];
 }
 
@@ -62,7 +65,7 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 	};
 	InstallApplicationEventHandler(&GRShortcutWasPressed, 1, &eventType, self, NULL);
 		
-	if([[NSUserDefaults standardUserDefaults] boolForKey:@"GRShowDockIcon"]) {
+	if([[NSUserDefaults standardUserDefaults] boolForKey:GRShowDockIconKey]) {
 		ProcessSerialNumber psn = { 0, kCurrentProcess };
 		TransformProcessType(&psn, kProcessTransformToForegroundApplication);
 	}
@@ -76,11 +79,11 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 
 
 -(NSDictionary *)shortcut {
-	return [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"GRShortcut"];
+	return [[NSUserDefaults standardUserDefaults] dictionaryForKey:GRShortcutKey];
 }
 
 -(void)setShortcut:(NSDictionary *)shortcut {
-	[[NSUserDefaults standardUserDefaults] setObject:shortcut forKey:@"GRShortcut"];
+	[[NSUserDefaults standardUserDefaults] setObject:shortcut forKey:GRShortcutKey];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 	if(shortcut) {
 		EventHotKeyID shortcutIdentifier = {
@@ -104,11 +107,11 @@ OSStatus GRShortcutWasPressed(EventHandlerCallRef nextHandler, EventRef event, v
 
 
 -(BOOL)showDockIcon {
-	return [[NSUserDefaults standardUserDefaults] boolForKey:@"GRShowDockIcon"];
+	return [[NSUserDefaults standardUserDefaults] boolForKey:GRShowDockIconKey];
 }
 
 -(void)setShowDockIcon:(BOOL)showDockIcon {
-	[[NSUserDefaults standardUserDefaults] setBool:showDockIcon forKey:@"GRShowDockIcon"];
+	[[NSUserDefaults standardUserDefaults] setBool:showDockIcon forKey:GRShowDockIconKey];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
