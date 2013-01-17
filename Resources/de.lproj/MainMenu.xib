@@ -256,16 +256,16 @@
 				<string key="NSClassName">GRController</string>
 			</object>
 			<object class="NSWindowTemplate" id="217713171">
-				<int key="NSWindowStyleMask">3</int>
+				<int key="NSWindowStyleMask">131</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{157, 191}, {279, 161}}</string>
-				<int key="NSWTFlags">1685585920</int>
+				<int key="NSWTFlags">1685586944</int>
 				<string key="NSWindowTitle">Einstellungen</string>
-				<string key="NSWindowClass">NSWindow</string>
+				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="491328018">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSTextField" id="182391460">
@@ -273,6 +273,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 124}, {90, 17}}</string>
 							<reference key="NSSuperview" ref="491328018"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="320157300"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="951237662">
@@ -311,6 +312,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{112, 121}, {147, 22}}</string>
 							<reference key="NSSuperview" ref="491328018"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="622170077"/>
 							<string key="NSReuseIdentifierKey">_NS:499</string>
 							<string key="NSClassName">NSView</string>
@@ -320,6 +322,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{18, 97}, {227, 18}}</string>
 							<reference key="NSSuperview" ref="491328018"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="11472952"/>
 							<string key="NSReuseIdentifierKey">_NS:239</string>
 							<bool key="NSEnabled">YES</bool>
@@ -351,6 +354,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{18, 77}, {170, 18}}</string>
 							<reference key="NSSuperview" ref="491328018"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="259144880"/>
 							<string key="NSReuseIdentifierKey">_NS:239</string>
 							<bool key="NSEnabled">YES</bool>
@@ -377,6 +381,8 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 20}, {257, 51}}</string>
 							<reference key="NSSuperview" ref="491328018"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:3936</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="135347849">
@@ -393,6 +399,8 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{279, 161}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="182391460"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 900}}</string>
@@ -1121,6 +1129,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">GRPreferencesController</string>
 					<string key="superclassName">NSWindowController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">showWindow:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">showWindow:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">showWindow:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">shortcutView</string>
 						<string key="NS.object.0">NSView</string>
