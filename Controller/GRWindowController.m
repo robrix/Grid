@@ -5,6 +5,11 @@
 #import "GRWindowController.h"
 #import <objc/runtime.h>
 
+NSString * const GRSelectedHorizontalFractionKey = @"GRSelectedHorizontalFractionKey";
+NSString * const GRSelectedHorizontalFractionRangeKey = @"GRSelectedHorizontalFractionRangeKey";
+NSString * const GRSelectedVerticalFractionKey = @"GRSelectedVerticalFractionKey";
+NSString * const GRSelectedVerticalFractionRangeKey = @"GRSelectedVerticalFractionRangeKey";
+
 @interface GRWindowController ()
 
 @property (nonatomic, assign) NSRange selectedHorizontalFractionRange;
@@ -20,6 +25,17 @@
 @synthesize screen = _screen;
 @synthesize delegate = _delegate;
 
+
++(void)initialize {
+	[[NSUserDefaults standardUserDefaults] registerDefaults:@{
+	 GRSelectedHorizontalFractionKey: @(2),
+	 GRSelectedVerticalFractionKey: @(2),
+	 GRSelectedHorizontalFractionRangeKey: NSStringFromRange(NSMakeRange(0, 1)),
+	 GRSelectedVerticalFractionRangeKey: NSStringFromRange(NSMakeRange(0, 1)),
+	 }];
+}
+
+
 +(GRWindowController *)controllerWithScreen:(NSScreen *)s {
 	GRWindowController *controller = [[[self alloc] initWithWindowNibName: @"GRWindow"] autorelease];
 	[controller loadWindow];
@@ -34,15 +50,18 @@
 	[super dealloc];
 }
 
+
 -(void)awakeFromNib {
 	[self.window setExcludedFromWindowsMenu: NO];
 	[self.window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
 	
-	self.selectedHorizontalFractionRange = NSMakeRange(0, 1);
-	self.selectedVerticalFractionRange = NSMakeRange(0, 1);
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
-	self.selectedHorizontalFraction = 2;
-	self.selectedVerticalFraction = 2;
+	self.selectedHorizontalFractionRange = NSRangeFromString([defaults stringForKey:GRSelectedHorizontalFractionRangeKey]);
+	self.selectedVerticalFractionRange = NSRangeFromString([defaults stringForKey:GRSelectedVerticalFractionRangeKey]);
+	
+	self.selectedHorizontalFraction = [defaults integerForKey:GRSelectedHorizontalFractionKey];
+	self.selectedVerticalFraction = [defaults integerForKey:GRSelectedVerticalFractionKey];
 }
 
 
@@ -73,6 +92,31 @@
 	[NSAnimationContext endGrouping];
 	
 	[self.window performSelector: @selector(orderOut:) withObject: self afterDelay: 0.1f];
+}
+
+
+-(void)setSelectedHorizontalFraction:(NSUInteger)selectedHorizontalFraction {
+	_selectedHorizontalFraction = selectedHorizontalFraction;
+	
+	[[NSUserDefaults standardUserDefaults] setInteger:selectedHorizontalFraction forKey:GRSelectedHorizontalFractionKey];
+}
+
+-(void)setSelectedVerticalFraction:(NSUInteger)selectedVerticalFraction {
+	_selectedVerticalFraction = selectedVerticalFraction;
+	
+	[[NSUserDefaults standardUserDefaults] setInteger:selectedVerticalFraction forKey:GRSelectedVerticalFractionKey];
+}
+
+-(void)setSelectedHorizontalFractionRange:(NSRange)selectedHorizontalFractionRange {
+	_selectedHorizontalFractionRange = selectedHorizontalFractionRange;
+	
+	[[NSUserDefaults standardUserDefaults] setObject:NSStringFromRange(selectedHorizontalFractionRange) forKey:GRSelectedHorizontalFractionRangeKey];
+}
+
+-(void)setSelectedVerticalFractionRange:(NSRange)selectedVerticalFractionRange {
+	_selectedVerticalFractionRange = selectedVerticalFractionRange;
+	
+	[[NSUserDefaults standardUserDefaults] setObject:NSStringFromRange(selectedVerticalFractionRange) forKey:GRSelectedVerticalFractionRangeKey];
 }
 
 

@@ -8,7 +8,6 @@
 - “arrange” feature to tile windows which you haven’t explicitly positioned (idea thanks to [@nevali](http://twitter.com/nevali))
 
 # Overall
-- persist the selected fraction between relaunches
 - tab through favourite configurations?
 	- where are they edited? How are they saved? Something like control groups in an RTS?
 	- have slots visible at the top; tab to a slot and edits to it get filed away?
