@@ -24,7 +24,10 @@ NSString * const GRSelectedVerticalFractionRangeKey = @"GRSelectedVerticalFracti
 @synthesize areaSelectionView = _areaSelectionView;
 @synthesize screen = _screen;
 @synthesize delegate = _delegate;
-
+@synthesize selectedHorizontalFraction = _selectedHorizontalFraction;
+@synthesize selectedVerticalFraction = _selectedVerticalFraction;
+@synthesize selectedHorizontalFractionRange = _selectedHorizontalFractionRange;
+@synthesize selectedVerticalFractionRange = _selectedVerticalFractionRange;
 
 +(void)initialize {
 	[[NSUserDefaults standardUserDefaults] registerDefaults:@{
