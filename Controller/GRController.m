@@ -38,14 +38,6 @@
 
 -(void)awakeFromNib {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shortcutKeyWasPressed:) name:GRShortcutWasPressedNotification object:nil];
-	
-	NSMutableArray *tempControllers = [NSMutableArray array];
-	for(NSScreen *screen in [NSScreen screens]) {
-		GRWindowController *controller = [GRWindowController controllerWithScreen:screen];
-		controller.delegate = self;
-		[tempControllers addObject:controller];
-	}
-	self.controllers = tempControllers;
 }
 
 -(void)dealloc {
@@ -85,11 +77,20 @@
 
 
 -(void)activate {
+	NSMutableArray *controllers = [NSMutableArray array];
+	for (NSScreen *screen in [NSScreen screens]) {
+		GRWindowController *controller = [GRWindowController controllerWithScreen:screen];
+		controller.delegate = self;
+		[controllers addObject:controller];
+	}
+	self.controllers = controllers;
+	
 	[self.controllers makeObjectsPerformSelector:@selector(activate)];
 }
 
 -(void)deactivate {
 	[self.controllers makeObjectsPerformSelector:@selector(deactivate)];
+	self.controllers = nil;
 	self.windowElement = nil;
 }
 
