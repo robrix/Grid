@@ -42,6 +42,8 @@
 
 -(void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:GRShortcutWasPressedNotification object:nil];
+	[_controllers release];
+	[_windowElement release];
 	[super dealloc];
 }
 
