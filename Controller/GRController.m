@@ -17,6 +17,7 @@
 @interface GRController () <GRWindowControllerDelegate, NSApplicationDelegate>
 
 @property (nonatomic, strong) HAXWindow *windowElement;
+@property (nonatomic, strong) HAXApplication *focusedApplication;
 
 -(void)shortcutKeyWasPressed:(NSNotification *)notification;
 
@@ -67,7 +68,8 @@
 	if (self.windowElement) {
 		[self deactivate];
 	} else {
-		if ((self.windowElement = [HAXSystem system].focusedApplication.focusedWindow)) {
+		self.focusedApplication = [HAXSystem system].focusedApplication;
+		if ((self.windowElement = self.focusedApplication.focusedWindow)) {
 			CGRect frame = self.windowElement.frame;
 			[self activate];
 			self.activeControllerIndex = [self indexOfWindowControllerForWindowElementWithFrame:frame];
@@ -94,6 +96,11 @@
 	[self.controllers makeObjectsPerformSelector:@selector(deactivate)];
 	self.controllers = nil;
 	self.windowElement = nil;
+	
+	if ([NSApplication sharedApplication].isActive)
+		[[NSRunningApplication runningApplicationWithProcessIdentifier:self.focusedApplication.processIdentifier] activateWithOptions:0];
+	
+	self.focusedApplication = nil;
 }
 
 
@@ -109,19 +116,24 @@
 
 
 -(void)windowController:(GRWindowController *)controller didSelectArea:(CGRect)selectedArea {
-	selectedArea.origin.y = NSHeight(controller.screen.frame) - NSHeight(selectedArea) - selectedArea.origin.y; // flip the selected area
+	CGPoint screenOffset = controller.screen.frame.origin;
+	selectedArea = CGRectOffset(selectedArea, -screenOffset.x, -screenOffset.y); // consider the visible frame as being relative to the screen’s frame
+	selectedArea.origin.y = NSHeight(controller.screen.frame) - NSHeight(selectedArea) - selectedArea.origin.y; // vertically flip the rectangle laid out within the screen frame
+	selectedArea = CGRectOffset(selectedArea, screenOffset.x, screenOffset.y); // reapply the screen’s offset
 	self.windowElement.frame = selectedArea;
 }
 
 
 -(IBAction)nextController:(id)sender {
-	self.activeControllerIndex = (self.activeControllerIndex + 1) % self.controllers.count;
+	if (self.controllers)
+		self.activeControllerIndex = (self.activeControllerIndex + 1) % self.controllers.count;
 }
 
 -(IBAction)previousController:(id)sender {
-	self.activeControllerIndex = (self.activeControllerIndex > 0)?
-		self.activeControllerIndex - 1
-	:	self.controllers.count - 1;
+	if (self.controllers)
+		self.activeControllerIndex = (self.activeControllerIndex > 0)?
+			self.activeControllerIndex - 1
+		:	self.controllers.count - 1;
 }
 
 @end

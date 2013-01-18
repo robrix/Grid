@@ -275,10 +275,7 @@ NSString * const GRSelectedVerticalFractionRangeKey = @"GRSelectedVerticalFracti
 
 
 -(CGRect)selectedArea {
-	CGRect selectedArea = [self.areaSelectionView selectedAreaForBounds: self.screen.visibleFrame];
-	selectedArea.origin.x += self.screen.visibleFrame.origin.x;
-	selectedArea.origin.y += self.screen.visibleFrame.origin.y;
-	return selectedArea;
+	return [self.areaSelectionView selectedAreaForBounds: self.screen.visibleFrame];
 }
 
 
@@ -286,12 +283,6 @@ NSString * const GRSelectedVerticalFractionRangeKey = @"GRSelectedVerticalFracti
 	[self.delegate windowController: self didSelectArea: self.selectedArea];
 	
 	[self.delegate deactivate];
-}
-
-
--(void)windowDidResignKey:(NSNotification *)notification {
-	if (![NSApplication sharedApplication].isActive)
-		[self.delegate deactivate];
 }
 
 
