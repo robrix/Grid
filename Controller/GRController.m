@@ -17,6 +17,7 @@
 @interface GRController () <GRWindowControllerDelegate, NSApplicationDelegate>
 
 @property (nonatomic, strong) HAXWindow *windowElement;
+@property (nonatomic, strong) HAXApplication *focusedApplication;
 
 -(void)shortcutKeyWasPressed:(NSNotification *)notification;
 
@@ -67,7 +68,8 @@
 	if (self.windowElement) {
 		[self deactivate];
 	} else {
-		if ((self.windowElement = [HAXSystem system].focusedApplication.focusedWindow)) {
+		self.focusedApplication = [HAXSystem system].focusedApplication;
+		if ((self.windowElement = self.focusedApplication.focusedWindow)) {
 			CGRect frame = self.windowElement.frame;
 			[self activate];
 			self.activeControllerIndex = [self indexOfWindowControllerForWindowElementWithFrame:frame];
@@ -94,6 +96,11 @@
 	[self.controllers makeObjectsPerformSelector:@selector(deactivate)];
 	self.controllers = nil;
 	self.windowElement = nil;
+	
+	if ([NSApplication sharedApplication].isActive)
+		[[NSRunningApplication runningApplicationWithProcessIdentifier:self.focusedApplication.processIdentifier] activateWithOptions:0];
+	
+	self.focusedApplication = nil;
 }
 
 
@@ -115,13 +122,15 @@
 
 
 -(IBAction)nextController:(id)sender {
-	self.activeControllerIndex = (self.activeControllerIndex + 1) % self.controllers.count;
+	if (self.controllers)
+		self.activeControllerIndex = (self.activeControllerIndex + 1) % self.controllers.count;
 }
 
 -(IBAction)previousController:(id)sender {
-	self.activeControllerIndex = (self.activeControllerIndex > 0)?
-		self.activeControllerIndex - 1
-	:	self.controllers.count - 1;
+	if (self.controllers)
+		self.activeControllerIndex = (self.activeControllerIndex > 0)?
+			self.activeControllerIndex - 1
+		:	self.controllers.count - 1;
 }
 
 @end
