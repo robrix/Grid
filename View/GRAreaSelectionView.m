@@ -23,7 +23,7 @@
 		roundf((fractionSize.width * selectedHorizontalFractionRange.location) + (fractionSize.width * selectedHorizontalFractionRange.length) - selectedArea.origin.x),
 		roundf((fractionSize.height * selectedVerticalFractionRange.location) + (fractionSize.height * selectedVerticalFractionRange.length) - selectedArea.origin.y)
 	); // this is done this absurd way to avoid rounding errors (and thus the boundaries of the selection area being drawn one pixel too high or low)
-	return selectedArea;
+	return CGRectOffset(selectedArea, bounds.origin.x, bounds.origin.y);
 }
 
 -(void)drawRect:(NSRect)rect {
