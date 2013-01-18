@@ -116,7 +116,10 @@
 
 
 -(void)windowController:(GRWindowController *)controller didSelectArea:(CGRect)selectedArea {
-	selectedArea.origin.y = NSHeight(controller.screen.frame) - NSHeight(selectedArea) - selectedArea.origin.y; // flip the selected area
+	CGPoint screenOffset = controller.screen.frame.origin;
+	selectedArea = CGRectOffset(selectedArea, -screenOffset.x, -screenOffset.y); // consider the visible frame as being relative to the screen’s frame
+	selectedArea.origin.y = NSHeight(controller.screen.frame) - NSHeight(selectedArea) - selectedArea.origin.y; // vertically flip the rectangle laid out within the screen frame
+	selectedArea = CGRectOffset(selectedArea, screenOffset.x, screenOffset.y); // reapply the screen’s offset
 	self.windowElement.frame = selectedArea;
 }
 
