@@ -4,9 +4,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HAXElement : NSObject {
-@private
-	__strong AXUIElementRef _elementRef;
-}
+@interface HAXElement : NSObject
 
 @end

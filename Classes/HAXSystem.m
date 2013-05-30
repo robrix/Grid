@@ -9,7 +9,10 @@
 @implementation HAXSystem
 
 +(instancetype)system {
-	return [self elementWithElementRef:CFMakeCollectable(AXUIElementCreateSystemWide())];
+    AXUIElementRef element = AXUIElementCreateSystemWide();
+	HAXSystem *result = [self elementWithElementRef:element];
+    CFRelease(element);
+    return result;
 }
 
 
