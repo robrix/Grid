@@ -9,33 +9,37 @@
 
 -(CGPoint)origin {
 	CGPoint origin = {0};
-	CFTypeRef originRef = [self attributeValueForKey:(NSString *)kAXPositionAttribute error:NULL];
+	CFTypeRef originRef = [self copyAttributeValueForKey:(NSString *)kAXPositionAttribute error:NULL];
 	if(originRef) {
 		AXValueGetValue(originRef, kAXValueCGPointType, &origin);
+        CFRelease(originRef);
+        originRef = NULL;
 	}
 	return origin;
 }
 
 -(void)setOrigin:(CGPoint)origin {
-	AXValueRef originRef = CFMakeCollectable(AXValueCreate(kAXValueCGPointType, &origin));
+	AXValueRef originRef = AXValueCreate(kAXValueCGPointType, &origin);
 	[self setAttributeValue:originRef forKey:(NSString *)kAXPositionAttribute error:NULL];
-	[(id)originRef release];
+	CFRelease(originRef);
 }
 
 
 -(CGSize)size {
 	CGSize size = {0};
-	CFTypeRef sizeRef = [self attributeValueForKey:(NSString *)kAXSizeAttribute error:NULL];
+	CFTypeRef sizeRef = [self copyAttributeValueForKey:(NSString *)kAXSizeAttribute error:NULL];
 	if(sizeRef) {
 		AXValueGetValue(sizeRef, kAXValueCGSizeType, &size);
+        CFRelease(sizeRef);
+        sizeRef = NULL;
 	}
 	return size;
 }
 
 -(void)setSize:(CGSize)size {
-	AXValueRef sizeRef = CFMakeCollectable(AXValueCreate(kAXValueCGSizeType, &size));
+	AXValueRef sizeRef = AXValueCreate(kAXValueCGSizeType, &size);
 	[self setAttributeValue:sizeRef forKey:(NSString *)kAXSizeAttribute error:NULL];
-	[(id)sizeRef release];
+	CFRelease(sizeRef);
 }
 
 
