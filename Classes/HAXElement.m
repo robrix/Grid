@@ -27,7 +27,7 @@
 -(void)dealloc {
     if (_elementRef) {
         CFRelease(_elementRef);
-        _elementRef = nil;
+        _elementRef = NULL;
     }
 }
 
