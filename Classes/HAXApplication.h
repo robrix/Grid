@@ -10,4 +10,6 @@
 
 @property (nonatomic, readonly) HAXWindow *focusedWindow;
 
++ (instancetype)applicationWithPID:(pid_t)pid;
+
 @end
