@@ -52,4 +52,9 @@
 	self.size = frame.size;
 }
 
+
+- (BOOL)raise {
+    return [self performAction:(__bridge NSString *)kAXRaiseAction error:NULL];
+}
+
 @end

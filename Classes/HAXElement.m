@@ -56,6 +56,18 @@
 	return result == kAXErrorSuccess;
 }
 
+- (bool)performAction:(NSString *)action error:(NSError **)error {
+    AXError result = AXUIElementPerformAction(self.elementRef, (__bridge CFStringRef)action);
+    if ((result != kAXErrorSuccess) && error) {
+        *error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+            action, @"action",
+            (id)self.elementRef, @"elementRef",
+        nil]];
+    }
+
+    return result == kAXErrorSuccess;
+}
+
 
 -(id)elementOfClass:(Class)klass forKey:(NSString *)key error:(NSError **)error {
 	AXUIElementRef subelementRef = (AXUIElementRef)[self copyAttributeValueForKey:key error:error];
