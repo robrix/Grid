@@ -35,7 +35,7 @@
 }
 
 -(NSArray *)windows {
-    NSArray *axWindowObjects = (__bridge_transfer NSArray *)[self copyAttributeValueForKey:(NSString *)kAXWindowsAttribute error:nil];
+    NSArray *axWindowObjects = CFBridgingRelease([self copyAttributeValueForKey:(NSString *)kAXWindowsAttribute error:nil]);
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[axWindowObjects count]];
     for (id axObject in axWindowObjects) {
         [result addObject:[HAXWindow elementWithElementRef:(AXUIElementRef)axObject]];
