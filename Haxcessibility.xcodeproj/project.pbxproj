@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		BC3B3B76175E9FD4002AD452 /* HAXElement+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = D44E051312D75B3D00541D6A /* HAXElement+Protected.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D4D2103412D6957000509E57 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D2103312D6957000509E57 /* Carbon.framework */; };
 		D4D2103712D6959400509E57 /* HAXElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D2103512D6959400509E57 /* HAXElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4D2103812D6959400509E57 /* HAXElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2103612D6959400509E57 /* HAXElement.m */; };
@@ -128,6 +129,7 @@
 				D4D2113E12D6AB0400509E57 /* HAXApplication.h in Headers */,
 				D4D2113F12D6AB0400509E57 /* HAXWindow.h in Headers */,
 				D4D2113D12D6AAF000509E57 /* Haxcessibility.h in Headers */,
+				BC3B3B76175E9FD4002AD452 /* HAXElement+Protected.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +140,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "Haxcessibility" */;
 			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
-				8DC2EF500486A6940098B216 /* Headers */,
 				8DC2EF520486A6940098B216 /* Resources */,
 			);
 			buildRules = (
