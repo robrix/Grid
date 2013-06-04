@@ -58,7 +58,7 @@
 }
 
 
-- (BOOL)raise {
+- (bool)raise {
     return [self performAction:(__bridge NSString *)kAXRaiseAction error:NULL];
 }
 

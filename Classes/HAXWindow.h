@@ -12,6 +12,6 @@
 
 - (NSString *)title;
 
-- (BOOL)raise;
+- (bool)raise;
 
 @end
