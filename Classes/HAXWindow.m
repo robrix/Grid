@@ -62,4 +62,9 @@
     return [self performAction:(__bridge NSString *)kAXRaiseAction error:NULL];
 }
 
+- (bool)close {
+    HAXElement *element = [self elementOfClass:[HAXElement class] forKey:(__bridge NSString *)kAXCloseButtonAttribute error:NULL];
+    return [element performAction:(__bridge NSString *)kAXPressAction error:NULL];
+}
+
 @end

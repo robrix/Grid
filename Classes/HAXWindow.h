@@ -13,5 +13,6 @@
 - (NSString *)title;
 
 - (bool)raise;
+- (bool)close;
 
 @end
