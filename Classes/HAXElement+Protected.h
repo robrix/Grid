@@ -11,7 +11,7 @@
 
 @property (nonatomic, readonly) AXUIElementRef elementRef __attribute__((NSObject));
 
--(CFTypeRef)attributeValueForKey:(NSString *)key error:(NSError **)error;
+-(CFTypeRef)copyAttributeValueForKey:(NSString *)key error:(NSError **)error;
 -(bool)setAttributeValue:(CFTypeRef)value forKey:(NSString *)key error:(NSError **)error;
 
 -(id)elementOfClass:(Class)klass forKey:(NSString *)key error:(NSError **)error;
