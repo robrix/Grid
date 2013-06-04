@@ -13,6 +13,7 @@
 
 -(CFTypeRef)copyAttributeValueForKey:(NSString *)key error:(NSError **)error;
 -(bool)setAttributeValue:(CFTypeRef)value forKey:(NSString *)key error:(NSError **)error;
+- (bool)performAction:(NSString *)action error:(NSError **)error;
 
 -(id)elementOfClass:(Class)klass forKey:(NSString *)key error:(NSError **)error;
 

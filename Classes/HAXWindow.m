@@ -57,4 +57,9 @@
 	return (__bridge_transfer NSString *)[self copyAttributeValueForKey:(NSString *)kAXTitleAttribute error:NULL];
 }
 
+
+- (bool)raise {
+    return [self performAction:(__bridge NSString *)kAXRaiseAction error:NULL];
+}
+
 @end
