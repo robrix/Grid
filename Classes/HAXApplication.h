@@ -9,5 +9,6 @@
 @interface HAXApplication : HAXElement
 
 @property (nonatomic, readonly) HAXWindow *focusedWindow;
+@property (nonatomic, readonly) NSArray *windows;
 
 @end
