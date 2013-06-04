@@ -53,6 +53,11 @@
 }
 
 
+- (NSString *)title {
+	return (__bridge_transfer NSString *)[self copyAttributeValueForKey:(NSString *)kAXTitleAttribute error:NULL];
+}
+
+
 - (BOOL)raise {
     return [self performAction:(__bridge NSString *)kAXRaiseAction error:NULL];
 }
