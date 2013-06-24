@@ -7,6 +7,6 @@ It also enables hacks like moving and resizing another app’s windows.
 
 # Use it
 
-	[HAXSystem element].focusedApplication.focusedWindow.size = NSMakeRect(0, 0, 2560, 1440);
+	[HAXSystem system].focusedApplication.focusedWindow.size = NSMakeRect(0, 0, 2560, 1440);
 
 More features are, obviously, desirable.
