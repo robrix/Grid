@@ -4,6 +4,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HAXElement : NSObject
+@protocol HAXElementDelegate;
 
+@interface HAXElement : NSObject
+@property (nonatomic, weak) id<HAXElementDelegate> delegate;
+@end
+
+@protocol HAXElementDelegate <NSObject>
+@optional
+- (void)elementWasDestroyed:(HAXElement *)element;
 @end
