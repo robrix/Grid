@@ -54,7 +54,7 @@
 
 
 - (NSString *)title {
-	return (__bridge_transfer NSString *)[self copyAttributeValueForKey:(NSString *)kAXTitleAttribute error:NULL];
+	return CFBridgingRelease([self copyAttributeValueForKey:(NSString *)kAXTitleAttribute error:NULL]);
 }
 
 
