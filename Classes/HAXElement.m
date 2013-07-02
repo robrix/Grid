@@ -5,6 +5,7 @@
 #import "HAXElement+Protected.h"
 
 @interface HAXElement ()
+@property (nonatomic, strong) AXObserverRef observer __attribute__((NSObject));
 @property (nonatomic, assign) AXUIElementRef _elementRef;
 @end
 
@@ -20,6 +21,7 @@
 -(instancetype)initWithElementRef:(AXUIElementRef)elementRef {
 	if((self = [super init])) {
 		_elementRef = CFRetain(elementRef);
+        [self addAXObserver];
 	}
 	return self;
 }
@@ -28,6 +30,9 @@
     if (_elementRef) {
         CFRelease(_elementRef);
         _elementRef = NULL;
+    }
+    if (_observer) {
+        [self removeAXObserver];
     }
 }
 
@@ -89,6 +94,59 @@
         subelementRef = NULL;
     }
     return result;
+}
+
+
+- (void)addAXObserver
+{
+    AXObserverRef observer;
+    AXError err;
+    pid_t pid;
+    
+    err = AXUIElementGetPid(self.elementRef, &pid);
+    if (err != kAXErrorSuccess) { return; }
+    
+    err = AXObserverCreate(pid, axCallback, &observer);
+    if (err != kAXErrorSuccess) { return; }
+    
+    err = AXObserverAddNotification(observer, self.elementRef, kAXUIElementDestroyedNotification, (__bridge void *)(self));
+    if (err != kAXErrorSuccess) {
+        CFRelease(observer);
+        observer = NULL;
+        return;
+    }
+    
+    CFRunLoopAddSource([[NSRunLoop mainRunLoop] getCFRunLoop], AXObserverGetRunLoopSource(observer), kCFRunLoopDefaultMode);
+    
+    self.observer = observer;
+    CFRelease(observer);
+}
+
+static void axCallback(AXObserverRef observer, AXUIElementRef element, CFStringRef notification, void *refcon) {
+    [(__bridge HAXElement *)refcon didObserveNotification:(__bridge NSString *)notification];
+}
+
+- (void)didObserveNotification:(NSString *)notification
+{
+    id<HAXElementDelegate> delegate = self.delegate;
+    
+    if ([notification isEqualToString:(__bridge NSString *)kAXUIElementDestroyedNotification] && [delegate respondsToSelector:@selector(elementWasDestroyed:)]) {
+        [delegate elementWasDestroyed:self];
+    }
+}
+
+- (void)removeAXObserver
+{
+    if (!self.observer) { return; }
+    
+    (void)AXObserverRemoveNotification(self.observer, self.elementRef, kAXUIElementDestroyedNotification);
+    
+    CFRunLoopSourceRef observerRunLoopSource = AXObserverGetRunLoopSource(self.observer);
+    if (observerRunLoopSource) {
+        CFRunLoopRemoveSource([[NSRunLoop mainRunLoop] getCFRunLoop], observerRunLoopSource, kCFRunLoopDefaultMode);
+    }
+    
+    self.observer = NULL;
 }
 
 @end
