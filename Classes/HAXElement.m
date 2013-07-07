@@ -65,6 +65,8 @@
 }
 
 -(bool)setAttributeValue:(CFTypeRef)value forKey:(NSString *)key error:(NSError **)error {
+	NSParameterAssert(value != nil);
+	NSParameterAssert(key != nil);
 	AXError result = AXUIElementSetAttributeValue(self.elementRef, (__bridge CFStringRef)key, value);
 	if((result != kAXErrorSuccess) && error) {
 		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -76,6 +78,7 @@
 }
 
 -(bool)performAction:(NSString *)action error:(NSError **)error {
+	NSParameterAssert(action != nil);
 	AXError result = AXUIElementPerformAction(self.elementRef, (__bridge CFStringRef)action);
 	if ((result != kAXErrorSuccess) && error) {
 		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
