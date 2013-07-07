@@ -56,10 +56,10 @@
 	CFTypeRef attributeRef = NULL;
 	AXError result = AXUIElementCopyAttributeValue(self.elementRef, (__bridge CFStringRef)key, &attributeRef);
 	if((result != kAXErrorSuccess) && error) {
-		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-			key, @"key",
-			(id)self.elementRef, @"elementRef",
-		nil]];
+		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:@{
+			@"key": key,
+			@"elementRef": (id)self.elementRef}
+		];
 	}
 	return attributeRef;
 }
@@ -69,10 +69,10 @@
 	NSParameterAssert(key != nil);
 	AXError result = AXUIElementSetAttributeValue(self.elementRef, (__bridge CFStringRef)key, value);
 	if((result != kAXErrorSuccess) && error) {
-		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-			key, @"key",
-			(id)self.elementRef, @"elementRef",
-		nil]];
+		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:@{
+			@"key": key,
+			@"elementRef": (id)self.elementRef
+		}];
 	}
 	return result == kAXErrorSuccess;
 }
@@ -81,10 +81,10 @@
 	NSParameterAssert(action != nil);
 	AXError result = AXUIElementPerformAction(self.elementRef, (__bridge CFStringRef)action);
 	if ((result != kAXErrorSuccess) && error) {
-		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-			action, @"action",
-			(id)self.elementRef, @"elementRef",
-		nil]];
+		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:@{
+			@"action": action,
+			@"elementRef": (id)self.elementRef
+		}];
 	}
 
 	return result == kAXErrorSuccess;
