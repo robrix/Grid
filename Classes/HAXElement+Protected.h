@@ -13,7 +13,7 @@
 
 -(CFTypeRef)copyAttributeValueForKey:(NSString *)key error:(NSError **)error __attribute__((nonnull(1)));
 -(bool)setAttributeValue:(CFTypeRef)value forKey:(NSString *)key error:(NSError **)error __attribute__((nonnull(1,2)));
-- (bool)performAction:(NSString *)action error:(NSError **)error __attribute__((nonnull(1)));
+-(bool)performAction:(NSString *)action error:(NSError **)error __attribute__((nonnull(1)));
 
 -(id)elementOfClass:(Class)klass forKey:(NSString *)key error:(NSError **)error __attribute__((nonnull(1,2)));
 

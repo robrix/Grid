@@ -7,10 +7,14 @@
 @protocol HAXElementDelegate;
 
 @interface HAXElement : NSObject
+
 @property (nonatomic, weak) id<HAXElementDelegate> delegate;
+
+-(bool)isEqualToElement:(HAXElement *)other;
+
 @end
 
 @protocol HAXElementDelegate <NSObject>
 @optional
-- (void)elementWasDestroyed:(HAXElement *)element;
+-(void)elementWasDestroyed:(HAXElement *)element;
 @end

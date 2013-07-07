@@ -31,7 +31,7 @@
 		D44E051312D75B3D00541D6A /* HAXElement+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HAXElement+Protected.h"; sourceTree = "<group>"; };
 		D4D2103312D6957000509E57 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		D4D2103512D6959400509E57 /* HAXElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAXElement.h; sourceTree = "<group>"; };
-		D4D2103612D6959400509E57 /* HAXElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAXElement.m; sourceTree = "<group>"; };
+		D4D2103612D6959400509E57 /* HAXElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HAXElement.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D4D2105312D698F200509E57 /* HAXSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXSystem.h; sourceTree = "<group>"; };
 		D4D2105412D698F400509E57 /* HAXSystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAXSystem.m; sourceTree = "<group>"; };
 		D4D2106B12D69C8900509E57 /* HAXApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAXApplication.h; sourceTree = "<group>"; };
@@ -161,7 +161,9 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HAX;
 				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Rob Rix";
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "Haxcessibility" */;
 			compatibilityVersion = "Xcode 3.2";

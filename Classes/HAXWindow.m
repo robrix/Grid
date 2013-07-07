@@ -9,36 +9,36 @@
 
 -(CGPoint)origin {
 	CGPoint origin = {0};
-	CFTypeRef originRef = [self copyAttributeValueForKey:(NSString *)kAXPositionAttribute error:NULL];
+	CFTypeRef originRef = [self copyAttributeValueForKey:(__bridge NSString *)kAXPositionAttribute error:NULL];
 	if(originRef) {
 		AXValueGetValue(originRef, kAXValueCGPointType, &origin);
-        CFRelease(originRef);
-        originRef = NULL;
+		CFRelease(originRef);
+		originRef = NULL;
 	}
 	return origin;
 }
 
 -(void)setOrigin:(CGPoint)origin {
 	AXValueRef originRef = AXValueCreate(kAXValueCGPointType, &origin);
-	[self setAttributeValue:originRef forKey:(NSString *)kAXPositionAttribute error:NULL];
+	[self setAttributeValue:originRef forKey:(__bridge NSString *)kAXPositionAttribute error:NULL];
 	CFRelease(originRef);
 }
 
 
 -(CGSize)size {
 	CGSize size = {0};
-	CFTypeRef sizeRef = [self copyAttributeValueForKey:(NSString *)kAXSizeAttribute error:NULL];
+	CFTypeRef sizeRef = [self copyAttributeValueForKey:(__bridge NSString *)kAXSizeAttribute error:NULL];
 	if(sizeRef) {
 		AXValueGetValue(sizeRef, kAXValueCGSizeType, &size);
-        CFRelease(sizeRef);
-        sizeRef = NULL;
+		CFRelease(sizeRef);
+		sizeRef = NULL;
 	}
 	return size;
 }
 
 -(void)setSize:(CGSize)size {
 	AXValueRef sizeRef = AXValueCreate(kAXValueCGSizeType, &size);
-	[self setAttributeValue:sizeRef forKey:(NSString *)kAXSizeAttribute error:NULL];
+	[self setAttributeValue:sizeRef forKey:(__bridge NSString *)kAXSizeAttribute error:NULL];
 	CFRelease(sizeRef);
 }
 
@@ -53,18 +53,18 @@
 }
 
 
-- (NSString *)title {
-	return CFBridgingRelease([self copyAttributeValueForKey:(NSString *)kAXTitleAttribute error:NULL]);
+-(NSString *)title {
+	return CFBridgingRelease([self copyAttributeValueForKey:(__bridge NSString *)kAXTitleAttribute error:NULL]);
 }
 
 
-- (bool)raise {
-    return [self performAction:(__bridge NSString *)kAXRaiseAction error:NULL];
+-(bool)raise {
+	return [self performAction:(__bridge NSString *)kAXRaiseAction error:NULL];
 }
 
-- (bool)close {
-    HAXElement *element = [self elementOfClass:[HAXElement class] forKey:(__bridge NSString *)kAXCloseButtonAttribute error:NULL];
-    return [element performAction:(__bridge NSString *)kAXPressAction error:NULL];
+-(bool)close {
+	HAXElement *element = [self elementOfClass:[HAXElement class] forKey:(__bridge NSString *)kAXCloseButtonAttribute error:NULL];
+	return [element performAction:(__bridge NSString *)kAXPressAction error:NULL];
 }
 
 @end
