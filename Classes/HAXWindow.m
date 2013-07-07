@@ -12,8 +12,8 @@
 	CFTypeRef originRef = [self copyAttributeValueForKey:(NSString *)kAXPositionAttribute error:NULL];
 	if(originRef) {
 		AXValueGetValue(originRef, kAXValueCGPointType, &origin);
-        CFRelease(originRef);
-        originRef = NULL;
+		CFRelease(originRef);
+		originRef = NULL;
 	}
 	return origin;
 }
@@ -30,8 +30,8 @@
 	CFTypeRef sizeRef = [self copyAttributeValueForKey:(NSString *)kAXSizeAttribute error:NULL];
 	if(sizeRef) {
 		AXValueGetValue(sizeRef, kAXValueCGSizeType, &size);
-        CFRelease(sizeRef);
-        sizeRef = NULL;
+		CFRelease(sizeRef);
+		sizeRef = NULL;
 	}
 	return size;
 }
@@ -53,18 +53,18 @@
 }
 
 
-- (NSString *)title {
+-(NSString *)title {
 	return CFBridgingRelease([self copyAttributeValueForKey:(NSString *)kAXTitleAttribute error:NULL]);
 }
 
 
-- (bool)raise {
-    return [self performAction:(__bridge NSString *)kAXRaiseAction error:NULL];
+-(bool)raise {
+	return [self performAction:(__bridge NSString *)kAXRaiseAction error:NULL];
 }
 
-- (bool)close {
-    HAXElement *element = [self elementOfClass:[HAXElement class] forKey:(__bridge NSString *)kAXCloseButtonAttribute error:NULL];
-    return [element performAction:(__bridge NSString *)kAXPressAction error:NULL];
+-(bool)close {
+	HAXElement *element = [self elementOfClass:[HAXElement class] forKey:(__bridge NSString *)kAXCloseButtonAttribute error:NULL];
+	return [element performAction:(__bridge NSString *)kAXPressAction error:NULL];
 }
 
 @end

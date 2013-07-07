@@ -12,5 +12,5 @@
 
 @protocol HAXElementDelegate <NSObject>
 @optional
-- (void)elementWasDestroyed:(HAXElement *)element;
+-(void)elementWasDestroyed:(HAXElement *)element;
 @end

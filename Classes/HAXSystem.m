@@ -9,10 +9,10 @@
 @implementation HAXSystem
 
 +(instancetype)system {
-    AXUIElementRef element = AXUIElementCreateSystemWide();
+	AXUIElementRef element = AXUIElementCreateSystemWide();
 	HAXSystem *result = [self elementWithElementRef:element];
-    CFRelease(element);
-    return result;
+	CFRelease(element);
+	return result;
 }
 
 

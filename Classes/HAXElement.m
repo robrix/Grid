@@ -6,7 +6,6 @@
 
 @interface HAXElement ()
 @property (nonatomic, strong) AXObserverRef observer __attribute__((NSObject));
-@property (nonatomic, assign) AXUIElementRef _elementRef;
 @end
 
 @implementation HAXElement
@@ -21,30 +20,28 @@
 -(instancetype)initWithElementRef:(AXUIElementRef)elementRef {
 	if((self = [super init])) {
 		_elementRef = CFRetain(elementRef);
-        [self addAXObserver];
+		[self addAXObserver];
 	}
 	return self;
 }
 
 -(void)dealloc {
-    if (_elementRef) {
-        CFRelease(_elementRef);
-        _elementRef = NULL;
-    }
-    if (_observer) {
-        [self removeAXObserver];
-    }
+	if (_elementRef) {
+		CFRelease(_elementRef);
+		_elementRef = NULL;
+	}
+	if (_observer) {
+		[self removeAXObserver];
+	}
 }
 
 
-- (BOOL)isEqual:(id)object
-{
-    return [object isKindOfClass:[self class]] && CFEqual([self elementRef], [object elementRef]);
+-(BOOL)isEqual:(id)object {
+	return [object isKindOfClass:[self class]] && CFEqual([self elementRef], [object elementRef]);
 }
 
-- (NSUInteger)hash
-{
-    return CFHash(self.elementRef);
+-(NSUInteger)hash {
+	return CFHash(self.elementRef);
 }
 
 
@@ -72,81 +69,78 @@
 	return result == kAXErrorSuccess;
 }
 
-- (bool)performAction:(NSString *)action error:(NSError **)error {
-    AXError result = AXUIElementPerformAction(self.elementRef, (__bridge CFStringRef)action);
-    if ((result != kAXErrorSuccess) && error) {
-        *error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-            action, @"action",
-            (id)self.elementRef, @"elementRef",
-        nil]];
-    }
+-(bool)performAction:(NSString *)action error:(NSError **)error {
+	AXError result = AXUIElementPerformAction(self.elementRef, (__bridge CFStringRef)action);
+	if ((result != kAXErrorSuccess) && error) {
+		*error = [NSError errorWithDomain:NSStringFromClass(self.class) code:result userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+			action, @"action",
+			(id)self.elementRef, @"elementRef",
+		nil]];
+	}
 
-    return result == kAXErrorSuccess;
+	return result == kAXErrorSuccess;
 }
 
 
 -(id)elementOfClass:(Class)klass forKey:(NSString *)key error:(NSError **)error {
 	AXUIElementRef subelementRef = (AXUIElementRef)[self copyAttributeValueForKey:key error:error];
-    id result = nil;
-    if (subelementRef) {
-        result = [klass elementWithElementRef:subelementRef];
-        CFRelease(subelementRef);
-        subelementRef = NULL;
-    }
-    return result;
+	id result = nil;
+	if (subelementRef) {
+		result = [klass elementWithElementRef:subelementRef];
+		CFRelease(subelementRef);
+		subelementRef = NULL;
+	}
+	return result;
 }
 
 
-- (void)addAXObserver
-{
-    AXObserverRef observer;
-    AXError err;
-    pid_t pid;
-    
-    err = AXUIElementGetPid(self.elementRef, &pid);
-    if (err != kAXErrorSuccess) { return; }
-    
-    err = AXObserverCreate(pid, axCallback, &observer);
-    if (err != kAXErrorSuccess) { return; }
-    
-    err = AXObserverAddNotification(observer, self.elementRef, kAXUIElementDestroyedNotification, (__bridge void *)(self));
-    if (err != kAXErrorSuccess) {
-        CFRelease(observer);
-        observer = NULL;
-        return;
-    }
-    
-    CFRunLoopAddSource([[NSRunLoop mainRunLoop] getCFRunLoop], AXObserverGetRunLoopSource(observer), kCFRunLoopDefaultMode);
-    
-    self.observer = observer;
-    CFRelease(observer);
+-(void)addAXObserver {
+	AXObserverRef observer;
+	AXError err;
+	pid_t pid;
+	
+	err = AXUIElementGetPid(self.elementRef, &pid);
+	if (err != kAXErrorSuccess) { return; }
+	
+	err = AXObserverCreate(pid, axCallback, &observer);
+	if (err != kAXErrorSuccess) { return; }
+	
+	err = AXObserverAddNotification(observer, self.elementRef, kAXUIElementDestroyedNotification, (__bridge void *)(self));
+	if (err != kAXErrorSuccess) {
+		CFRelease(observer);
+		observer = NULL;
+		return;
+	}
+	
+	CFRunLoopAddSource([[NSRunLoop mainRunLoop] getCFRunLoop], AXObserverGetRunLoopSource(observer), kCFRunLoopDefaultMode);
+	
+	self.observer = observer;
+	CFRelease(observer);
 }
 
 static void axCallback(AXObserverRef observer, AXUIElementRef element, CFStringRef notification, void *refcon) {
-    [(__bridge HAXElement *)refcon didObserveNotification:(__bridge NSString *)notification];
+	[(__bridge HAXElement *)refcon didObserveNotification:(__bridge NSString *)notification];
 }
 
-- (void)didObserveNotification:(NSString *)notification
-{
-    id<HAXElementDelegate> delegate = self.delegate;
-    
-    if ([notification isEqualToString:(__bridge NSString *)kAXUIElementDestroyedNotification] && [delegate respondsToSelector:@selector(elementWasDestroyed:)]) {
-        [delegate elementWasDestroyed:self];
-    }
+-(void)didObserveNotification:(NSString *)notification {
+	id<HAXElementDelegate> delegate = self.delegate;
+	
+	if ([notification isEqualToString:(__bridge NSString *)kAXUIElementDestroyedNotification] && [delegate respondsToSelector:@selector(elementWasDestroyed:)]) {
+		[delegate elementWasDestroyed:self];
+	}
 }
 
-- (void)removeAXObserver
-{
-    if (!self.observer) { return; }
-    
-    (void)AXObserverRemoveNotification(self.observer, self.elementRef, kAXUIElementDestroyedNotification);
-    
-    CFRunLoopSourceRef observerRunLoopSource = AXObserverGetRunLoopSource(self.observer);
-    if (observerRunLoopSource) {
-        CFRunLoopRemoveSource([[NSRunLoop mainRunLoop] getCFRunLoop], observerRunLoopSource, kCFRunLoopDefaultMode);
-    }
-    
-    self.observer = NULL;
+-(void)removeAXObserver {
+	if (!self.observer) { return; }
+	
+	(void)AXObserverRemoveNotification(self.observer, self.elementRef, kAXUIElementDestroyedNotification);
+	
+	CFRunLoopSourceRef observerRunLoopSource = AXObserverGetRunLoopSource(self.observer);
+	if (observerRunLoopSource) {
+		CFRunLoopRemoveSource([[NSRunLoop mainRunLoop] getCFRunLoop], observerRunLoopSource, kCFRunLoopDefaultMode);
+	}
+	
+	self.observer = NULL;
 }
 
 @end
