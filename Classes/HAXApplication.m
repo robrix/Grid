@@ -20,11 +20,11 @@
 
 -(HAXWindow *)focusedWindow {
 	NSError *error = nil;
-	return [self elementOfClass:[HAXWindow class] forKey:(NSString *)kAXFocusedWindowAttribute error:&error];
+	return [self elementOfClass:[HAXWindow class] forKey:(__bridge NSString *)kAXFocusedWindowAttribute error:&error];
 }
 
 -(NSArray *)windows {
-	NSArray *axWindowObjects = CFBridgingRelease([self copyAttributeValueForKey:(NSString *)kAXWindowsAttribute error:nil]);
+	NSArray *axWindowObjects = CFBridgingRelease([self copyAttributeValueForKey:(__bridge NSString *)kAXWindowsAttribute error:nil]);
 	NSMutableArray *result = [NSMutableArray arrayWithCapacity:[axWindowObjects count]];
 	for (id axObject in axWindowObjects) {
 		[result addObject:[HAXWindow elementWithElementRef:(AXUIElementRef)axObject]];
