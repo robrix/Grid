@@ -25,12 +25,12 @@
 }
 
 -(void)dealloc {
+	if (_observer) {
+		[self removeAXObserver];
+	}
 	if (_elementRef) {
 		CFRelease(_elementRef);
 		_elementRef = NULL;
-	}
-	if (_observer) {
-		[self removeAXObserver];
 	}
 }
 
@@ -52,10 +52,10 @@
 
 - (void)setDelegate:(id<HAXElementDelegate>)delegate;
 {
-    if (delegate && !_observer) {
-        [self addAXObserver];
-    }
-    _delegate = delegate;
+	if (delegate && !_observer) {
+		[self addAXObserver];
+	}
+	_delegate = delegate;
 }
 
 
@@ -112,6 +112,8 @@
 
 
 -(void)addAXObserver {
+	if (self.observer) { return; }
+	
 	AXObserverRef observer;
 	AXError err;
 	pid_t pid;
