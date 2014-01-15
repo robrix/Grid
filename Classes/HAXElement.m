@@ -20,18 +20,17 @@
 -(instancetype)initWithElementRef:(AXUIElementRef)elementRef {
 	if((self = [super init])) {
 		_elementRef = CFRetain(elementRef);
-		[self addAXObserver];
 	}
 	return self;
 }
 
 -(void)dealloc {
+	if (_observer) {
+		[self removeAXObserver];
+	}
 	if (_elementRef) {
 		CFRelease(_elementRef);
 		_elementRef = NULL;
-	}
-	if (_observer) {
-		[self removeAXObserver];
 	}
 }
 
@@ -48,6 +47,15 @@
 
 -(NSUInteger)hash {
 	return CFHash(self.elementRef);
+}
+
+
+- (void)setDelegate:(id<HAXElementDelegate>)delegate;
+{
+	if (delegate && !_observer) {
+		[self addAXObserver];
+	}
+	_delegate = delegate;
 }
 
 
@@ -104,6 +112,8 @@
 
 
 -(void)addAXObserver {
+	if (self.observer) { return; }
+	
 	AXObserverRef observer;
 	AXError err;
 	pid_t pid;
