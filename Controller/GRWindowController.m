@@ -320,6 +320,8 @@ NSString * const GRSelectedVerticalFractionRangeKey = @"GRSelectedVerticalFracti
 			[self moveDown: nil];
 		}
 		break;
+	default:
+		return [super keyDown:event];
 	}
 	
 	if(
