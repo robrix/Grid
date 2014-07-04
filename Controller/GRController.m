@@ -8,11 +8,7 @@
 #import "GRWindowController.h"
 #import <Carbon/Carbon.h>
 #import <Haxcessibility/Haxcessibility.h>
-#import "SRCommon.h"
-#import "SRKeyCodeTransformer.h"
-#import "SRValidator.h"
-#import "SRRecorderCell.h"
-#import "SRRecorderControl.h"
+#import <ShortcutRecorder/ShortcutRecorder.h>
 
 @interface GRController () <GRWindowControllerDelegate, NSApplicationDelegate>
 
@@ -32,20 +28,12 @@
 
 @implementation GRController
 
-@synthesize windowElement = _windowElement;
-@synthesize activeControllerIndex = _activeControllerIndex;
-@synthesize controllers = _controllers;
-
-
 -(void)awakeFromNib {
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shortcutKeyWasPressed:) name:GRShortcutWasPressedNotification object:nil];
 }
 
 -(void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:GRShortcutWasPressedNotification object:nil];
-	[_controllers release];
-	[_windowElement release];
-	[super dealloc];
 }
 
 
@@ -53,7 +41,7 @@
 	CGPoint topLeft = CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame));
 	NSUInteger result = 0;
 	NSUInteger index = 0;
-	for(GRWindowController *controller in self.controllers) {
+	for (GRWindowController *controller in self.controllers) {
 		if(CGRectContainsPoint(controller.screen.frame, topLeft)) {
 			result = index;
 			break;

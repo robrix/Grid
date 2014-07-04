@@ -16,18 +16,8 @@
 
 @implementation GRStatusItemController
 
-@synthesize statusItemMenu = _statusItemMenu;
-@synthesize statusItem = _statusItem;
-
-
 +(void)initialize {
 	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObject:(id)kCFBooleanTrue forKey:@"GRShowInMenuBar"]];
-}
-
-
--(void)dealloc {
-	[_statusItem release];
-	[super dealloc];
 }
 
 

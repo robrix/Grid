@@ -6,22 +6,14 @@
 
 @protocol GRWindowControllerDelegate;
 
-@interface GRWindowController : NSWindowController <GRAreaSelectionViewDelegate> {
-	IBOutlet GRAreaSelectionView *_areaSelectionView;
-	NSScreen *_screen;
-	NSRange _selectedHorizontalFractionRange;
-	NSRange _selectedVerticalFractionRange;
-	NSUInteger _selectedHorizontalFraction;
-	NSUInteger _selectedVerticalFraction;
-	id<GRWindowControllerDelegate> _delegate;
-}
+@interface GRWindowController : NSWindowController <GRAreaSelectionViewDelegate>
 
-@property (nonatomic, retain) IBOutlet GRAreaSelectionView *areaSelectionView;
+@property (nonatomic, strong) IBOutlet GRAreaSelectionView *areaSelectionView;
 
 +(GRWindowController *)controllerWithScreen:(NSScreen *)screen;
 
-@property (nonatomic, retain) NSScreen *screen;
-@property (nonatomic, assign) id<GRWindowControllerDelegate> delegate;
+@property (nonatomic, strong) NSScreen *screen;
+@property (nonatomic, weak) id<GRWindowControllerDelegate> delegate;
 
 -(void)activate;
 -(void)deactivate;

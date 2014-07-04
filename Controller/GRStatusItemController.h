@@ -8,16 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GRStatusItemController : NSObject {
-	NSMenu *_statusItemMenu;
-	NSStatusItem *_statusItem;
-}
+@interface GRStatusItemController : NSObject
 
-@property (nonatomic, assign) IBOutlet NSMenu *statusItemMenu;
+@property (nonatomic, strong) IBOutlet NSMenu *statusItemMenu;
 @property (nonatomic, assign, getter=isStatusItemEnabled) BOOL statusItemEnabled;
-
--(IBAction)openMoreAppsFromDEVONtechnologiesURL:(id)sender;
--(IBAction)openFacebookURL:(id)sender;
--(IBAction)openTwitterURL:(id)sender;
 
 @end

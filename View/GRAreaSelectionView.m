@@ -6,8 +6,6 @@
 
 @implementation GRAreaSelectionView
 
-@synthesize delegate;
-
 -(CGRect)selectedAreaForBounds:(CGRect)bounds {
 	NSRange selectedHorizontalFractionRange = self.delegate.selectedHorizontalFractionRange, selectedVerticalFractionRange = self.delegate.selectedVerticalFractionRange;
 	NSSize fractionSize = NSMakeSize(

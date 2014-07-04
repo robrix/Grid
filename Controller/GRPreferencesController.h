@@ -10,16 +10,11 @@
 #import <Carbon/Carbon.h>
 
 extern NSString * const GRShortcutWasPressedNotification;
+extern NSString * const GRShortcutKey;
 
 @class SRRecorderControl;
 
-@interface GRPreferencesController : NSWindowController {
-	NSView *_shortcutView;
-	SRRecorderControl *_shortcutRecorder;
-	EventHotKeyRef _shortcutReference;
-}
-
-@property (nonatomic, assign) IBOutlet NSView *shortcutView;
+@interface GRPreferencesController : NSWindowController
 
 @property (nonatomic, assign) BOOL showDockIcon;
 

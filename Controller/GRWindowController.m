@@ -21,36 +21,21 @@ NSString * const GRSelectedVerticalFractionRangeKey = @"GRSelectedVerticalFracti
 
 @implementation GRWindowController
 
-@synthesize areaSelectionView = _areaSelectionView;
-@synthesize screen = _screen;
-@synthesize delegate = _delegate;
-@synthesize selectedHorizontalFraction = _selectedHorizontalFraction;
-@synthesize selectedVerticalFraction = _selectedVerticalFraction;
-@synthesize selectedHorizontalFractionRange = _selectedHorizontalFractionRange;
-@synthesize selectedVerticalFractionRange = _selectedVerticalFractionRange;
-
 +(void)initialize {
 	[[NSUserDefaults standardUserDefaults] registerDefaults:@{
-	 GRSelectedHorizontalFractionKey: @(2),
-	 GRSelectedVerticalFractionKey: @(2),
-	 GRSelectedHorizontalFractionRangeKey: NSStringFromRange(NSMakeRange(0, 1)),
-	 GRSelectedVerticalFractionRangeKey: NSStringFromRange(NSMakeRange(0, 1)),
-	 }];
+		GRSelectedHorizontalFractionKey: @(2),
+		 GRSelectedVerticalFractionKey: @(2),
+		GRSelectedHorizontalFractionRangeKey: NSStringFromRange(NSMakeRange(0, 1)),
+		GRSelectedVerticalFractionRangeKey: NSStringFromRange(NSMakeRange(0, 1)),
+	}];
 }
 
 
 +(GRWindowController *)controllerWithScreen:(NSScreen *)s {
-	GRWindowController *controller = [[[self alloc] initWithWindowNibName: @"GRWindow"] autorelease];
+	GRWindowController *controller = [[self alloc] initWithWindowNibName: @"GRWindow"];
 	[controller loadWindow];
 	controller.screen = s;
 	return controller;
-}
-
--(void)dealloc {
-	[_areaSelectionView release];
-	[_screen release];
-	
-	[super dealloc];
 }
 
 
