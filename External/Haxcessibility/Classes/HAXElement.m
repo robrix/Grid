@@ -15,14 +15,9 @@
 
 -(instancetype)initWithElementRef:(AXUIElementRef)elementRef {
 	if((self = [super init])) {
-		_elementRef = (AXUIElementRef)[(id)elementRef retain];
+		_elementRef = elementRef;
 	}
 	return self;
-}
-
--(void)dealloc {
-	[(id)_elementRef release];
-	[super dealloc];
 }
 
 
