@@ -1,6 +1,3 @@
 [submodule "External/Haxcessibility"]
 	path = External/Haxcessibility
 	url = https://github.com/robrix/Haxcessibility.git
-[submodule "External/ShortcutRecorder"]
-	path = External/ShortcutRecorder
-	url = https://github.com/shortcutrecorder/shortcutrecorder.git
