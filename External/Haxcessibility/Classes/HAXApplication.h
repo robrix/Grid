@@ -9,6 +9,9 @@
 @interface HAXApplication : HAXElement
 
 @property (nonatomic, readonly) HAXWindow *focusedWindow;
+@property (nonatomic, readonly) NSArray *windows;
+
++(instancetype)applicationWithPID:(pid_t)pid;
 
 @property (nonatomic, copy, readonly) NSString *localizedName;
 

@@ -10,4 +10,9 @@
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGRect frame;
 
+@property (nonatomic, readonly) NSString *title;
+
+-(bool)raise;
+-(bool)close;
+
 @end
