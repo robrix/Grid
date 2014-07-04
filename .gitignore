@@ -4,3 +4,5 @@ xcuserdata
 *.mode*
 *.pbxuser
 *.xcuserdatad
+*.pkg
+xcshareddata
